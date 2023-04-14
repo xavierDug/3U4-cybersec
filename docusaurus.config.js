@@ -35,12 +35,9 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           routeBasePath: "/",
           editUrl: `https://github.com/departement-info-cem/${siteConfig.nomUrl}/tree/main`,
-          sidebarCollapsed: false,
         },
         theme: {
-          customCss: [
-            require.resolve("./src/css/custom.css"),
-          ],
+          customCss: [require.resolve("./src/css/custom.css")],
         },
       }),
     ],
@@ -49,6 +46,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       navbar: {
         title: siteConfig.nom,
         logo: {
