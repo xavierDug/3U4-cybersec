@@ -98,8 +98,8 @@ const config = {
       //   searchPagePath: 'search',
       // },
       prism: {
-        theme: darkCodeTheme,
-        darkTheme: require('prism-react-renderer/themes/dracula'),
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
         additionalLanguages: ["csharp"],
       },
       metadata: [
