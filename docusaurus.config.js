@@ -93,7 +93,7 @@ const config = {
       // },
       prism: {
         theme: darkCodeTheme,
-        darkTheme: lightCodeTheme,
+        darkTheme: require('prism-react-renderer/themes/dracula'),
         additionalLanguages: ["csharp"],
       },
       metadata: [
