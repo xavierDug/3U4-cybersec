@@ -9,6 +9,9 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./web
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
@@ -17,14 +20,12 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        working-directory: ./web
         run:  npm ci
       - name: Build website
-        working-directory: ./web
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web/build
+          publish_dir: ./build
