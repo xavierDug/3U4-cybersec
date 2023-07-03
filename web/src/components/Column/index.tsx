@@ -1,10 +1,6 @@
 import React, { ReactNode } from "react";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 
-interface Props {
-  size?: number;
-}
-
 export default function Column({
   children,
   size,
