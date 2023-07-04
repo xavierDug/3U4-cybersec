@@ -80,7 +80,7 @@ const config = {
             items: [
               {
                 label: "GitHub",
-                href: `https://github.com/departement-info-cem/${this.url}`,
+                href: `https://github.com/departement-info-cem/${siteConfig.nomUrl}`,
               },
             ],
           },
