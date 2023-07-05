@@ -18,7 +18,7 @@ export default function Highlight({
       color = "#0d6efd";
       break;
     case "caution":
-      color = "#ffc107";
+      color = "#b58d20";
       break;
     case "danger":
       color = "#dc3545";
