@@ -35,6 +35,8 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 - ils rentrent leur login et mot de passe
 - ensuite on leur fait changer leur password
 8. Quelques exemples de films / séries et est-ce que c'est plausible ou clairement pas.
+  - M. Robot
+  - Die Hard 4
 9. Formatif
 10. Examen sur Analyser des risques en matière de sécurité de l’information
 11. Prendre le contrôle d’un routeur /d’un serveur (admin admin) en utilisant le mot de passe par défaut.
