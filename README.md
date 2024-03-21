@@ -1,38 +1,77 @@
-# depinfo-modele
+# Brouillon de nouvelle page pour 3U4 sur 60 heures
 
-Modèle de base pour un cours du département d'informatique du CÉGEP Édouard-Montpetit. 
 
-L'objectif est de générer un site web pour un cours le plus simplement possible. Les pages de contenu sont écrites en Markdown.
 
-## Pour bien commencer
+Plan à 60 heures pour 3U4 revisité 
 
-1. Sur Github, faite un *fork* de ce projet. Le standard de nomenclature au département est `sigle-nom-du-cours` ex : `4N6-Mobile`.
-2. Clonez et ouvrez le projet forké dans votre éditeur de code préféré.
-3. Dans les paramètres de votre repository, dans la section **Pages**, dans la sous section **Build and deployment**, **Branch**, sélectinonez `gh-pages` et `/ (root)`, puis cliquez sur  le bouton **Save**
-4. Le fichier `config.json` doit être modifié pour contenir les informations liées à votre cours. `nomUrl` doit correspondre au nom du repository Github créé.
-5. Voir [Installation](#installation) et [Développement Local](#développement-local) pour voir comment démarrer le serveur
-6. Modifiez les documents Markdown qui sont dans la répertoire `docs` selon vos besoins.
-7. Profit
+ 
 
-## Installation
+Séances (30 * 2h) 
 
-```
-$ npm install
-```
+Accueil et plan de cours 
 
-## Développement Local
+Ateliers sur keylogger physique, boot externe pour accéder un fichier 
 
-```
-$ npm start
-```
+Ingénierie sociale, deviner le password d’un utilisateur à partir d’un profil (nom date de naissance, loisirs, prénoms enfant) 
 
-Cette commande démarre une serveur de développement local sur le port `3000` de votre machine personnelle et ouvre un navigateur avec l'adresse locale du site. Les changements effectués sur la documentation (`/docs`) sont automatiquement appliqués sur le site à la sauvegarde des fichiers. Les changements faits à la configuration (ex: `docusaurus.config.js`) nécessitent un redémarrage du projet.
+Pipo 
 
-## Déploiement
+Pipi 
 
-Tout le code poussé sur la branche `main` de ce dépôt est automatiquement déployée sur [https://info.cegepmontpetit.ca/nom-du-repo-github/](https://info.cegepmontpetit.ca/nom-du-repo-github/) à l'aide de Github Pages et Github Actions.
+Pipi 
 
-## Références
+TENTATIF : Montrer comment cloner l’interface d’un site pour du PHISHING avec un bot? 
 
-- [Guide Markdown de base](https://www.markdownguide.org/getting-started/)
-- [Guide Markdown étendu pour Docusaurus](https://docusaurus.io/fr/docs/markdown-features)
+Popo 
+
+Formatif 
+
+Examen sur Analyser des risques en matière de sécurité de l’information 
+
+Prendre le contrôle d’un routeur /d’un serveur (admin admin) en utilisant le mot de passe par défaut. 
+
+Popo 
+
+Popo 
+
+Popo 
+
+Popo 
+
+Pop 
+
+Opo 
+
+Popo 
+
+Formatif 
+
+Examen sur Appliquer des mesures de sécurité reconnues pour protéger le réseau.  
+
+Présentation de l’application à sécuriser pour le cours, exécution et débogage d’une fonctionnalité pour se remettre dedans (cible = étudiant de réseau) 
+
+Identification des failles de l’application en atelier et par groupe, mise en place d’exploit 
+
+Présentation des différents algorithmes de hash et les variantes avec salage 
+
+Exercices de programmation sur les hachages 
+
+Période pour implantation dans le travail 3 
+
+Présentation des algorithmes d’encryption symétrique, différence sym asym 
+
+Technique pour casser quelques schémas d’encryption primitifs 
+
+Implantation dans le travail des techniques d’encryption symétrique 
+
+Formatif 
+
+Examen sur Appliquer des mesures de sécurité reconnues pour protéger une application 
+
+ 
+
+Travail 1 
+
+ 
+
+Travail 2 
