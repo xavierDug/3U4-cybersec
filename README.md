@@ -11,16 +11,16 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 1. Accueil et plan de cours
 2. Ateliers sur keylogger physique, boot externe pour accéder un fichier
 3. Ingénierie sociale, deviner le password d’un utilisateur à partir d’un profil (nom date de naissance, loisirs, prénoms enfant)
-4. Pipo 
-5. Pipi 
-6. Pipi 
+4. WHOIS et les recherches "Reverse IP" pour trouver de l'info sur un nom de domaine ou une IP 
+5. Hack quand on a accès physique à une machine, boot sur OS externe, keylogger physique 
+6. Flipper Zero, démo des fonctionnalités
 7. TENTATIF : Montrer comment cloner l’interface d’un site pour du PHISHING avec un bot? 
-8. Popo 
+8. Quelques exemples de films / séries et est-ce que c'est plausible ou clairement pas. 
 9. Formatif 
 10. Examen sur Analyser des risques en matière de sécurité de l’information 
 11. Prendre le contrôle d’un routeur /d’un serveur (admin admin) en utilisant le mot de passe par défaut. 
-12. Popo Popo
-13. Popo
+12. Intercepter des informations en transit sur un canal non protégé (ex. Requête DNS, IP dest/IP src, FTP/HTTP/telnet, Wifi non chiffré, WireShark)
+13. Atelier  syn flood
 14. Popo
 15. Pop
 16. Opo
@@ -45,3 +45,7 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 [Travail 3](tp3.md)
 
 ## Examens
+
+## Sources de stock potentielles:
+- 
+- https://ctfd.io/
