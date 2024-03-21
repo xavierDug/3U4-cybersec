@@ -46,8 +46,8 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 30. Examen sur Appliquer des mesures de sécurité reconnues pour protéger une application
 
 ## Travaux
-[Travail 1](tp1.md)
-[Travail 2](tp2.md)
-[Travail 3](tp3.md)
+[Travail 1](tp/tp1)
+[Travail 2](tp/tp2)
+[Travail 3](tp/tp3)
 
 ## Examens
