@@ -1,69 +1,67 @@
-﻿namespace consoleApp;
+﻿using Typin.Attributes;
+using Typin.Console;
+using Typin;
+using Microsoft.Extensions.DependencyInjection;
+using Typin.Directives;
+using Typin.Modes;
+using Sharprompt;
+
+// https://github.com/shibayan/Sharprompt for the win
+namespace consoleApp;
 
 class Program
 {
-    static void Main(string[] args)
-    {
+
+   
+    public static async Task<int> Main() {
         Console.WriteLine("Hello, World!");
-        Console.WriteLine(CreateMD5("Hello, World!"));
-        Console.WriteLine(CreateSHA256("Hello, World!"));
-        string encrypted = Encrypt("123456789");
+        Console.WriteLine(DataSec.CreateMD5("Hello, World!"));
+        Console.WriteLine(DataSec.CreateSHA256("Hello, World!"));
+        string encrypted = DataSec.Encrypt("123456789");
         Console.WriteLine(encrypted);
-        Console.WriteLine(Decrypt(encrypted));
+        Console.WriteLine(DataSec.Decrypt(encrypted));
+        var name = Prompt.Input<string>("What's your name?");
+        var number = Prompt.Input<int>("Enter any number");
 
+        return await new CliApplicationBuilder()
+                //.UseStartup<CliStartup>()
+                .AddCommandsFromThisAssembly()
+                .UseInteractiveMode()
+                .Build()
+                .RunAsync();
 
     }
 
+    
 
-    public static string Encrypt(string input)
+
+
+
+    
+}
+
+public class CliStartup : ICliStartup
+{
+    public void ConfigureServices(IServiceCollection services)
     {
-        string result = "";
-        foreach (char c in input)
-        {
-            //Console.WriteLine(c);
-            // get the character with code that doubles ascii code of current char
-            char t = (char)(c*2);
-            //Console.WriteLine(t);
-            result += t;
-        }
-        return result;
+        // Register services
+        //services.AddSingleton<ICustomService, CustomService>();
     }
 
-    public static string Decrypt(string input)
+    public void Configure(CliApplicationBuilder app)
     {
-        string result = "";
-        foreach (char c in input)
-        {
-            //Console.WriteLine(c);
-            // get the character with code that doubles ascii code of current char
-            char t = (char)(c/2);
-            //Console.WriteLine(t);
-            result += t;
-        }
-        return result;
+        app.AddCommandsFromThisAssembly()
+           .AddDirective<DebugDirective>()
+           .AddDirective<PreviewDirective>()
+           .UseInteractiveMode();
     }
+}
 
-    public static string CreateMD5(string input)
+[Command]
+public class HelloWorldCommand : ICommand
+{
+    public async ValueTask ExecuteAsync(IConsole console)
     {
-        // Use input string to calculate MD5 hash
-        using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
-        {
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-            byte[] hashBytes = md5.ComputeHash(inputBytes);
-            return Convert.ToHexString(hashBytes); // .NET 5 +
-        }
-    }
-
-    //SHA3_256 
-
-    public static string CreateSHA256(string input)
-    {
-        // Use input string to calculate MD5 hash
-        using (System.Security.Cryptography.SHA256 md5 = System.Security.Cryptography.SHA256.Create())
-        {
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-            byte[] hashBytes = md5.ComputeHash(inputBytes);
-            return Convert.ToHexString(hashBytes); // .NET 5 +
-        }
+        await console.Output.WriteLineAsync("Hello world!");
     }
 }
