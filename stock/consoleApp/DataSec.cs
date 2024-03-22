@@ -1,4 +1,5 @@
-﻿
+﻿// https://crackstation.net/
+// https://www.mscs.dal.ca/~selinger/md5collision/
 namespace consoleApp
 {
     class DataSec
