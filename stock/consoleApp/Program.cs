@@ -13,7 +13,7 @@ class Program
 {
 
    
-    public static async Task<int> Main() {
+    public static void Main(string[] args) {
         Console.WriteLine("Hello, World!");
         Console.WriteLine(DataSec.CreateMD5("Hello, World!"));
         Console.WriteLine(DataSec.CreateSHA256("Hello, World!"));
@@ -22,46 +22,7 @@ class Program
         Console.WriteLine(DataSec.Decrypt(encrypted));
         var name = Prompt.Input<string>("What's your name?");
         var number = Prompt.Input<int>("Enter any number");
+        Console.WriteLine($"{name} {number}");
 
-        return await new CliApplicationBuilder()
-                //.UseStartup<CliStartup>()
-                .AddCommandsFromThisAssembly()
-                .UseInteractiveMode()
-                .Build()
-                .RunAsync();
-
-    }
-
-    
-
-
-
-
-    
-}
-
-public class CliStartup : ICliStartup
-{
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // Register services
-        //services.AddSingleton<ICustomService, CustomService>();
-    }
-
-    public void Configure(CliApplicationBuilder app)
-    {
-        app.AddCommandsFromThisAssembly()
-           .AddDirective<DebugDirective>()
-           .AddDirective<PreviewDirective>()
-           .UseInteractiveMode();
-    }
-}
-
-[Command]
-public class HelloWorldCommand : ICommand
-{
-    public async ValueTask ExecuteAsync(IConsole console)
-    {
-        await console.Output.WriteLineAsync("Hello world!");
-    }
+    }    
 }
