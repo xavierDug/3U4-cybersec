@@ -1,6 +1,8 @@
 ﻿using Microsoft.Data.Sqlite;
 
 
+
+// https://sqlitebrowser.org/ pour regarder dans le dedans de la BD
 namespace consoleApp
 {
     class DataAccessObject
