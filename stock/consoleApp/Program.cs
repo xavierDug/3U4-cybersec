@@ -7,8 +7,41 @@ class Program
         Console.WriteLine("Hello, World!");
         Console.WriteLine(CreateMD5("Hello, World!"));
         Console.WriteLine(CreateSHA256("Hello, World!"));
+        string encrypted = Encrypt("123456789");
+        Console.WriteLine(encrypted);
+        Console.WriteLine(Decrypt(encrypted));
+
+
     }
 
+
+    public static string Encrypt(string input)
+    {
+        string result = "";
+        foreach (char c in input)
+        {
+            //Console.WriteLine(c);
+            // get the character with code that doubles ascii code of current char
+            char t = (char)(c*2);
+            //Console.WriteLine(t);
+            result += t;
+        }
+        return result;
+    }
+
+    public static string Decrypt(string input)
+    {
+        string result = "";
+        foreach (char c in input)
+        {
+            //Console.WriteLine(c);
+            // get the character with code that doubles ascii code of current char
+            char t = (char)(c/2);
+            //Console.WriteLine(t);
+            result += t;
+        }
+        return result;
+    }
 
     public static string CreateMD5(string input)
     {
