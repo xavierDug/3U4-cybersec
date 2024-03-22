@@ -43,9 +43,11 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 12. Intercepter des informations en transit sur un canal non protégé (ex. Requête DNS, IP dest/IP src, FTP/HTTP/telnet, Wifi non chiffré, WireShark)
 13. Atelier  syn flood
 14. Ingénierie sociale, deviner le password d’un utilisateur à partir d’un profil (nom date de naissance, loisirs, prénoms enfant)
-15. Pop
+15. Les courriels:
+  - empêcher un pirate d'envoyer un courriel depuis mes domaines
+  - encryption des courriels, quelle est la situation?
 16. Opo
-17. Popo
+17. VPN, ce que ça fait, est-ce utile pour le citoyen de base? en entreprise? en télé-travail?
 18. Formatif
 19. Examen sur Appliquer des mesures de sécurité reconnues pour protéger le réseau. 
 20. Présentation de l’application à sécuriser pour le cours, exécution et débogage d’une fonctionnalité pour se remettre dedans (cible = étudiant de réseau)
