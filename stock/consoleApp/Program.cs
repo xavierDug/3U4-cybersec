@@ -14,6 +14,7 @@ class Program
         Console.WriteLine("Bienvenue dans l'application la plus sure du monde!");
         Console.WriteLine("Com'on, on hash les mots de passe et on encrypte les NAS");
         Console.WriteLine();
+        DataAccessObject.CreateTable();
         
         bool quit = false;
         do
@@ -36,6 +37,7 @@ class Program
                 "Creer un compte", 
                 "Changer tes informations personnelles", 
                 "Entrer tes informations pour cette annee",
+                "Lister utilisateurs",
                 "TestBD",
                 "Quitter"
             });
@@ -47,8 +49,16 @@ class Program
         {
             CreerCompte();
         }
-        else if (choix == "TestBD") {
-            DataAccessObject.CreateTable();
+        else if (choix == "TestBD")
+        {
+
+        }
+        else if (choix == "Lister utilisateurs") {
+            List<MUtilisateur> liste = DataAccessObject.ReadData();
+            foreach (var item in liste)
+            {
+                Console.WriteLine(item.Nom+ "  " + item.NAS + " " + item.MotDePasseHash);
+            }
         }
         return false;
 
@@ -58,30 +68,7 @@ class Program
     {
         MNouveauCompte result = Prompt.Bind<MNouveauCompte>();
         Console.WriteLine(result.NAS);
+        DataAccessObject.InsertNewUser(result);
+        DataAccessObject.ReadData();
     }
-}
-
-public class MNouveauCompte
-{
-    [Display(Name = "Votre nom d'utilisateur?")]
-    [Required]
-    public string Name { get; set; }
-
-    [Display(Name = "Votre mot de passe?")]
-    [DataType(DataType.Password)]
-    [Required]
-    [MinLength(4)]
-    public string Password { get; set; }
-
-    [Display(Name = "Votre mot de passe (confirmation)?")]
-    [DataType(DataType.Password)]
-    [Required]
-    [MinLength(4)]
-    public string PasswordConfirm { get; set; }
-
-    [Display(Name = "Votre numero d'assurance sociale (NAS)?")]
-    [Required]
-    [MinLength(9)]
-    [MaxLength(9)]
-    public string NAS { get; set; }
 }
