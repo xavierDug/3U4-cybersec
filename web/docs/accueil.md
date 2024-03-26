@@ -26,6 +26,7 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 4. Nos traces sur Internet
   - WHOIS et les recherches "Reverse IP" pour trouver de l'info sur un nom de domaine ou une IP
   - VPN, ce que ça fait, est-ce utile pour le citoyen de base? en entreprise? en télé-travail?
+  - Les cookies, qu'est-ce que ça collecte, comment on nous présente les mêmes pubs sur Facebook et MétéoMedia
 5. Catalogues des piratages qui nécessite un accès physique au client :
 - sim card cloning
 - boot externe
