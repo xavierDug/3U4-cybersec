@@ -46,7 +46,7 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 9. Formatif
 10. Examen sur Analyser des risques en matière de sécurité de l’information
 11. Prendre le contrôle d’un routeur /d’un serveur (admin admin) en utilisant le mot de passe par défaut.
-12. Intercepter des informations en transit sur un canal non protégé (ex. Requête DNS, IP dest/IP src, FTP/HTTP/telnet, Wifi non chiffré, WireShark)
+12. Intercepter des informations en transit sur un canal non protégé (ex. Requête DNS, IP dest/IP src, FTP/HTTP/telnet, Wifi non chiffré, WireShark). Utiliser le HTTP Stream dans Wireshark pour retrouver une image. Utiliser un filtre dans WireShark pour trouver un mot de passe dans un formulaire http. Examen: donner un .pcap et demander de trouver de l'info dedans.
 13. Atelier syn flood
 14. Ingénierie sociale et OSINT, deviner le password d’un utilisateur à partir d’un profil (nom date de naissance, loisirs, prénoms enfant)
 15. Les courriels:
