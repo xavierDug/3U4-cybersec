@@ -17,13 +17,13 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 
 ## Séances (30 * 2h)
 
-1. Accueil et plan de cours
+1. Accueil et plan de cours, premier cassage de mot de passe
 2. Ateliers sur keylogger physique, boot externe pour accéder un fichier
 3. Atelier sur un fichier physique par groupe de 4 (besoin de 6 postes sur un chariot):
 - boot OS externe
 - retirer disque et le brancher externe sur un poste
 - exemple cassé avec un disque encrypté
-4. Nos traces sur Internet
+4. Nos traces sur Internet (mode incognito, TOR, VPN etc.)
   - WHOIS et les recherches "Reverse IP" pour trouver de l'info sur un nom de domaine ou une IP
   - VPN, ce que ça fait, est-ce utile pour le citoyen de base? en entreprise? en télé-travail?
   - Les cookies, qu'est-ce que ça collecte, comment on nous présente les mêmes pubs sur Facebook et MétéoMedia
