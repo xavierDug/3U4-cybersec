@@ -31,6 +31,7 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 - sim card cloning
 - boot externe
 - installation d'un keylogger physique
+- Utiliser Hiren's en clé USB pour aller bypasser/reset le mot de passe d'un compte admin local sur un Windows et accéder à tout le disque dur!
 - etc.
 6. Flipper Zero, démo des fonctionnalités (à voir quand on l'aura reçu) avec morale de cette histoire, ne clique jamais sur le lien
 7. Phishing, démo avec :
