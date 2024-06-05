@@ -3,6 +3,11 @@ using Sharprompt;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
+
+// mettre les mots de passe visible dans la console dans la version distribuée
+// ajouter un mode admin protégé par un mot de passe unique
+// avec la liste utilisateurs
+
 // https://github.com/shibayan/Sharprompt for the win
 namespace consoleApp;
 
