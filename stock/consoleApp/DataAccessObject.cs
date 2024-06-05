@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 
-
+//https://sqlitebrowser.org/   https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip
 
 // https://sqlitebrowser.org/ pour regarder dans le dedans de la BD
 // https://www.codeguru.com/dotnet/using-sqlite-in-a-c-application/
