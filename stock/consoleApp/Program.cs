@@ -25,7 +25,7 @@ class Program
         var name = Prompt.Input<string>("What's your name?");
         var number = Prompt.Input<int>("Enter any number");
         Console.WriteLine($"{name} {number}");
-        Console.WriteLine(DataSec.CreateMD5("Hello, World!"));
+        Console.WriteLine(DataSec.HashThePassword("Hello, World!"));
         Console.WriteLine(DataSec.CreateSHA256("Hello, World!"));
         string encrypted = DataSec.Encrypt("123456789");
         Console.WriteLine(encrypted);
@@ -51,13 +51,47 @@ class Program
         }
         else if (choix == "TestBD")
         {
+            MNouveauCompte justin = new MNouveauCompte();
+            justin.MotDePasse = "Password1!";
+            justin.MotDePasseConfirmation = "Password1!";
+            justin.NAS = "111111111";
+            justin.Nom = "Justin Trudeau";
+            DataAccessObject.InsertNewUser(justin);
+
+            MNouveauCompte stephen = new MNouveauCompte();
+            stephen.MotDePasse = "stephen the best";
+            stephen.MotDePasseConfirmation = "stephen the best";
+            stephen.NAS = "123456123";
+            stephen.Nom = "Stephen Harper";
+            DataAccessObject.InsertNewUser(stephen);
+
+            MNouveauCompte paul = new MNouveauCompte();
+            paul.MotDePasse = "Password1!";
+            paul.MotDePasseConfirmation = "Password1!";
+            paul.NAS = "456456465";
+            paul.Nom = "Paul Martin";
+            DataAccessObject.InsertNewUser(paul);
+
+            MNouveauCompte jean = new MNouveauCompte();
+            jean.MotDePasse = "Shawinigan";
+            jean.MotDePasseConfirmation = "Shawinigan";
+            jean.NAS = "987987987";
+            jean.Nom = "Jean Chrétien";
+            DataAccessObject.InsertNewUser(jean);
+
+            MNouveauCompte kim = new MNouveauCompte();
+            kim.MotDePasse = "Who's the girl!";
+            kim.MotDePasseConfirmation = "Who's the girl!";
+            kim.NAS = "123123123";
+            kim.Nom = "Kim Campbell";
+            DataAccessObject.InsertNewUser(kim);
 
         }
         else if (choix == "Lister utilisateurs") {
             List<MUtilisateur> liste = DataAccessObject.ReadData();
             foreach (var item in liste)
             {
-                Console.WriteLine(item.Nom+ "  " + item.NAS + " " + item.MotDePasseHash);
+                Console.WriteLine(item.Nom+ " NAS: " + item.NAS + " MDP: " + item.MotDePasseHash);
             }
         }
         return false;

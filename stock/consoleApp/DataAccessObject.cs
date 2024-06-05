@@ -43,7 +43,7 @@ namespace consoleApp
             sqlite_cmd = sqlite_conn.CreateCommand();
             sqlite_cmd.CommandText = "INSERT INTO MUtilisateur (nom, motDePasse, nas) " +
                 "VALUES('"+ compte.Nom +"', '"+
-                DataSec.CreateMD5(compte.MotDePasse)+"', '"+
+                DataSec.HashThePassword(compte.MotDePasse)+"', '"+
                 DataSec.Encrypt(compte.NAS)  +"'); ";
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
@@ -67,6 +67,7 @@ namespace consoleApp
                 compte.Nom = sqlite_datareader.GetString(0);
                 compte.MotDePasseHash = sqlite_datareader.GetString(1);
                 compte.NAS = sqlite_datareader.GetString(2);
+                //Console.WriteLine(DataSec.Decrypt(compte.NAS));
                 liste.Add(compte);
 
                 //Console.WriteLine(sqlite_datareader.GetString(0));
