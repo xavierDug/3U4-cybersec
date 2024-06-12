@@ -3,9 +3,50 @@ sidebar_position: 1
 slug: /
 ---
 
-# Brouillon de nouvelle page pour 3U4 revisité sur 60 heures
+# 3U4 : Introduction à la cybersécurité
 
-Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
+Dans ce cours, nous allons aborder la cybersécurité en 3 morceaux:
+- la cybersec en général, les grands principes, le jargon technique etc.
+- des attaques et la défense d'un réseau (équipements et serveurs)
+- des attaques et la défense d'une application (application fournie en C#)
+
+
+## Séances (30 * 2h)
+
+| Semaine                       | Séquence des cours                      | Travaux pratiques  |
+|-------------------------------|-----------------------------------------|--------------------|
+| [1.1 →](cours/rencontre1.1)   | Plan de cours, premier hack             | --                 |
+| [1.2 →](cours/rencontre1.2)   | TODO                                    | Présentation TP 1  |
+| [2.1 →](cours/rencontre2.1)   | TODO                                    | Projet créé        |
+| [2.2 →](cours/rencontre2.2)   | TODO                                    | 10%                |
+| [3.1 →](cours/rencontre3.1)   | TODO                                    | 25%                |
+| [3.2 →](cours/rencontre3.2)   | HTTP avec Dio                           | 50%                |
+| [4.1 →](cours/rencontre4.1)   | HTTP avec Dio                           | 75%                |
+| [4.2 →](cours/rencontre4.2)   | Intégration                             | 100% remise        |
+| [5.1 →](cours/rencontre5.1)   | Formatif cybersec                       | TP2 : Images       |
+| [5.2 →](cours/rencontre5.2)   | **Examen cybersec**                     | 10%                |
+| [6.1 →](cours/rencontre6.1)   | Image Picker                            | 20%                |
+| [6.2 →](cours/rencontre6.2)   | Image Cookie                            | 35%                |
+| [7.1 →](cours/rencontre7.1)   | Formatif                                | 35%                |
+| [7.2 →](cours/rencontre7.2)   | Examen Intra                            | --                 |
+| [8.1 →](cours/rencontre8.1)   | Image serveur                           | 60%                |
+| [8.2 →](cours/rencontre8.2)   | Image client                            | 80%                |
+| [9.1 →](cours/rencontre9.1)   | Intégration                             | 100% remise        |
+| [9.2 →](cours/rencontre9.2)   | Intro Firebase                          | TP3 : sans serveur |
+| [10.1 →](cours/rencontre10.1) | Formatif cybersec infra                 | --                 |
+| [10.2 →](cours/rencontre10.2) | **Examen cybersec infra**               | --                 |
+| [11.1 →](cours/rencontre11.1) | Présentation de l'application           | TP3 : application  |
+| [11.2 →](cours/rencontre11.2) | Hachage : attaque                       | 0%                 |
+| [12.1 →](cours/rencontre12.1) | Hachage : défense et implantation       | 30%                |
+| [12.2 →](cours/rencontre12.2) | Encryption : attaque                    | 30%                |
+| [13.1 →](cours/rencontre13.1) | Encryption : défense et implantation    | 60%                |
+| [13.2 →](cours/rencontre13.2) | Injection SQL : attaque                 | 60%                |
+| [14.1 →](cours/rencontre14.1) | Injection SQL : défense et implantation | 90%                |
+| [14.2 →](cours/rencontre14.2) | Intégration                             | 100% remise        |
+| [15.1 →](cours/rencontre15.1) | Formatif cybersec applicatif            |                    |
+| [15.2 →](cours/rencontre15.2) | **Examen cybersec applicatif**          |                    |
+
+
 
 ## Liste de courses:
 - Flipper Zero (déjà au MAOB)
@@ -15,7 +56,7 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 - anciens postes avec configuration pour les démo
 - https://shop.hak5.org/ => Simuler un Man-in-the-middle avec un Pinapple Wifi, Bash Bunny pour simuler une attaque USB, Lan Turtle comme dans Mr. robot
 
-## Séances (30 * 2h)
+## Banque d'idées
 
 1. Accueil et plan de cours, premier cassage de mot de passe
 2. Ateliers sur keylogger physique, boot externe pour accéder un fichier
@@ -24,9 +65,9 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 - retirer disque et le brancher externe sur un poste
 - exemple cassé avec un disque encrypté
 4. Nos traces sur Internet (mode incognito, TOR, VPN etc.)
-  - WHOIS et les recherches "Reverse IP" pour trouver de l'info sur un nom de domaine ou une IP
-  - VPN, ce que ça fait, est-ce utile pour le citoyen de base? en entreprise? en télé-travail?
-  - Les cookies, qu'est-ce que ça collecte, comment on nous présente les mêmes pubs sur Facebook et MétéoMedia
+- WHOIS et les recherches "Reverse IP" pour trouver de l'info sur un nom de domaine ou une IP
+- VPN, ce que ça fait, est-ce utile pour le citoyen de base? en entreprise? en télé-travail?
+- Les cookies, qu'est-ce que ça collecte, comment on nous présente les mêmes pubs sur Facebook et MétéoMedia
 5. Catalogues des piratages qui nécessite un accès physique au client :
 - sim card cloning
 - boot externe
@@ -41,9 +82,9 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 - ensuite on leur fait changer leur password
 - Installer et utiliser un gestionnaire de mot de passe et partager la voûte avec quelqu'un (pico "droits d'accès" dans la 00Q8)
 8. Quelques exemples de films / séries et est-ce que c'est plausible ou clairement pas.
-  - M. Robot
-  - Die Hard 4
-  - CSI https://www.youtube.com/watch?v=hkDD03yeLnU&t
+- M. Robot
+- Die Hard 4
+- CSI https://www.youtube.com/watch?v=hkDD03yeLnU&t
 9. Formatif
 10. Examen sur Analyser des risques en matière de sécurité de l’information
 11. Prendre le contrôle d’un routeur /d’un serveur (admin admin) en utilisant le mot de passe par défaut.
@@ -51,8 +92,8 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 13. Atelier syn flood
 14. Ingénierie sociale et OSINT, deviner le password d’un utilisateur à partir d’un profil (nom date de naissance, loisirs, prénoms enfant)
 15. Les courriels:
-  - empêcher un pirate d'envoyer un courriel depuis mes domaines
-  - encryption des courriels, quelle est la situation?
+- empêcher un pirate d'envoyer un courriel depuis mes domaines
+- encryption des courriels, quelle est la situation?
 16. Récupérer des données sur une vieille clé USB ou un disque
     - Utiliser un outil pour ça (ex. dans les enquêtes numérique pour conserver la preuve)
     - Utiliser Dropbox pour faire des sauvegardes chiffrées de ses fichiers avec CryptoMator ou Veracrypt
@@ -75,12 +116,4 @@ Tentative de donner un aperçu de 30 séances de 2 heures pour le cours 3U4.
 26. Technique pour casser quelques schémas d’encryption primitifs
 27. Implantation dans le travail des techniques d’encryption symétrique
 28. Séance absence / intégration
-29. Formatif
-30. Examen sur Appliquer des mesures de sécurité reconnues pour protéger une application
 
-## Travaux
-[Travail 1](tp/tp1)
-[Travail 2](tp/tp2)
-[Travail 3](tp/tp3)
-
-## Examens
