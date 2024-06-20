@@ -12,11 +12,46 @@ Il nous reste à choisir une clé d'encryption pour la plupart des algorithmes:
 
 ## Décompiler le .exe et trouver la clé
 
+```
+Les solutions de cybersec, Jean-Louis et fils propose une solution de cybersécurité
+ultra sophistiquée de cybersécurité qui se présente en 2 applications ultra sécures
+
+1. notre application utilisateur permet d'encrypter avec une clé de 2048 bits (ça fait beaucoup)
+vos mots de passe afin de les stocker de façon sécuritaire. Même si un pirate accède à votre ordi
+il ne pourra pas décoder les mots de passe stockés. Nous utilisons un algo à la pointe du progrès
+BlowFish par l'immense star de la crypto: Bruce Schneier
+2. notre application gardée dans un lieu hyper sécuritaire nous permet si vous oubliez un mot de 
+passe de le retrouver en nous contactant au 1 888 888 8888.
+```
+
+Nous avons acheté la super appli et nous avons encrypté une couple de mot de passe pour s'en souvenir.
+
+L'appli se trouve dans le dossier JeanLouisEtFils du repo.
+
+### Utiliser dotPeek pour décompiler l'appli
+
+1. installer dotPeek (soit avec JetBrains Toolbox ou direct ici https://www.jetbrains.com/decompiler/)
+2. décompiler le .exe
+3. se promener dans le code 
+
+### Trouver la clé dans le code
+
+La clé doit se trouver dans le code quelque part, explore l'application pour trouver où se trouve la clé
+d'encryption. La bonne nouvelle c'est que comme BlowFish est un algo symétrique, c'est aussi la clé
+de décryption
+
+### Programmer un décrypteur
+
+On peut alors essayer de décrypter les mots de passe avec la clé qu'on a trouvé. 
+https://sladex.org/blowfish.js/
+
 La question du jour, si je connais la clé, je peux ensuite tout lire.
 
 Si on a accès à l'exécutable, dans le code on peut trouver la clé
 
-https://www.jetbrains.com/decompiler/
+### pour le cas de Jean-Louis quelle solutions
+
+Utiliser une algo asymétrique avec une clé publique d'encryption et une privée pour la décryption.
 
 ## Quelles solutions pour cacher la clé
 
