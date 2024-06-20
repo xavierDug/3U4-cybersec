@@ -1,6 +1,5 @@
 # Rencontre 15.2 : examen 3
 
-
 L'examen se déroulera ainsi
 - durée
 - documents autorisés

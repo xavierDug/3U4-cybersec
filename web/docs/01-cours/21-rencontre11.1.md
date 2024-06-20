@@ -1,7 +1,7 @@
 # Rencontre 11.1 : sécuriser une application
 
 Nous allons explorer l'application fournie pour le cours:
-- l'application 
+- l'application se trouve dans 
 
 
 
