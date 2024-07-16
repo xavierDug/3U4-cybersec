@@ -17,25 +17,25 @@ Dans ce cours, nous allons aborder la cybersécurité en 3 morceaux:
 |-------------------------------|-----------------------------------------|--------------------|
 | [1.1 →](cours/rencontre1.1)   | Plan de cours, premier hack             | --                 |
 | [1.2 →](cours/rencontre1.2)   | TODO                                    | Présentation TP 1  |
-| [2.1 →](cours/rencontre2.1)   | TODO                                    | Projet créé        |
+| [2.1 →](cours/rencontre2.1)   | TODO                                    | 5%                 |
 | [2.2 →](cours/rencontre2.2)   | TODO                                    | 10%                |
 | [3.1 →](cours/rencontre3.1)   | TODO                                    | 25%                |
-| [3.2 →](cours/rencontre3.2)   | HTTP avec Dio                           | 50%                |
-| [4.1 →](cours/rencontre4.1)   | HTTP avec Dio                           | 75%                |
+| [3.2 →](cours/rencontre3.2)   | TODO                                    | 50%                |
+| [4.1 →](cours/rencontre4.1)   | TODO                                    | 75%                |
 | [4.2 →](cours/rencontre4.2)   | Intégration                             | 100% remise        |
-| [5.1 →](cours/rencontre5.1)   | Formatif cybersec                       | TP2 : Images       |
+| [5.1 →](cours/rencontre5.1)   | Formatif cybersec                       | TP2 : cybersec réseau       |
 | [5.2 →](cours/rencontre5.2)   | **Examen cybersec**                     | 10%                |
-| [6.1 →](cours/rencontre6.1)   | Image Picker                            | 20%                |
-| [6.2 →](cours/rencontre6.2)   | Image Cookie                            | 35%                |
-| [7.1 →](cours/rencontre7.1)   | Formatif                                | 35%                |
-| [7.2 →](cours/rencontre7.2)   | Examen Intra                            | --                 |
-| [8.1 →](cours/rencontre8.1)   | Image serveur                           | 60%                |
-| [8.2 →](cours/rencontre8.2)   | Image client                            | 80%                |
-| [9.1 →](cours/rencontre9.1)   | Intégration                             | 100% remise        |
-| [9.2 →](cours/rencontre9.2)   | Intro Firebase                          | TP3 : sans serveur |
+| [6.1 →](cours/rencontre6.1)   | TODO                                    | 20%                |
+| [6.2 →](cours/rencontre6.2)   | TODO                                    | 35%                |
+| [7.1 →](cours/rencontre7.1)   | TODO                                    | 35%                |
+| [7.2 →](cours/rencontre7.2)   | TODO                                    | --                 |
+| [8.1 →](cours/rencontre8.1)   | TODO                                    | 60%                |
+| [8.2 →](cours/rencontre8.2)   | TODO                                    | 80%                |
+| [9.1 →](cours/rencontre9.1)   | TODO                                    | 100% remise        |
+| [9.2 →](cours/rencontre9.2)   | TODO                                    | --                 |
 | [10.1 →](cours/rencontre10.1) | Formatif cybersec infra                 | --                 |
 | [10.2 →](cours/rencontre10.2) | **Examen cybersec infra**               | --                 |
-| [11.1 →](cours/rencontre11.1) | Présentation de l'application           | TP3 : application  |
+| [11.1 →](cours/rencontre11.1) | Présentation de l'application           | TP3 : cybersec application  |
 | [11.2 →](cours/rencontre11.2) | Hachage : attaque                       | 0%                 |
 | [12.1 →](cours/rencontre12.1) | Hachage : défense et implantation       | 30%                |
 | [12.2 →](cours/rencontre12.2) | Encryption : attaque                    | 30%                |
