@@ -1,4 +1,9 @@
-# Rencontre 5.2 : examen 1
+---
+title: Rencontre 10 - Examen 1 (sommatif)
+sidebar_label: R10 - Examen 1 (sommatif)
+draft: true
+hide_table_of_contents: false
+---
 
 
 L'examen se déroulera ainsi

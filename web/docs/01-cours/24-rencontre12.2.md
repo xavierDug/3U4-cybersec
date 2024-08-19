@@ -1,3 +1,12 @@
+---
+title: Rencontre 24 - Chiffrement symétrique (attaque)
+sidebar_label: R24 - Chiffrement symétrique (attaque)
+draft: true
+hide_table_of_contents: false
+---
+
+
+
 # Rencontre 12.2 : Encryption symmétrique, on attaque
 
 ## Un algo d'encryption symmétrique

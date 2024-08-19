@@ -1,4 +1,10 @@
-# Rencontre 1.1 Accueil et plan de cours
+---
+title: Rencontre 1 - Accueil
+sidebar_label: R01 - Accueil
+draft: false
+hide_table_of_contents: false
+---
+
 
 On va passer à travers le plan de cours ensemble.
 

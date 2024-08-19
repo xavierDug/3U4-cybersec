@@ -1,4 +1,9 @@
-# Rencontre 13.2 Injection SQL attaque
+---
+title: Rencontre 26 - Injection SQL (attaque)
+sidebar_label: R26 - Injection SQL (attaque)
+draft: true
+hide_table_of_contents: false
+---
 
 Une injection SQL c'est quoi?
 - une situation où l'utilisateur peut exécuter du SQL de son choix sur la BD

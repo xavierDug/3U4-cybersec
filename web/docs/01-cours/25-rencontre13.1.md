@@ -1,3 +1,9 @@
+---
+title: Rencontre 25 - Chiffrement symétrique (implantation)
+sidebar_label: R25 - Chiffrement symétrique (implantation)
+draft: true
+hide_table_of_contents: false
+---
 # Rencontre 13.1 Implanter crypto symétrique
 
 Implanter le code C# pour faire la crypto symétrique est assez simple, on peut:

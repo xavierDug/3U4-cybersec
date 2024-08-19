@@ -1,4 +1,10 @@
-# Rencontre 12.1 : Hachage et fonction à sens unique
+---
+title: Rencontre 23 - Hachage et fonction à sens unique
+sidebar_label: R23 - Hachage et fonction à sens unique
+draft: true
+hide_table_of_contents: false
+---
+
 
 ## En quoi cela sécurise? 
 

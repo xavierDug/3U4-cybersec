@@ -1,4 +1,9 @@
-# Rencontre 10.2 : examen 2
+---
+title: Rencontre 20 - Examen 2 (sommatif)
+sidebar_label: R20 - Examen 2 (sommatif)
+draft: true
+hide_table_of_contents: false
+---
 
 
 L'examen se déroulera ainsi
