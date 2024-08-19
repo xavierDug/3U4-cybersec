@@ -1,4 +1,5 @@
 ---
+id: r23
 title: Rencontre 23 - Hachage et fonction à sens unique
 sidebar_label: R23 - Hachage et fonction à sens unique
 draft: true

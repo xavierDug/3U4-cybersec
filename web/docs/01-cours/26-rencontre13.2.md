@@ -1,4 +1,5 @@
 ---
+id: r26
 title: Rencontre 26 - Injection SQL (attaque)
 sidebar_label: R26 - Injection SQL (attaque)
 draft: true

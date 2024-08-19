@@ -1,4 +1,5 @@
 ---
+id: r24
 title: Rencontre 24 - Chiffrement symétrique (attaque)
 sidebar_label: R24 - Chiffrement symétrique (attaque)
 draft: true

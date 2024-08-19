@@ -1,4 +1,5 @@
 ---
+id: r06
 title: Rencontre 6 - Chiffrement du stockage
 sidebar_label: R06 - Chiffrement du stockage
 draft: true

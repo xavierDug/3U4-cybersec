@@ -1,4 +1,5 @@
 ---
+id: r25
 title: Rencontre 25 - Chiffrement symétrique (implantation)
 sidebar_label: R25 - Chiffrement symétrique (implantation)
 draft: true

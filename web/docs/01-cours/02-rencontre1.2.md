@@ -1,4 +1,5 @@
 ---
+id: r02
 title: Rencontre 2 - Authentification et mots de passe
 sidebar_label: R02 - Authentification
 draft: true

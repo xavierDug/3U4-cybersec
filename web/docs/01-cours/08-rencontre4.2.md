@@ -1,4 +1,5 @@
 ---
+id: r08
 title: Rencontre 8 - TP1 (exposé oral)
 sidebar_label: R08 - TP1 (exposé oral)
 draft: true

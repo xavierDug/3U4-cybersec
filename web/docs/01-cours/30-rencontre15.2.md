@@ -1,4 +1,5 @@
 ---
+id: r30
 title: Rencontre 30 - Examen 3 (sommatif)
 sidebar_label: R30 - Examen 3 (sommatif)
 draft: true
