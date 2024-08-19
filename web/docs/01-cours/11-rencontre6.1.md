@@ -63,9 +63,16 @@ Un mode privé ou secret dans un navigateur va habituellement:
 - ne pas envoyer les cookies précédemment existant (mais il va accumuler les cookies de la session privée)
 - parfois certains navigateurs vont restreindre l'envoi des cookies de traçage
 
+En exercice, démarre une session en navigation privée dans Chrome. Lis la description fournie et voiss si tu comprends tout ce qui est écrit.
+
 ## NAT, adresse IP et sens de la communication
 
 ### C'est quoi NAT?
+
+Avec IP v4, nous avions des IP sur 32 bits. Cela faisait 4 milliards d'adresses ce qui semblait énorme au départ. Evidemment avec le succès, on a eu plus de 4 milliards d'appareils nécessitant une IP. Est arrivé NAT pour **Network address translation**:
+1. on va distinguer une adresse publique sur l'internet et une adress privée sur un réseau local
+2. tout le traffic qui
+3. sans doute besoin d'une video la dessus non TODO?
 
 ### Quand je suis à la maison c'est quoi mon adresse IP?
 
