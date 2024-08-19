@@ -23,9 +23,28 @@ Selon vous, à main levée HTTPS encrypte:
 - 1 2 et 3
 - 1 2 3 et 4 ... c'est top secure
 
-## FAIRE SCHEMA QUI EST SUR LE CHEMIN
+## Le cheminement de notre requête
 
-## FAIRE LE 
+## Attaque de type Man in the Middle
+
+Imaginons que quelqu'un de pas mal équipé a réussi à:
+- effectuer un DNS spoofing sur mon url www.superprof.ca
+- il a donc réussi à faire en sorte que les serveurs DNS renvoie son adresse IP au lieu de la nôtre pour www.superprof.ca
+- l'utilisateur envoie alors sa requête au serveur du pirate qui établit une connection HTTPS
+   1. pour chaque requête il la reçoit, l'ouvre pour voir le contenu puis il envoie une requête avec les mêmes informations au serveur réel le nôtre.
+   2. quand il reçoit la réponse de ce serveur, il l'ouvre la lit puis produit une réponse identique pour le client.
+ 
+Ce pirate voit tout le traffic, le client ne se rend compte de rien, le serveur non plus ... aaaaaahhhhhhhh le monde moderne s'écroule.
+
+### La solution : le certificat SSL
+
+Quand un site établit une connexion SSL avec un client il produit un certificat qui est un fichier hébergé sur le serveur. 
+
+
+Avec cette solution, on ne peut plus se placer en man in the middle si le certificat est signé et valide. Par contre, si l'attaquant a eu accès à votre poste et que vous avez une version modifiée de Chrome, on ne peut rien garantir. Mais ça on l'a déjà vu:
+```
+poste client corrompu = tout est foutu
+```
 
 
 
