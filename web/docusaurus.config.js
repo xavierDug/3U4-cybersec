@@ -27,6 +27,11 @@ const config = {
     locales: ["fr"],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
   presets: [
     [
       "classic",
@@ -35,7 +40,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           routeBasePath: "/",
-          editUrl: `https://github.com/departement-info-cem/${siteConfig.nomUrl}/tree/main/web`,
+          //editUrl: `https://github.com/departement-info-cem/${siteConfig.nomUrl}/tree/main/web`,
         },
         theme: {
           customCss: [require.resolve("./src/css/custom.css")],
@@ -101,7 +106,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["csharp", "java", "dart"],
+        additionalLanguages: ["csharp", "java", "dart", "powershell"],
       },
       metadata: [
         {

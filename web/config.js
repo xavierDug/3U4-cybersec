@@ -1,6 +1,6 @@
 const config = {
-    nom: "3U4 - Intro cybersec",
-    description: "Site du cours de cybersec d'Edouard",
+    nom: "420-3U4-EM Introduction à la cybersécurité",
+    description: "Site du cours d'introduction à la cybersécurité",
     nomUrl: "3U4-cybersec"
 }
 
