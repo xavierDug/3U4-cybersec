@@ -47,9 +47,21 @@ Une petite histoire sur comment la page Facebook de Catherine lui affiche une an
    - Facebook sait que cette page a été explorée
    - Canadian Tire
 
+### Utilisation normale? Risque de tracker malicieux
+
+Dans une utilisation normale / légale, elle permet à quelques grandes entreprises de 
+1. fixer un cookie de traçage (qui identifie un utilisateur de leur plateforme), un sur chaque appareil connecté au compte
+2. sur chaque site partenaire, envoyer un requête indiquant la page visitée pour permettre de collecter la trajectoire de la personne
+3. dépendamment de ce que vous faites sur Internet, presque toutes les pages peuvent être tracées par la grande entreprise
+
+En résumé, si **Alice** a un compte Google, qu'elle fait toute sa navigation dans un navigateur connecté à son compte et qu'elle visite essentiellement des gros sites web, il est probable que Google a **tout** son historique internet.
+
 ### Mode incognito, navigation privée etc.
 
-
+Un mode privé ou secret dans un navigateur va habituellement:
+- ne pas stocker les pages visitées dans l'historique
+- ne pas envoyer les cookies précédemment existant (mais il va accumuler les cookies de la session privée)
+- parfois certains navigateurs vont restreindre l'envoi des cookies de traçage
 
 ## NAT, adresse IP et sens de la communication
 
