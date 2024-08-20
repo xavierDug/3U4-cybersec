@@ -14,6 +14,14 @@ Le cours se divise en 3 parties:
 - cybersécurité des réseaux et postes de travail
 - cybersécurité applicative
 
+## Activité 0 : te créer un fork du repo du cours pour test exercices et notes
+
+Avec le prof, dans ton compte github, nous allons créer un fork pour y mettre tes notes / exercices:
+1. Va sur le repo du cours à l'adresse : https://github.com/departement-info-cem/3U4-cybersec
+2. Clique sur le bouton fork
+3. ATTENTION: ton repo forké doit être privé, sinon tu seras coupable de plagiat.
+4. Tu cloneras ce repo à chaque cours et tu pourras y mettre exercices et notes.
+
 ## Créer le hash d'un mot de passe avec MD5
 
 On va y revenir plus tard mais avant de stocker un mot de passe en BD, on le hash. [wikipedia](https://fr.wikipedia.org/wiki/Fonction_de_hachage_cryptographique)
