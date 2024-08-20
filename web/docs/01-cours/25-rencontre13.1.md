@@ -7,6 +7,14 @@ hide_table_of_contents: false
 ---
 # Rencontre 13.1 Implanter crypto symétrique
 
+## Ne pas coder de la crypto soi-même
+
+Vous n'avez pas le temps ni le niveau pour coder correctement de la crypto symétrique.
+
+Le problème peut être l'algo qui est parfois naïf. Ou alors la mise en oeuvre qui plante.
+
+## Implanter un algo classique via une librairie
+
 Implanter le code C# pour faire la crypto symétrique est assez simple, on peut:
 - chercher un peu dans la doc officielle : lien
 - chercher sur Google et sauter sur le premier StackOverflow qui a de l'allure
@@ -68,9 +76,9 @@ qui encrypte se trouve dans les infrastructures de l'entreprise, pas chez les ut
 3. On peut donc imaginer que seul le responsable du système en prod a accès à la clé de prod. Les dév peuvent 
 avoir accès à une clé différente sur leur environnement de développement.
 
-### Le cas classique du client-serveur
+### Le cas classique du client-serveur sur l'aspect cryptographie 
 
-1. L'application cliente envoie les données au serveur, la sécurité des données repose sur HTTPS.
-2. Le serveur encrypte les données avant de les stocker en BD, la sécurité repose sur le secret de la clé.
+1. L'application cliente envoie les données au serveur, la sécurité des données repose sur HTTPS (crypto asymétrique).
+2. Le serveur encrypte (symétrique) les données avant de les stocker en BD, la sécurité repose sur le secret de la clé.
 
 

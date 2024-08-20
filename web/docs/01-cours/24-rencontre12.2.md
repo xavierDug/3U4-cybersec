@@ -49,8 +49,22 @@ Reprenons notre exemple de "Upk35t3k350p2knzy4py4kopk4pk6zt2k"
 - si on décode avec la clé 11 on obtient "Je suis super content de te voir "
 - si on décode avec la clé 60 on obtient ""
 
+### Exemple malin 2
+
+Mettons que tu peux :
+1. choisir un message
+2. accéder à la BD dans laquelle le message est stocké
+
+Alors on peut juste mettre tous les caractères possibles dans le message et regarder ce qui ressort.
+- "abcdefghijklmnopqrstuvwxyz" message de base
+- "bcdefghijklmnopqrstuvwxyza" message encrypté
+- ça nous donne directement la table de traduction lettre par lettre
 
 ### Exemple brutal
+
+Pour tous les décalages possibles, on décode le message et on regarde si le message décodé a du sens.
+
+Si ton alphabet a 26 lettres, il y a 26 décalages possibles pas plus.
 
 ### Exercices
 
