@@ -11,6 +11,9 @@ hide_table_of_contents: false
 Dans cette session, nous allons parler des différentes solutions de prise de controle à distance. 
 Nous allons voir les avantages et inconvénients de chaque solution.
 
+## Prise de contrôle à distance
+
+
 
 ## NAT, services à distance ou scammer
 

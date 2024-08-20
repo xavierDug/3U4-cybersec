@@ -6,11 +6,12 @@ draft: true
 hide_table_of_contents: false
 ---
 
+# Examen 2 : protéger un poste de travail
 
 L'examen se déroulera ainsi
-- durée
+- durée 60 minutes (80 si 1/3 suppl. 90 si 1/2 suppl.)
 - documents autorisés
-- cybersécurité applicative
+- cybersécurité d'un poste de travail / infrastructure
 
 ## Suggestions de révision
 
@@ -18,6 +19,10 @@ Pour se mettre dedans:
 1. Faire le formatif
 2. Repasse les exercices qui t'ont posé problème.
 3. Pareil pour le travail
+
+
+
+
 
 
 

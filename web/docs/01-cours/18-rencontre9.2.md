@@ -6,7 +6,7 @@ draft: true
 hide_table_of_contents: false
 ---
 
-# Bonnes pratiques et pourquoi elles existent
+# Bonnes pratiques en cybersec et pourquoi elles existent
 
 Dans cette séance, on va revenir un certain nombre de bonnes pratiques.
 
@@ -25,15 +25,21 @@ Ensuite vous pouvez avoir 2 profils:
 
 ### Pourquoi risque encouru
 
-A compléter par l'étudiant après la conversation. On verra si vous voyez des exploits évidents, s'ils sont graves
-ou encore si on a des exemples passés d'attaques évitables.
+A compléter par l'étudiant après la conversation. On verra :
+- si vous voyez des exploits évidents, s'ils sont graves
+- si vous appliquez déjà cette pratique ou pas toujours, si non pourquoi?
+- si on a des exemples passés d'attaques évitables
 
 ## Choisir un mot de passe complexe, le protéger
 
 Ici il y a 2 éléments : on souhaite qu'un mot de passe soit complexe pour qu'il soit difficile à deviner.
 Ensuite, il faut s'assurer qu'on ne permet pas d'attaque facile pour l'obtenir.
 
+### Pourquoi risque encouru
+
 ## Activer la double authentification
+
+### Pourquoi risque encouru
 
 ## Limiter les permissions / droits le plus possible
 
@@ -47,3 +53,14 @@ plusieurs jours avant d'avoir les accès pour travailler.
 
 ...
 
+## Utiliser un VPN pour l'accès à distance
+
+### Pourquoi risque encouru
+
+## Ne pas ouvrir un fichier / clé USB sur un poste non isolé
+
+###
+
+## Ne pas cliquer sur un lien / fichier d'un courriel / sms 
+
+###
