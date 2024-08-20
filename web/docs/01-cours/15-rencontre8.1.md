@@ -6,6 +6,11 @@ draft: true
 hide_table_of_contents: false
 ---
 
+# Intro
+
+Dans cette session, nous allons parler des différentes solutions de prise de controle à distance. 
+Nous allons voir les avantages et inconvénients de chaque solution.
+
 
 ## NAT, services à distance ou scammer
 

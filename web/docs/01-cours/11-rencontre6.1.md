@@ -38,10 +38,14 @@ Ce pirate voit tout le traffic, le client ne se rend compte de rien, le serveur 
 
 ### La solution : le certificat SSL
 
-Quand un site établit une connexion SSL avec un client il produit un certificat qui est un fichier hébergé sur le serveur. 
+Quand un site établit des connexions SSL avec des clients, c'est parce qu'il a un certificat SSL. 
+Ce certificat est signé par une autorité de certification (CA) qui garantit que le site est bien celui qu'il prétend être.
 
+Il s'agit encore ici d'encryption asymétrique. Le certificat contient une clé publique qu'il publie mais aussi une clé
+privée que l'attaquant de type "man in the middle" ne peut pas obtenir en contacter le site réel et il ne 
+peut donc pas répliquer entièrement le comportement du serveur.
 
-Avec cette solution, on ne peut plus se placer en man in the middle si le certificat est signé et valide. Par contre, si l'attaquant a eu accès à votre poste et que vous avez une version modifiée de Chrome, on ne peut rien garantir. Mais ça on l'a déjà vu:
+Avec cette solution, on ne peut plus se placer en "man in the middle" si le certificat est signé et valide. Par contre, si l'attaquant a eu accès à votre poste et que vous avez une version modifiée de Chrome, on ne peut rien garantir. Mais ça on l'a déjà vu:
 ```
 poste client corrompu = tout est foutu
 ```
