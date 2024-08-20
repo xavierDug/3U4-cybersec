@@ -37,4 +37,15 @@ Certainement. Règle pour votre future carrière:
 - traverser le code des applications sur lesquelles vous travaillerez pour chercher des concaténations de requêtes SQL
 - éduquer patiemment et gentiment des collègues qui le font.
 
+## TP / Correctif sur le code fourni
+
+Pour le reste de la séance, tu vas devoir corriger le code de l'application du TP pour éviter les injections SQL.
+
+RAPPEL : pour valider que ton correctif fonctionne, tu dois avoir un exploit qui :
+1. permet de modifier les données en utilisant une injection SQL
+2. l'exploit fonctionne sur le commit qui précède ton correctif
+3. l'exploit ne fonctionne plus après ton correctif
+
+Autrement dit, tu ne devrais commit ton correctif que si tu as validé que l'exploit est désamorcé.
+
 
