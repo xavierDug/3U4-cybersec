@@ -16,7 +16,7 @@ J'ai quelque chose de précieux, je ne veux pas le perdre pour toujours
 Quand on parle de stratégie de sauvegarde, on va principalement répondre aux questions suivantes:
 - Quoi? ce que je sauvegarde ... ordinateur au complet, dossiers de contenu, configurations
 - Quand? à quelle fréquence ... combien de travail suis prêt à perdre? horaire, quotidien, mensuel, annuel
-- Où? je sauvegarde
+- Où? sur le même disque? sur le même ordi? dans le même batiment? même pays? même continent? même planète?
 
 ## Exemple 1 / discussion : le donneur d'alerte
 
