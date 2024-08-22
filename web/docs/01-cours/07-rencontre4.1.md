@@ -8,7 +8,38 @@ hide_table_of_contents: false
 
 # VPN 
 
-# Social engineering
+## Le voyage habituel d'une requête HTTPS
+
+1. une requête DNS en clair part jusqu'au serveur DNS, habituellement celui de ton fournisseur d'accès
+2. avec l'adresse IP récupérée une requête HTTPS part avec comme adresse IP celle que ton fournisseur t'a donné
+3. le traffic est encrypté de ton navigateur jusqu'au serveur, ni ton fournisseur d'accès Internet, ni les
+intermédiaires ne peuvent voir le contenu de la requête
+
+## ce que fait un VPN
+
+- l'ordinateur client établit une connexion avec le serveur VPN
+- tout le traffic réseau est encrypté et acheminé jusqu'au serveur VPN
+- depuis le serveur VPN, le traffic est émis sur Internet mais avec une adresse IP différente
+
+## ce que clame les VPN
+
+TODO transformer en exercice
+
+- super rapide??
+- super encrypté??
+- protège ta vie privée??
+
+### un VPN est toujours plus lent que la connexion directe
+
+### un VPN est toujours plus lent que la connexion directe
+
+### Le traffic HTTPS est encrypté déjà
+
+### Le traffic jusqu'au VPN est encrypté mais après il faut qu'il aille jusqu'au serveur.
+
+### oui mais le traffic DNS avant n'est pas encrypté
+
+Deja le traffic DNS va vers ton fournisseur : les chances d'interception sont nulles.
 
 # cookies, traqueurs, incognito
 
@@ -70,8 +101,5 @@ Un mode privé ou secret dans un navigateur va habituellement:
 
 En exercice, démarre une session en navigation privée dans Chrome. Lis la description fournie et voiss si tu comprends tout ce qui est écrit.
 
-
-
-
-### Le scammer étranger
+# Social engineering ?? Pas un peu trop pour une séance
 

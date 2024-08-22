@@ -29,7 +29,9 @@ Ensuite, vous allez l'ouvrir dans VisualStudio, la lancer et vous familiariser a
 ## Activité manuel: 
 
 Pour l'instant l'application n'a pas de manuel d'instruction. Pour ton utilisation future, on veut que tu documentes les 
-opérations principales permises par l'application.
+opérations principales permises par l'application:
+- faire gna TODO
+- faire pipo TODO
 
 ## Lecture du code:
 
@@ -38,8 +40,8 @@ Cela vaut donc la peine de passer à travers le code.
 
 La méthode que nous recommandons est la suivante:
 - place un certain nombres de point d'arrêt dans l'application
-- note dans un fichier par où tu penses que l'exécution va passer pour mettons créer un compte dans le format
-nomfichier ligne. Par exemple:
+- note dans un fichier **tracemanuelle.md** par où tu penses que l'exécution va passer pour mettons créer un compte 
+dans le format nomfichier ligne. Par exemple:
 ```text
 fichier1.cs ligne 10
 fichier2.cs ligne 7
