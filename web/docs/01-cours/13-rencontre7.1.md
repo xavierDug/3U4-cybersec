@@ -30,6 +30,16 @@ a eu accès aux comptes de campagne de notre parti et tout s'est retrouvé dans 
 
 En plus on a aucun moyen de prouver que c'est lui, vu que tout le monde a les droits!!!!
 
+## Approche pour limiter les droits 
+
+Verifiez que les personnes qui ne devraient pas avoir accès n'ont pas accès. 
+
+On va donc voir ça sous l'angle vulnéraibilité / exploit / correctif:
+- la vulnérabilité est des permissions trop larges
+- l'exploit est un accès non autorisé par un utilisateur sur le poste avec toutes les étapes détaillées
+- le correctif est de limiter les permissions, on va pouvoir valider ce correctif comme tous les correctifs 
+en s'assurant que l'exploit ne marche plus.
+
 ## Travail pratique Linux
 
 Il y a dans le travail pratique Linux un problème qui est dû à des permissions trop larges.
