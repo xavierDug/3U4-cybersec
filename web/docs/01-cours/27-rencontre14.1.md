@@ -46,6 +46,6 @@ RAPPEL : pour valider que ton correctif fonctionne, tu dois avoir un exploit qui
 2. l'exploit fonctionne sur le commit qui précède ton correctif
 3. l'exploit ne fonctionne plus après ton correctif
 
-Autrement dit, tu ne devrais commit ton correctif que si tu as validé que l'exploit est désamorcé.
+Autrement dit, tu ne devrais commit ton correctif **UNIQUEMENT** si tu as validé que l'exploit est désamorcé.
 
 
