@@ -49,4 +49,8 @@ Il existe des systèmes à bande. Selon vous, quelle taille peut-on atteindre av
 
 Recherche Internet d'un modèle / marque de système de back-up à bandes.
 
+## Discussion : est-ce que OneDrive est un système de sauvegarde
+
+## Discussion : est-ce que Git / Github est un système de sauvegarde
+
 
