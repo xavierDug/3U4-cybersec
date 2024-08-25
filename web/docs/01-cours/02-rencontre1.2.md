@@ -1,6 +1,6 @@
 ---
 id: r02
-title: Rencontre 2 - Authentification et mots de passe
+title: Rencontre 2 - Authentification
 sidebar_label: R02 - Authentification
 draft: true
 hide_table_of_contents: false
@@ -15,13 +15,22 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value="deroulement" label="👨‍🏫 Déroulement">
 
+1. Retour sur le dernier cours
+1. Notions du contrôle d'accès
+1. Comment déjouer un mot de passe
+1. Facteurs d'authentification
+
 </TabItem>
 
 <TabItem value="exercices" label="💻 Exercices">
 
+
+
 </TabItem>
 
 <TabItem value="documents" label="📚 Documents">
+
+1. 👨‍🏫 [Présentation PowerPoint](/docs/3U4-R02-Authentification.pptx)
 
 </TabItem>
 
@@ -30,12 +39,9 @@ import TabItem from '@theme/TabItem';
 :::
 
 
-Retour sur les hash de mdp
-
-
 ## Le contrôle d'accès
 
-Il apparaît comme une évidence que l'accès aux systèmes informatiques doit être contrôlé d'une manière ou une autre.
+Il apparaît comme une évidence que l'accès aux systèmes informatiques doit être contrôlé d'une manière ou une autre. On peut contrôler les accès de manière physique ou logique.
 
 La notion d'**identification** permet de distinguer les différents utilisateurs d'un système. Généralement, cela se fait au moyen d'un nom d'utilisateur, qui représente en quelque sorte notre identité numérique.
 
@@ -110,11 +116,12 @@ L'application permet de manipuler des fichiers KBDX qui contiennent des comptes 
 ### Stocker les mots de passe dans le nuage
 
 Une autre approche consiste à conserver les mots de passe dans le *cloud*. Il existe plusieurs options, gratuites ou payantes. 
-    - [BitWarden](https://bitwarden.com/)
-    - [LastPass](https://www.lastpass.com/)
-    - [NordPass](https://nordpass.com/fr/)
-    - [ProtonPass](https://proton.me/pass)
-    - etc.
+
+  - [BitWarden](https://bitwarden.com/)
+  - [LastPass](https://www.lastpass.com/)
+  - [NordPass](https://nordpass.com/fr/)
+  - [ProtonPass](https://proton.me/pass)
+  - etc.
 
 Ces applications ont l'avantage d'être faciles d'utilisation et centralisées, donc utilisables sur une multitude d'appareils. Mais avant de transférer nos mots de passe, il ne faut pas oublier que ceux-ci deviennent connus de ce fournisseur. S'il se fait pirater, tous nos mots de passe sont compromis d'un coup. Il faut avoir une confiance inébranlable envers la compagnie à qui on confie nos mots de passe.
 
