@@ -2,7 +2,7 @@
 id: r02
 title: Rencontre 2 - Authentification
 sidebar_label: R02 - Authentification
-draft: true
+draft: false
 hide_table_of_contents: false
 ---
 
@@ -19,18 +19,13 @@ import TabItem from '@theme/TabItem';
 1. Notions du contrôle d'accès
 1. Comment déjouer un mot de passe
 1. Facteurs d'authentification
-
-</TabItem>
-
-<TabItem value="exercices" label="💻 Exercices">
-
-
+1. Formation des équipes pour le TP1 et choix des sujets
 
 </TabItem>
 
 <TabItem value="documents" label="📚 Documents">
 
-1. 👨‍🏫 [Présentation PowerPoint](/docs/3U4-R02-Authentification.pptx)
+- [Présentation PowerPoint](/docs/3U4-R02-Authentification.pptx)
 
 </TabItem>
 
@@ -134,7 +129,7 @@ Les facteurs d'authentification se déclinent en trois grandes catégories: mém
 
 ### Le facteur mémoriel (ce que je connais)
 
-Une manière de prouver mon identité consiste à fournir une information connue uniquement de moi et du système.
+Une manière de prouver mon identité consiste à fournir une information **connue** uniquement de moi et du système.
 
 Quelques exemples de facteurs mémoriels:
 - Un mot de passe
@@ -143,7 +138,7 @@ Quelques exemples de facteurs mémoriels:
 
 ### Le facteur matériel (ce que je possède) 
 
-On peut également prouver notre identité en procurant la preuve de possession d'un objet.
+On peut également prouver notre identité en procurant la preuve de **possession** d'un objet.
 
 Quelques exemples de facteurs matériels:
 - Un téléphone cellulaire
@@ -152,9 +147,9 @@ Quelques exemples de facteurs matériels:
 - Un jeton [SecurID](https://en.wikipedia.org/wiki/RSA_SecurID)
 
 
-### Le facteur corporel ou biométrique (ce que je suis)
+### Le facteur corporel (ce que je suis)
 
-On recourt de plus en plus à la biométrie en tant que facteur d'authentification. Bien que des caractéristiques biométriques soient difficiles à falsifier en théorie, elles sont aussi plus difficiles à mesurer de manière fiable. Aussi, elles sont souvent stockées localement sur les appareils plutôt que dans des systèmes centralisés.
+On recourt de plus en plus à la **biométrie** en tant que facteur d'authentification. Bien que des caractéristiques biométriques soient difficiles à falsifier en théorie, elles sont aussi plus difficiles à mesurer de manière fiable. Aussi, elles sont souvent stockées localement sur les appareils plutôt que dans des systèmes centralisés.
 
 Quelques exemples de facteurs biométriques:
 - Une empreinte digitale
@@ -162,7 +157,19 @@ Quelques exemples de facteurs biométriques:
 - La reconnaissance vocale
 
 
-## Activités
+## Outils
 
-- Installer et essayer le logiciel KeePass?
+### Keepass
+
+[KeePass](https://keepass.info/) est un gestionnaire de mots de passe. Il permet de créer un fichier sécurisé contenant plusieurs mots de passe et inclut des outils pour générer des mots de passe complexes aléatoirement. Il est particulièrement pratique pour gérer des mots de passe de comptes de service dans les départements TI.
+
+
+### InsideClipboard (NirSoft)
+
+[InsideClipboard](https://www.nirsoft.net/utils/inside_clipboard.html) est un outil qui permet de visualiser le contenu du presse-papier de Windows.
+
+
+### Clipboardic (NirSoft)
+
+[Clipboardic (NirSoft)](https://www.nirsoft.net/utils/clipboardic.html) est un outil qui permet d'enregistrer l'historique du contenu du presse-papier de Windows.
 
