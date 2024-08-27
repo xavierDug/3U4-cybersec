@@ -27,24 +27,49 @@ On va évaluer ça:
 - Complexité d'attaque: là c'est pas évident, il faut quand même prendre le contrôle de plusieurs postes à moins que ce soit un grand nombre d'étudiants coordonnés
 - Niveau de privilège nécessaire: aucun
 - Interaction nécessaire de l'utilisateur: aucune
-- Portée de l'impact: élevée
+- Portée de l'impact: inchangée
 - Confidentialité: aucune
 - Intégrité: aucune
 - Disponibilité: élevée
 
 On va donc avoir un score de 7.5/10. C'est assez élevé, on va donc devoir s'en occuper rapidement.
 
-## Exemple 2 : une attaque de type un étudiant installe un keylogger sur un ordinateur de prof pour avoir accès à ses fichiers
+## Exemple 2 : une attaque de type un étudiant installe un keylogger
 
 Résumé : un étudiant a placé un keylogger physique sur le poste du prof dans le local D0605. Il a pu récupérer les mots de passe
 des 8 profs qui donnent des cours dans ce local. Cela inclut son prof pour un cours qu'il est au bord de couler.
 
+On va évaluer ça:
+- Vecteur d'attaque: physique
+- Complexité d'attaque: faible
+- Niveau de privilège nécessaire: aucun
+- Interaction nécessaire de l'utilisateur: requise
+- Portée de l'impact: inchangée
+- Confidentialité: élevée
+- Intégrité: élevée
+- Disponibilité: aucune (à moins que le pirate détruise des fichiers sans backup)
+
+On va donc avoir un score de 5.9 / 10. 
+
+On voit que le score est un indicateur mais également qu'on est forcé de réfléchir selon des critères partagés avec le 
+reste de la communauté cybersecurité.
+
+On voit aussi que la disponibilité change selon la présence de sauvegardes ou pas ce qui peut donner des idées d'amélioration pour
+limiter l'impact d'une attaque.
+
+## Exercice par équipe de 3-4 : 
+
+Chaque équipe enverra un membre expliquer les différentes composantes et le score final.
+
+Résumé
+
+## Exercice par équipe de 3-4 :
+
+Chaque équipe enverra un membre expliquer les différentes composantes et le score final.
+
+Résumé
 
 
-
-## Exercice par équipe de 2 :
-
-```text
 
 
 
