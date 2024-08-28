@@ -69,6 +69,8 @@ Cette méthode est généralement peu efficace car la plupart des applications v
 
 Par ailleurs, ce type d'attaque est dangereux pour l'attaquant puisqu'il s'expose au risque de se faire prendre. Une attaque par force brute laisse souvent des traces et a le potentiel de déclencher des alertes qui pourraient attirer l'attention des équipes de sécurité.
 
+Le site [PasswordMonster.com](https://www.passwordmonster.com/) permet d'estimer la force d'un mot de passe et combien de temps il faudrait pour le deviner à l'aide d'une attaque par force brute.
+
 
 ### Craquage
 
