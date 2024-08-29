@@ -12,9 +12,22 @@ Y aller avec des questions concrètes et apporter la réponse après
 
 ## Pourquoi on met un cadenas sur les boitiers?
 
+Contre quelle attaque cela nous protège?
+
+Dans quelle type de local on peut imaginer qu'une attaque où on ouvre le volet du boitier est possible?
+
 ## Pourquoi un met un mot de passe sur le BIOS?
 
+Contre quel type d'attaque cela nous protège?
+
 ## Pourquoi on met un cadenas / carte d'accès sur les salles des serveurs?
+
+Quel danger cela pose si quelqu'un accède physiquement aux serveurs?
+
+## Video sur les clés USB abandonnées:
+
+
+https://www.youtube.com/watch?v=XJCQBqTmGUU
 
 
 
