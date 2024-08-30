@@ -6,18 +6,128 @@ draft: true
 hide_table_of_contents: false
 ---
 
-# Évaluation des menaces
-
-Si tu es explosé à 50 menaces de cybersécurité de toutes sortes et que tu dois décider laquelle est la plus importante
+Si tu es exposé à 50 menaces de cybersécurité de toutes sortes et que tu dois décider laquelle est la plus importante
 à gérer, il faut que tu t'équipes d'outils pour l'évaluer.
 
 Un de ces outils est le **[Common Vulnerability Scoring System (CVSS)](https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System)**.
 
-L'outil principal se trouve ici:
-- [https://www.first.org/cvss/calculator/3.1](https://www.first.org/cvss/calculator/3.1)
+## Métriques de base du CVSS
+
+Le CVSS est un système permettant d'évaluer le niveau de criticité d'une vulnérabilité. Il vise à nous aider à prioriser notre réponse à des vulnérabilités connues. En évaluant certaines métriques, le CVSS produit un score; plus le score est élevé, plus la vulnérabilité est sérieuse et plus il est urgent de la sécuriser. Vous pouvez utiliser [cet outil](https://www.first.org/cvss/calculator/3.1) pour calculer le score CVSS.
+
+Dans ce cours, nous nous atterderons seulement aux métriques de base.
+
+### Vecteur d'attaque (AV)
+
+Le vecteur d'attaque décrit comment la vulnérabilité peut être exploitée.
+
+#### Réseau (AV:N)
+La vulnérabilité est exploitable par le réseau et peut passer à travers un routeur.
+
+#### Adjacent (AV:A)
+La vulnérabilité est exploitable par le réseau, mais demande soit une proximité locale (bluetooth, WiFi) soit sur le même segment du réseau local.
+
+#### Local (AV:L)
+La vulnérabilité est exploitable seulement avec un accès local au système, soit directement, soit à distance à l'aide de protocole comme SSH ou RDP, ou encore par ingénierie sociale.
+
+#### Physique (AV:P)
+La vulnérabilité est exploitable seulement avec un accès physique et direct.
+
+### Complexité de l'attaque (AC)
+
+La métrique de complexité décrit le niveau de difficulté de l'exploit. Il n'est pas ici question du niveau de compétence requis pour exploiter la vulnérabilité ou si l'attaque est "compliquée" à réaliser (par exemple, on doit envoyer du code en assembleur et c'est difficile à apprendre). On parle plutôt des conditions dans laquelle l'attaque doit être réalisée.
+
+#### Bas (AC:L)
+L'attaque peut réussir sans circonstances particulières et sans grands efforts de préparation. 
+
+#### Haut (AC:H)
+Le succès de l'attaque dépend de circonstances hors du contrôle de l'attaquant, qui devra investir des efforts considérables pour préparer son attaque. 
 
 
-## Exemple 1 : une attaque de déni de service (DDoS) sur le site omnivox pendant la période de remise des notes
+### Privilèges nécesaires (PR)
+
+La métrique de privilège décrit le niveau de privilège requis par un attaquant afin de réussir son exploit.
+
+#### Aucun (PR:N)
+L'attaquant n'a pas besoin de s'authentifier ou de s'identifier pour l'attaque.
+
+#### Bas (PR:L)
+L'attaquant doit être authentifié et disposer d'un accès de base.
+
+#### Élevé (PR:H)
+L'attaquant doit être authentifié à l'aide d'un compte disposant de privilèges élevés ou significatifs.
+
+
+### Interaction nécessaire de l'utilisateur (UI)
+
+La métrique d'interaction avec l'utilisateur décrit si le succès d'un exploit dépend d'une action particulière de la part d'un utilisateur tiers (autre que l'attaquant).
+
+#### Aucune (UI:N)
+La vulnérabilité peut être exploitée sans dépendre d'une quelconque interaction avec un utilisateur.
+
+#### Requise (UI:R)
+Le succès de l'exploit dépend d'une action de la part d'un utilisateur (par exemple, cliquer sur un lien dans un courriel).
+
+
+### Portée (S)
+
+La métrique de portée décrit si une attaque réalisée avec succès sur le système vulnérable peut causer un impact sur un autre système.
+
+#### Changée (S:C)
+Une vulnérabilité exploitée peut avoir des répercussions sur d'autres systèmes.
+
+#### Inchangée (S:U)
+Le dommage causé par l'exploitation de la vulnérabilité est limité au système vulnérable.
+
+
+### Impact sur la confidentialité
+
+La métrique de confidentialité décrit si l'exploitation de la vulnérabilité a le potentiel de permettre l'accès à des données sensibles par des personnes non autorisées.
+
+#### Aucune (C:N)
+Aucun impact sur la confidentialité.
+
+#### Faible (C:L)
+Il y a un impact sur le confidentialité, mais l'étendue de l'information compromise est partielle ou l'attaquant n'a pas de contrôle sur les données qu'il accède.
+
+#### Élevée (C:H)
+Un attaquant peut avoir accès à l'entièreté des données du système, incluant des données sensibles.
+
+
+
+### Impact sur l'intégrité
+
+La métrique de confidentialité décrit si l'exploitation de la vulnérabilité a le potentiel de permettre la modification ou l'altération de données.
+
+#### Aucune (I:N)
+Aucun impact sur l'intégrité de l'information.
+
+#### Faible (I:L)
+L'impact sur l'intégrité de l'information est circonscrit et limité.
+
+#### Élevée (I:H)
+Un attaquant peut modifier toutes les données du système compromis.
+
+
+
+### Impact sur la disponibilité
+
+La métrique de disponibilité décrit si l'exploitation de la vulnérabilité a le potentiel d'empêcher l'accès à l'information par les personnes autorisées.
+
+#### Aucune (A:N)
+Aucun impact sur la disponibilité.
+
+#### Faible (A:L)
+La disponibilité est affecté de manière intermittente ou partielle, ou la performance peut être dégradée
+
+#### Élevée (A:H)
+Un attaquant peut rendre le système vulnérable complètement indisponible.
+
+
+
+## Exemples
+
+### Exemple 1 : une attaque de déni de service (DDoS) sur le site omnivox pendant la période de remise des notes
 
 Résumé : 
 ```
@@ -36,7 +146,7 @@ On va évaluer ça:
 
 On va donc avoir un score de 7.5/10. C'est assez élevé, on va donc devoir s'en occuper rapidement.
 
-## Exemple 2 : une attaque de type un étudiant installe un keylogger
+### Exemple 2 : une attaque de type un étudiant installe un keylogger
 
 Résumé : 
 ```
@@ -62,9 +172,11 @@ reste de la communauté cybersecurité.
 On voit aussi que la disponibilité change selon la présence de sauvegardes ou pas ce qui peut donner des idées d'amélioration pour
 limiter l'impact d'une attaque.
 
-## Exercice par équipe de 3-4 : 
+## Exercices par équipe de 3-4 : 
 
 Chaque équipe enverra un membre expliquer les différentes composantes et le score final.
+
+### Exercice 1
 
 Résumé :
 ```
@@ -80,7 +192,7 @@ Une heure plus tard, il essaie d'ouvrir un fichier sur son disque réseau Z: et 
 Déterminer chaque composante du CVSS 3.1 et le score final. Pensez à prendre en note, ça pourrait servir
 pour les révisions pour l'examen.
 
-## Exercice par équipe de 3-4 :
+### Exercice 2
 
 Chaque équipe enverra un membre expliquer les différentes composantes et le score final.
 
