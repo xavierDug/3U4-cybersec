@@ -19,9 +19,11 @@ L'outil principal se trouve ici:
 
 ## Exemple 1 : une attaque de déni de service (DDoS) sur le site omnivox pendant la période de remise des notes
 
-Résumé : on est rendus le 28 décembre et demain c'est la date limite pour remettre les notes. Plusieurs profs
+Résumé : 
+```
+on est rendus le 28 décembre et demain c'est la date limite pour remettre les notes. Plusieurs profs
 commencent à se plaindre: la plupart du temps, on ne peut pas accéder et quand on accède c'est très lent.
-
+```
 On va évaluer ça:
 - Vecteur d'attaque: réseau
 - Complexité d'attaque: là c'est pas évident, il faut quand même prendre le contrôle de plusieurs postes à moins que ce soit un grand nombre d'étudiants coordonnés
@@ -36,9 +38,12 @@ On va donc avoir un score de 7.5/10. C'est assez élevé, on va donc devoir s'en
 
 ## Exemple 2 : une attaque de type un étudiant installe un keylogger
 
-Résumé : un étudiant a placé un keylogger physique sur le poste du prof dans le local D0605. Il a pu récupérer les mots de passe
-des 8 profs qui donnent des cours dans ce local. Cela inclut son prof pour un cours qu'il est au bord de couler.
-
+Résumé : 
+```
+un étudiant a placé un keylogger physique sur le poste du prof dans le local D0605. Il a pu récupérer les mots de passe
+des 8 profs qui donnent des cours dans ce local. 
+Cela inclut son prof pour un cours qu'il est au bord de couler.
+```
 On va évaluer ça:
 - Vecteur d'attaque: physique
 - Complexité d'attaque: faible
@@ -47,7 +52,7 @@ On va évaluer ça:
 - Portée de l'impact: inchangée
 - Confidentialité: élevée
 - Intégrité: élevée
-- Disponibilité: aucune (à moins que le pirate détruise des fichiers sans backup)
+- Disponibilité: aucune (à moins que le pirate détruise des fichiers sans backup mais là il y a un backup)
 
 On va donc avoir un score de 5.9 / 10. 
 
@@ -61,13 +66,35 @@ limiter l'impact d'une attaque.
 
 Chaque équipe enverra un membre expliquer les différentes composantes et le score final.
 
-Résumé
+Résumé :
+```
+Joris un des profs du département d'informatique a reçu un courriel venant d'un collègue d'un autre
+collège. Dedans il y avait un .exe avec supposément la démo d'un TP dans un cours qu'il donne.
+
+En ouvrant le .exe depuis son poste au collège, apparemment rien ne se passe. Il continue ses affaires.
+
+Une heure plus tard, il essaie d'ouvrir un fichier sur son disque réseau Z: et il y a un fichier 
+"LIS_MOI.txt" qui accompagne un énorme fichier "stuff.encrypted", tout le reste a disparu.
+```
+
+Déterminer chaque composante du CVSS 3.1 et le score final. Pensez à prendre en note, ça pourrait servir
+pour les révisions pour l'examen.
 
 ## Exercice par équipe de 3-4 :
 
 Chaque équipe enverra un membre expliquer les différentes composantes et le score final.
 
 Résumé
+```
+Giacomo après avoir configuré son serveur de courriel et authentifié son domaine avec SPF, DKIM et DMARC 
+se rend compte qu'il peut envoyer des courriels "@cegepmontpetit.ca" avec n'importe quel préfixe.
+
+Il commence par envoyer un courriel à son prof de la part de la direction du collège pour lui dire qu'il a
+maintenant le droit à 50% de temps supplémentaire pour ses examens.
+```
+
+Déterminer chaque composante du CVSS 3.1 et le score final. Pensez à prendre en note, ça pourrait servir
+pour les révisions pour l'examen.
 
 
 
