@@ -2,9 +2,37 @@
 id: r04
 title: Rencontre 4 - Évaluation des menaces
 sidebar_label: R04 - Évaluation des menaces
-draft: true
+draft: false
 hide_table_of_contents: false
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+:::note Plan de la rencontre
+
+<Tabs>
+
+<TabItem value="deroulement" label="👨‍🏫 Déroulement">
+
+1. CVSS et métriques de base
+1. Exemples d'évaluation
+1. Exercices - évaluation de vulnérabilités
+1. Travail sur le TP1
+
+</TabItem>
+
+<TabItem value="documents" label="📚 Documents">
+
+- [Présentation PowerPoint](/docs/3U4-R04-Évaluation.pptx)
+
+</TabItem>
+
+</Tabs>
+
+:::
+
+
 
 Si tu es exposé à 50 menaces de cybersécurité de toutes sortes et que tu dois décider laquelle est la plus importante
 à gérer, il faut que tu t'équipes d'outils pour l'évaluer.
@@ -154,6 +182,8 @@ un étudiant a placé un keylogger physique sur le poste du prof dans le local D
 des 8 profs qui donnent des cours dans ce local. 
 Cela inclut son prof pour un cours qu'il est au bord de couler.
 ```
+
+
 On va évaluer ça:
 - Vecteur d'attaque: physique
 - Complexité d'attaque: faible
@@ -176,10 +206,11 @@ limiter l'impact d'une attaque.
 
 Chaque équipe enverra un membre expliquer les différentes composantes et le score final.
 
+Déterminer chaque composante du CVSS 3.1 et le score final. Pensez à prendre en note, ça pourrait servir
+pour les révisions pour l'examen.
+
 ### Exercice 1
 
-Résumé :
-```
 Joris un des profs du département d'informatique a reçu un courriel venant d'un collègue d'un autre
 collège. Dedans il y avait un .exe avec supposément la démo d'un TP dans un cours qu'il donne.
 
@@ -187,26 +218,16 @@ En ouvrant le .exe depuis son poste au collège, apparemment rien ne se passe. I
 
 Une heure plus tard, il essaie d'ouvrir un fichier sur son disque réseau Z: et il y a un fichier 
 "LIS_MOI.txt" qui accompagne un énorme fichier "stuff.encrypted", tout le reste a disparu.
-```
 
-Déterminer chaque composante du CVSS 3.1 et le score final. Pensez à prendre en note, ça pourrait servir
-pour les révisions pour l'examen.
 
 ### Exercice 2
 
-Chaque équipe enverra un membre expliquer les différentes composantes et le score final.
-
-Résumé
-```
 Giacomo après avoir configuré son serveur de courriel et authentifié son domaine avec SPF, DKIM et DMARC 
 se rend compte qu'il peut envoyer des courriels "@cegepmontpetit.ca" avec n'importe quel préfixe.
 
 Il commence par envoyer un courriel à son prof de la part de la direction du collège pour lui dire qu'il a
 maintenant le droit à 50% de temps supplémentaire pour ses examens.
-```
 
-Déterminer chaque composante du CVSS 3.1 et le score final. Pensez à prendre en note, ça pourrait servir
-pour les révisions pour l'examen.
 
 
 
