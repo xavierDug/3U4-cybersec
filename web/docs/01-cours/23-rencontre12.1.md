@@ -47,6 +47,23 @@ Pour rappel, saler un mot de passe c'est:
 - ensuite on stocke dans la BD
 - si le sel est spécifique à chaque utilisateur, il faudra alors le stocker dans la BD également
 
+## bcrypt, le standard de l'industrie et pourquoi
+
+- bcrypt ajoute un hash tout seul sur BlowFish
+- bcrypt s'adapte aux resources de calcul qui augmente et peut devenir de plus en plu dur à calculer
+
+Wow wow, comment ça il ajoute automatiquement un hash?
+- en fait on tire au hasard un salt, on calcule un hash
+- on stocke en clair le salt dans le résultat avec le hash
+```
+22 character salt and 31 character hash
+```
+- quand on veut comparer plus tard, on peut recalculer puisqu'on a le salt en clair
+
+Explication de comment BCrypt marche [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) 
+
+
+https://www.youtube.com/watch?v=O6cmuiTBZVs
 
 ## utilsation de hash pour détecter une attaque
 
