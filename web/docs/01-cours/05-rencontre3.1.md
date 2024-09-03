@@ -10,6 +10,10 @@ hide_table_of_contents: false
 
 Y aller avec des questions concrètes et apporter la réponse après
 
+## Pourquoi certains systèmes n'ont aucun connexion internet? Centrales nucléaires, barrages, raffineries ...
+
+
+
 ## Pourquoi on met un cadenas sur les boitiers?
 
 Contre quelle attaque cela nous protège?
