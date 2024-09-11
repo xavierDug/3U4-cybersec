@@ -1,14 +1,50 @@
 ---
 id: r06
-title: Rencontre 6 - Accès physique et chiffrement du stockage
-sidebar_label: R06 - Accès physique et chiffrement du stockage
-draft: true
+title: Rencontre 6 - Accès physique
+sidebar_label: R06 - Accès physique
+draft: false
 hide_table_of_contents: false
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+:::note Plan de la rencontre 6
+
+<Tabs>
+
+<TabItem value="deroulement" label="👨‍🏫 Déroulement">
+
+1. Démonstration BadUSB
+1. Vol de données sur un disque dur
+1. Utilitaire de boot externe
+1. Exercices
+1. Travail sur le TP
+
+</TabItem>
+
+<TabItem value="documents" label="📚 Documents">
+
+- [Vidéo à visionner pour le prochain cours](https://www.youtube.com/watch?v=XJCQBqTmGUU)
+
+</TabItem>
+
+<TabItem value="outils" label="🛠 Outils">
+
+- [Hiren's BootCD PE](https://www.hirensbootcd.org/)
+- [Flipper Zero Bad USB](https://docs.flipper.net/bad-usb)
+
+</TabItem>
+
+</Tabs>
+
+:::
 
 
-# Sécurité physique
+## Démonstration: BadUSB
+
+Le prof fera une démonstration d'une attaque de type BadUSB à l'aide de l'outil Flipper Zero.
+
 
 ## Accéder à un fichier physique
 
@@ -19,7 +55,9 @@ Nous allons voir comment formuler en faille exploit et correctif les 3 attaques 
 3. attaque avec un accès physique au disque dur
 
 
-### Exercice de rappel: formuler en faille, exploit et correctif l'attaque par keylogger physique (5 minutes)
+### Rappel
+
+Formuler en faille, exploit et correctif l'attaque par keylogger physique (5 minutes)
 
 ### Accès physique au disque dur
 
@@ -61,7 +99,6 @@ Exercice: formuler vos idées sur le ou les correctifs à apporter pour contrer 
 - Boot sur clé externe et accès à un fichier
 - Boot sur une clé externe pour accéder au système
 
-
 ## Quelques questions / réflexions (10 minutes)
 
 Par groupe de 4, préparez des réponses aux questions suivantes:
@@ -70,31 +107,9 @@ Par groupe de 4, préparez des réponses aux questions suivantes:
 - Pourquoi un met un mot de passe sur le BIOS?
 - Pourquoi on met un cadenas / carte d'accès sur les salles des serveurs?
 
+## Vidéo à visionner pour le prochain cours
 
-## Chiffrement
-
-Le chiffrement (encryption) des données stockées est un moyen de protéger ces dernières contre le vol ou l'accès non autorisé. Contrairement au hachage, le chiffrement est un processus bidirectionnel. Les opérations mathématiques qui convertissent les données en charabia sont réversibles pour quiconque possédant une **clé**. Nous reviendrons sur les détails du chiffrement plus tard dans la session.
-
-Le chiffrement peut être implémenté à différents niveaux:
-- Au niveau du stockage des données, dans le médium qui les contient
-- Au niveau de la transmission des données, pendant leur envoi et leur réception
-
-Le chiffrement de la transmission sera abordé plus tard dans la session. Le chiffrement des données stockées peut se faire de plus d'une manière. Par exemple:
-- Au niveau d'une application spécifique (base de données, fichier Zip, PGP, VeraCrypt, etc.)
-- Au niveau du système de fichiers (NTFS EFS sous Windows, ZFS sous Linux, FreeBSD et MacOSX)
-- Au niveau des blocs sur le disque (BitLocker sous Windows, FileVault)
-- Au niveau physique (SED, OPAL)
-
-Pour protéger les fichiers contenus sur un disque dur, on optera généralement pour le chiffrement du système de fichiers ou au niveau des blocs. Il est important de noter certaines différences entre les deux:
-- Le chiffrement au niveau du système de fichiers ne chiffre que le **contenu** des fichiers. Les métadonnées comme le nom du fichier, sa taille ou son emplacement dans l'arborescence ne sont pas chiffrées.
-- Le chiffrement au niveau des blocs (chiffrement intégral du disque) a besoin que la clé de déchiffrement soit stockée à l'extérieur du système, du moins en partie, autrement le système d'exploitation ne pourra pas démarrer. Cela se fait habituellement soit en demandant à l'utilisateur de fournir l'élément manquant à la clé (NIP, mot de passe, clé USB, SmartCard, etc.) avant que le système d'exploitation ne puisse démarrer, soit en la stockant dans une puce appelée TPM connectée à la carte mère.
-
-L'exemple de l'accès physique au disque dur et du boot avec un médium de démarrage auraient tous deux pu être évités à l'aide de ces deux stratégies de chiffrement.
-
-
-## Clés USB abandonnées, clés passives, clés actives
-
-
+Regardez cette vidéo portant sur les clés USB abandonnées, les clés passives et les clés actives. Nous en discutons au prochain cours.
 
 Regarder la video suivante en préparation: https://www.youtube.com/watch?v=XJCQBqTmGUU
 
