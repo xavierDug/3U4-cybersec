@@ -21,8 +21,8 @@ Dans ce cours, nous allons aborder la cybersécurité en 3 morceaux:
 | [R03 → Triade CID](cours/r03)                                | 10%                             |
 | [R04 → Évaluation et classification des menaces](cours/r04)  | 20%                             |
 | [R05 → Faille / exploit / correctif](cours/r05)              | 30%                             |
-| [R06 → Sécurité physique Chiffrement du stockage](cours/r06) | 50%                             |
-| [R07 → Ingénierie sociale et confidentialité](cours/r07)     | 75%                             |
+| [R06 → Sécurité physique](cours/r06)                         | 50%                             |
+| [R07 → Ingénierie sociale](cours/r07)                        | 75%                             |
 | [R08 → Présentation orale du TP1](cours/r08)                 | 100% remise du TP1              |
 | [R09 → Examen formatif #1](cours/r09)                        | --                              |
 | [R10 → **Examen #1**](cours/r10)                             | --                              |
