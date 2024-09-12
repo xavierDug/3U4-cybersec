@@ -2,7 +2,7 @@
 id: r10
 title: Rencontre 10 - Examen 1 (sommatif)
 sidebar_label: R10 - Examen 1 (sommatif)
-draft: true
+draft: false
 hide_table_of_contents: false
 ---
 
