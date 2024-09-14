@@ -20,9 +20,55 @@ Nous allons voir les avantages et inconvénients de chaque solution.
 ### C'est quoi NAT?
 
 Avec IP v4, nous avions des IP sur 32 bits. Cela faisait 4 milliards d'adresses ce qui semblait énorme au départ. Evidemment avec le succès, on a eu plus de 4 milliards d'appareils nécessitant une IP. Est arrivé NAT pour **Network address translation**:
-1. on va distinguer une adresse publique sur l'internet et une adress privée sur un réseau local
-2. tout le traffic qui
-3. sans doute besoin d'une video la dessus non TODO?
+
+On va distinguer 
+   - une adresse publique sur l'internet (**unique pour toute l'humanité**) 
+   - une adresse privée sur un réseau local (**unique sur le réseau local**)
+
+Si on reprend une requête qui part 
+- vers un serveur avec l'IP 45.45.45.45 en https donc sur le port 443 
+- depuis la machine avec l'IP 192.168.0.110
+- via le routeur de la maison auquel mon fournisseur a attribuê l'adresse 40.40.40.121
+
+Les étapes suivantes se passent:
+- le paquet arrive au routeur avec comme 
+  - port de destination 443
+  - port de retour 4545
+  - ip de destination 45.45.45.45
+  - ip de retour 192.168.0.110
+- le routeur voit que le paquet s'en va hors du réseau et il va faire la traduction suivante
+  - l'adresse de retour (privée = 192.168.0.110) va être remplacé par la sienne (publique = 40.40.40.121)
+  - le port de retour va être remplacé par une valeur au hasard disponible dans la table de NAT mettons 1023
+  - il crée une entrée dans sa table NAT avec 
+    - le port de retour original (4545)
+    - le port de retour modifié (1023)
+    - l'adresse IP locale (192.168.0.110)
+- les routeurs IP de l'internet acheminent les paquets à la machine du serveur
+- le serveur recoit la requête avec le bon port toutes les informations et la traite
+- le serveur produit une réponse avec le numéro de port de retour (1023) et l'adresse IP source 40.40.40.121
+- les routeurs IP de l'internet acheminent les paquets au routeur de la maison 40.40.40.121
+- le routeur de la maison effectue les étapes suivantes:
+  - il regarde le port de retour soit 1023
+  - il regarde dans la table de NAT, s'il y a une entrée
+  - si c'est le cas comme dans l'exemple il envoie un paquet modifié avec
+    - IP destination 192.168.0.110
+    - port 4545
+  - s'il ne trouve rien, le paquet est ignoré, rien n'est envoyé sur le réseau local
+
+Quelques observations:
+- il y a une modification d'adresse IP et port à l'aller et au retour
+- on part de l'hypothèse que le protocole respecte les conventions IP et TCP sur les adresses et ports
+- s'il n'y a pas de paquet qui est sorti du réseau local, un paquet ne peut pas arriver au routeur et être envoyé à une machine avec adresse privée
+
+#### Questions / discussions
+
+Selon vous, si 2 ordinateurs de ma maison sur le Wifi envoient tous les 2 des requêtes au même serveur
+comment le routeur peut savoir à quel ordi, il doit envoyer une réponse quand elle arrive de l'internet?
+
+Si à chaque fois que j'envoie une requête vers l'internet, il se crée une entrée dans une table de NAT,
+depuis le temps comment la mémoire vive de mon routeur n'a pas explosé?
+
+
 
 ### Quand je suis à la maison c'est quoi mon adresse IP?
 
