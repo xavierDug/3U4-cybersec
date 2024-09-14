@@ -23,7 +23,37 @@ Selon vous, à main levée HTTPS encrypte:
 - 1 2 et 3
 - 1 2 3 et 4 ... c'est top secure
 
-## Le cheminement de notre requête
+## Le cheminement de notre requête HTTPS
+
+1. on tape l'adresse dans le navigateur https://lapresse.ca/mapromoautomne
+2. le navigateur cherche l'adresse IP de la partie hote de l'url https://**lapresse.ca**/mapromoautomne
+3. une requête DNS (Domain Name Service) est envoyé au serveur DNS avec son adresse IP (mettons 8.8.8.8)
+4. on récupère l'adresse IP du site 52.72.195.49
+5. handshake (poignée de main) TCP
+   -.notre ordinateur envoie une requête au serveur pour établir une connexion TCP
+   - le serveur répond que la connexion est établie-
+6. handshake SSL (ou HTTPS)
+   - notre ordinateur envoie une requête de connexion SSL
+   - le serveur répond avec son certificat et un ensemble d'algos de crypto possible
+   - notre ordinateur renvoie une clé d'encryption de session encryptée pour le serveur et ses algos possibles
+   - le serveur complète la configuration et renvoie une confirmation **à ce stade, le client et le serveur ont tous les 2 des clés d'encryption pour la session**
+7. la requête est envoyée avec l'empilage suivant
+   - un paquet IP avec 
+     - **headers** l'adresse IP du destinataire (52.72.195.49), et l'adresse IP de retour
+     - **contenu** un segment TCP avec:
+       - **headers** un numéro de segment, un port source, un port destination (HTTPS = 443 ici)
+       - **contenu** une partie de la requête HTTPS ENCRYPTEE avec les clé négociées pendant le handshake
+         - **headers** l'url (https://lapresse.ca/mapromoautomne), les cookies, le user agent, la méthode HTTP (ici GET)
+         - **corps** si c'est une requête POST ou PUT, vide s'il s'agit d'une requête GET comme dans l'exemple
+6. Une requête peut être découpée en plusieurs segments TCP ensuite envoyés par plusieurs paquets
+7. le serveur reçoit la requête, la décrypte
+8. il prépare la réponse, l'encrypte
+9. il renvoie la réponse dans une segment TCP (avec le port source) dans un paquet IP (avec l'adresse IP source)
+10. le navigateur peut décrypter la réponse et afficher son contenu
+
+Références:
+- https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/
+- https://fr.wikipedia.org/wiki/Transport_Layer_Security
 
 ## Attaque de type Man in the Middle
 
@@ -49,8 +79,6 @@ Avec cette solution, on ne peut plus se placer en "man in the middle" si le cert
 ```
 poste client corrompu = tout est foutu
 ```
-
-
 
 
 
