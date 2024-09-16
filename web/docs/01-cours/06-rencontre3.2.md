@@ -33,6 +33,7 @@ import TabItem from '@theme/TabItem';
 
 - [Hiren's BootCD PE](https://www.hirensbootcd.org/)
 - [Flipper Zero Bad USB](https://docs.flipper.net/bad-usb)
+  - [Script utilisé pour la démo](https://raw.githubusercontent.com/departement-info-cem/3U4-cybersec/main/stock/demoBadUSB/demo3u4.txt)
 
 </TabItem>
 
