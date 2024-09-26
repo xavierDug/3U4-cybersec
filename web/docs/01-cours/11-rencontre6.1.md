@@ -221,17 +221,18 @@ Une petite histoire sur comment la page Facebook de Catherine lui affiche une an
    - A Facebook elle envoie une requête qui indique l'url du produit et donc le produit
 4. Aujourd'hui, elle ouvre sa page Facebook pour voir des photos de sa petite fille
 5. Bim, une pub pour la maudite pergola:
-   - Facebook sait que cette page a été explorée
-   - Canadian Tire
+   - Facebook sait que cette page a été explorée dans le passé
+   - Canadian Tire a payé pour que Facebook affiche des pubs sur Facebook
+   - Facebook a un algo qui comprend qu'afficher cette pub a du potentiel.
 
 ### Utilisation normale? Risque de tracker malicieux
 
 Dans une utilisation normale / légale, elle permet à quelques grandes entreprises de 
 1. fixer un cookie de traçage (qui identifie un utilisateur de leur plateforme), un sur chaque appareil connecté au compte
 2. sur chaque site partenaire, envoyer un requête indiquant la page visitée pour permettre de collecter la trajectoire de la personne
-3. dépendamment de ce que vous faites sur Internet, presque toutes les pages peuvent être tracées par la grande entreprise
+3. pour la plupart des usagers d'Internet, presque toutes les pages peuvent être tracées par la grande entreprise
 
-En résumé, si **Alice** a un compte Google, qu'elle fait toute sa navigation dans un navigateur connecté à son compte et qu'elle visite essentiellement des gros sites web, il est probable que Google a **tout** son historique internet.
+En résumé, si quelqu'un a un compte Google, qu'elle fait toute sa navigation dans un navigateur connecté à son compte et qu'elle visite essentiellement des gros sites web, il est probable que Google a **tout** son historique internet.
 
 ### Mode incognito, navigation privée etc.
 
