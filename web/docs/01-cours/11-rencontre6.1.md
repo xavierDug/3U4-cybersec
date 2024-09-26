@@ -5,9 +5,60 @@ sidebar_label: R11 - HTTPS et certificats
 draft: true
 hide_table_of_contents: false
 ---
-# Rencontre 6.1 : HTTPS
+# Rencontre 6.1 : HTTPS, VPN et traqueurs
 
-## Activité encryption
+
+## Rappel sur HTTP et HTTPS
+
+
+Lorsqu'un client souhaite lancer une requête HTTP à un serveur Web, voici ce qui se passe:
+
+1. une requête DNS en clair part jusqu'au serveur DNS, habituellement celui de ton fournisseur d'accès
+2. avec l'adresse IP récupérée, une requête HTTP part avec comme adresse IP celle que ton fournisseur t'a donné
+
+
+```mermaid
+sequenceDiagram
+    actor Client as Client Web
+    participant DNS as Résolveur DNS
+    participant Web as Serveur Web
+
+    Client->>+DNS: Résoudre "www.cegepmontpetit.ca"
+    DNS-->>-Client: Adresse IP "35.203.2.187"
+
+   Client->>+Web: Requête GET http://www.cegepmontpetit.ca/
+   Web-->>-Client: Réponse 200 OK avec contenu de la page
+```
+
+Le protocole HTTP est très peu utilisé de nos jours, pour plusieurs raisons qui seront couvertes plus tard dans le cours.
+
+```mermaid
+sequenceDiagram
+   actor Client as Client Web
+   participant DNS as Résolveur DNS
+   participant Web as Serveur Web
+
+   Client->>+DNS: Résoudre "www.cegepmontpetit.ca"
+   DNS-->>-Client: Adresse IP "35.203.2.187"
+
+   rect rgb(200, 150, 255)
+   note right of Client: Négociation d'un tunnel chiffré
+   Client->>+Web: Requête CONNECT https://www.cegepmontpetit.ca/
+   Web-->>-Client: Réponse 200 Connection Established
+   end
+
+   Client->>+Web: Requête GET https://www.cegepmontpetit.ca/
+   Web-->>-Client: Réponse 200 OK avec contenu de la page
+```
+
+Nous allons avoir :
+- une **requête** HTTP
+- découpée en **segments** TCP
+- envoyée dans des **paquets** IP
+
+
+
+## Activité encryption et HTTPS (vote + discussion 5 minutes)
 
 Quand on utilise HTTPS, cela signifie qu'une partie des informations est encryptée / non lisible par quelqu'un qui intercepte le traffic réseau.
 
@@ -17,7 +68,7 @@ Quand vous envoyez un paquet HTTP ou HTTPS, il y a:
 3. la requête est découpée en segment TCP pour que TCP puisse envoyer puis reconstituer la requête à destination, on ajoute donc des entêtes TCP
 4. chaque segment voyage sous la forme d'un paquet IP qui ajoute les entêtes comme l'adresse IP de la destination ou encore l'adresse de retour pour la réponse
 
-Selon vous, à main levée HTTPS encrypte:
+Selon vous, à main levée HTTPS encrypte?
 - uniquement 1. soit le corps
 - 1 et 2 toute la requête
 - 1 2 et 3
@@ -85,79 +136,47 @@ poste client corrompu = tout est foutu
 
 # VPN 
 
-## Le voyage habituel d'une requête HTTP
-
-Typiquement, lorsqu'un client souhaite lancer une requête HTTP à un serveur Web, voici ce qui se passe:
-
-1. une requête DNS en clair part jusqu'au serveur DNS, habituellement celui de ton fournisseur d'accès
-2. avec l'adresse IP récupérée, une requête HTTP part avec comme adresse IP celle que ton fournisseur t'a donné
-
-
-```mermaid
-sequenceDiagram
-    actor Client as Client Web
-    participant DNS as Résolveur DNS
-    participant Web as Serveur Web
-
-    Client->>+DNS: Résoudre "www.cegepmontpetit.ca"
-    DNS-->>-Client: Adresse IP "35.203.2.187"
-
-   Client->>+Web: Requête GET http://www.cegepmontpetit.ca/
-   Web-->>-Client: Réponse 200 OK avec contenu de la page
-```
-
-Le protocole HTTP est très peu utilisé de nos jours, pour plusieurs raisons qui seront couvertes plus tard dans le cours. 
-
-
-
-
-```mermaid
-sequenceDiagram
-   actor Client as Client Web
-   participant DNS as Résolveur DNS
-   participant Web as Serveur Web
-
-   Client->>+DNS: Résoudre "www.cegepmontpetit.ca"
-   DNS-->>-Client: Adresse IP "35.203.2.187"
-
-   rect rgb(200, 150, 255)
-   note right of Client: Négociation d'un tunnel chiffré
-   Client->>+Web: Requête CONNECT https://www.cegepmontpetit.ca/
-   Web-->>-Client: Réponse 200 Connection Established
-   end
-
-   Client->>+Web: Requête GET https://www.cegepmontpetit.ca/
-   Web-->>-Client: Réponse 200 OK avec contenu de la page
-```
-
-
-
-
-## ce que fait un VPN
+## Ce que fait un VPN
 
 - l'ordinateur client établit une connexion avec le serveur VPN
-- tout le traffic réseau est encrypté et acheminé jusqu'au serveur VPN
+- tout le traffic réseau est encrypté et acheminé jusqu'au serveur VPN et dans le sens retour
 - depuis le serveur VPN, le traffic est émis sur Internet mais avec une adresse IP différente
 
-## ce que clame les VPN
+Tout se comporte comme si votre ordinateur se trouvait dans le réseau du serveur VPN.
 
-TODO transformer en exercice
+## Ce que clame les VPN (10 minutes)
 
-- super rapide??
-- super encrypté??
-- protège ta vie privée??
+Si on regarde les publicités des VPN, on nous promet plein de trucs. On va essayer de faire le tri.
 
-### un VPN est toujours plus lent que la connexion directe
+### Une connexion super rapide
 
-### Le traffic HTTPS est encrypté déjà
+- Est-ce que ça peut aller plus vite que la connexion internet de la maison?
+- Qu'est-ce que ce serait un VPN lent?
 
-### Le traffic jusqu'au VPN est encrypté mais après il faut qu'il aille jusqu'au serveur.
+### Te protège contre les virus et les malwares
 
-### oui mais le traffic DNS avant n'est pas encrypté
+- Des virus ou malware qui viennent d'où? une requête sur un navigateur? un courriel?
 
-Deja le traffic DNS va vers ton fournisseur : les chances d'interception sont nulles.
+### Est super encrypté, top secure
 
-# cookies, traqueurs, incognito
+- Qu'est-ce qui est encrypté?
+- C'est encrypté jusqu'au serveur VPN? jusqu'au serveur de destination?
+
+
+# Quiz de mi-période et prise de notes (5 minutes)
+
+Qu'est-ce qui est encrypté lors de l'envoi d'une requête HTTPS et justification:
+- le port TCP?
+- l'adresse IP?
+- l'url?
+
+Au delà de vos réponses, il faut que vous commenciez à prendre des notes pendant les cours pour:
+- le résultat des conversations / exercices
+- les questions que vous posez et les réponses reçues
+
+Il s'agit d'une compétence importante pour votre vie de pro.
+
+# Cookies, traqueurs, incognito
 
 ## Une page web, une requête? Qui reçoit des requêtes quand je navigue sur Internet? (5 minutes par toi-même)
 
@@ -173,10 +192,16 @@ Tu vas maintenant explorer un peu les cookies:
 - on va s'intéresser à **Network** et **Application**
 - ouvre d'abord le site d'information que tu as choisi
 - choisi l'onglet **Network** dans les outils
-- recharge la page, tu devrais voir 1. une ligne du temps qui représente les différentes requêtes réseau 2. une liste en dessous avec chaque requête
-- dans le champs **filter** on va taper d'abord **google.com** pour voir si des requêtes sont partis chez Google puis **facebook** pour voir si des requêtes sont allées chez Facebook
-- explore les requêtes trouvées et en regardant l'onglet Headers du détail, trouver l'URL demandée (Request URL) pour vérifier que la requête part bien chez Google ou Facebook
-- Copie l'url du site que tu demandée (pour moi lapresse.ca) et l'url envoyée à Google dans ton fichier MD
+- recharge la page, tu devrais voir 
+  1. une ligne du temps qui représente les différentes requêtes réseau 
+  2. une liste en dessous avec chaque requête
+- dans le champs **filter** on va taper d'abord 
+  - **google.com** pour voir si des requêtes sont partis chez Google
+  - **facebook** pour voir si des requêtes sont allées chez Facebook
+- explore les requêtes trouvées 
+  - en regardant l'onglet Headers du détail, 
+  - trouver l'URL demandée (Request URL) pour vérifier que la requête part bien chez Google ou Facebook
+- Copie l'url du site que tu demandée (pour moi lapresse.ca) et l'url envoyée à Google dans ton fichier de notes (MD)
 
 ### Retour en classe (5 minutes)
 
@@ -184,7 +209,7 @@ Nous allons discuter ensemble sur les questions suivantes:
 1. Pourquoi le site que j'explore envoie autant de requêtes à autant d'autres sites
 2. Par exemple, pourquoi un site envoie des requêtes à Google ou Facebook
 
-## Cookies, traqueurs (5 minutes par toi-même)
+## Cookies, traqueurs
 
 Une petite histoire sur comment la page Facebook de Catherine lui affiche une annonce pour la pergola qu'elle avait regardé sur le site de Canadian Tire 3 semaines plus tôt.
 
@@ -195,7 +220,7 @@ Une petite histoire sur comment la page Facebook de Catherine lui affiche une an
    - En fait elle envoie des requêtes à plein de site
    - A Facebook elle envoie une requête qui indique l'url du produit et donc le produit
 4. Aujourd'hui, elle ouvre sa page Facebook pour voir des photos de sa petite fille
-5. Bim, une pub pour ladite pergola:
+5. Bim, une pub pour la maudite pergola:
    - Facebook sait que cette page a été explorée
    - Canadian Tire
 
@@ -217,6 +242,5 @@ Un mode privé ou secret dans un navigateur va habituellement:
 
 En exercice, démarre une session en navigation privée dans Chrome. Lis la description fournie et voiss si tu comprends tout ce qui est écrit.
 
-# Social engineering ?? Pas un peu trop pour une séance
 
 
