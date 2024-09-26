@@ -240,7 +240,7 @@ Un mode privé ou secret dans un navigateur va habituellement:
 - ne pas envoyer les cookies précédemment existant (mais il va accumuler les cookies de la session privée)
 - parfois certains navigateurs vont restreindre l'envoi des cookies de traçage
 
-En exercice, démarre une session en navigation privée dans Chrome. Lis la description fournie et voiss si tu comprends tout ce qui est écrit.
+En exercice, démarre une session en navigation privée dans Chrome. Lis la description fournie et vois si tu comprends tout ce qui est écrit après le cours d'aujourd'hui.
 
 
 
