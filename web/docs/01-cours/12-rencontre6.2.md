@@ -81,3 +81,9 @@ L'exemple de l'accès physique au disque dur et du boot avec un médium de déma
 :::caution
 Il est essentiel de posséder la clé de déchiffrement afin de déchiffrer des données chiffrées. Si on perd la clé, les données sont perdues à tout jamais.
 :::
+
+### En général exercice de stratégie de sauvegarde pour une situation donnée
+
+### Pour Linux, exercice de rsync pour implanter une stratégie de sauvegarde
+
+### Un exercice de recherche sur un backup avec tape et quelle est la plus grosse capacité qu'ils trouvent par équipe
