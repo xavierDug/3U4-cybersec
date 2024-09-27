@@ -1,42 +1,58 @@
 ---
 id: r11
-title: Rencontre 11 - HTTPS et certificats
-sidebar_label: R11 - HTTPS et certificats
+title: Rencontre 11 - HTTPS, VPN et cookies
+sidebar_label: R11 - HTTPS, VPN et cookies
 draft: true
 hide_table_of_contents: false
 ---
-# Rencontre 6.1 : HTTPS, VPN et traqueurs
-
 
 ## Rappel sur HTTP et HTTPS
 
+Le protocole HTTP (HyperText Transfer Protocol) est un protocole de communication utilisé notamment pour transférer des données sur le Web. Il existe dans sa version classique (HTTP) ainsi que sous une forme sécurisée (HTTPS).
+
+### HTTP
 
 Lorsqu'un client souhaite lancer une requête HTTP à un serveur Web, voici ce qui se passe:
 
 1. une requête DNS en clair part jusqu'au serveur DNS, habituellement celui de ton fournisseur d'accès
 2. avec l'adresse IP récupérée, une requête HTTP part avec comme adresse IP celle que ton fournisseur t'a donné
+3. la requête est reçu par le serveur Web sur son port 80, et ce dernier lui répond avec les données demandées (par exemple, le HTML de la page Web)
 
+Dans la barre d'adresse du navigateur, on reconnaît une adresse HTTP par son URI qui débute par `http://` (on nomme cette partie de l'URI le *schéma d'URI*).
 
-```mermaid
-sequenceDiagram
-    actor Client as Client Web
-    participant DNS as Résolveur DNS
-    participant Web as Serveur Web
-
-    Client->>+DNS: Résoudre "www.cegepmontpetit.ca"
-    DNS-->>-Client: Adresse IP "35.203.2.187"
-
-   Client->>+Web: Requête GET http://www.cegepmontpetit.ca/
-   Web-->>-Client: Réponse 200 OK avec contenu de la page
-```
-
-Le protocole HTTP est très peu utilisé de nos jours, pour plusieurs raisons qui seront couvertes plus tard dans le cours.
 
 ```mermaid
 sequenceDiagram
    actor Client as Client Web
    participant DNS as Résolveur DNS
-   participant Web as Serveur Web
+   participant Web as Serveur Web (80/tcp)
+
+   Client->>+DNS: Résoudre "www.cegepmontpetit.ca"
+   DNS-->>-Client: Adresse IP "35.203.2.187"
+
+   Client->>+Web: Requête GET http://www.cegepmontpetit.ca/
+   Web-->>-Client: Réponse 200 OK avec contenu de la page
+```
+
+
+
+### HTTPS (sécurisé)
+
+Le protocole HTTP est très peu utilisé de nos jours car les données sont échangées en clair sur le réseau. Cela constitue une vulnérabilité car si un attaquant arrive à intercepter la communication, il peut lire les données qui ne lui sont pas destinées. Une extension du protocole, nommée HTTPS (HyperText Transfer Protocol Secure), ajoute à HTTP une couche de chiffrement TLS (anciennement SSL). Cela permet de rehausser la confidentialité et l'intégrité des échanges entre le client et le serveur. Son schéma d'URI est `https://`.
+
+HTTPS est désormais la norme pour communiquer avec un serveur Web. Le protocole HTTP non sécurisé est quant à lui considéré comme désuet et la plupart des navigateurs montrent une alerte de sécurité lorsqu'on essaie de se connecter à un site Web par ce protocole.
+
+Le protocole fonctionne sensiblement de la même manière que HTTP classique, à deux exceptions près:
+- Avant la transmission des données, le client et le serveur négocient une méthode de chiffrement (on appelle ça le *handshake*)
+- Le port d'écoute du serveur est 443 au lieu de 80
+
+Voici une illustration qui montre ce qui se passe lorsqu'un navigateur envoie une requête HTTPS:
+
+```mermaid
+sequenceDiagram
+   actor Client as Client Web
+   participant DNS as Résolveur DNS
+   participant Web as Serveur Web (443/tcp)
 
    Client->>+DNS: Résoudre "www.cegepmontpetit.ca"
    DNS-->>-Client: Adresse IP "35.203.2.187"
@@ -51,20 +67,28 @@ sequenceDiagram
    Web-->>-Client: Réponse 200 OK avec contenu de la page
 ```
 
-Nous allons avoir :
-- une **requête** HTTP
-- découpée en **segments** TCP
-- envoyée dans des **paquets** IP
+### Encapsulation TCP/IP
+
+Vous avez vu dans votre cours de réseaux locaux que les messages échangés entre deux hôtes dans un réseau TCP/IP sont constitués de plusieurs couches encapsulées les unes dans les autres.
+
+Dans le cas d'un échange entre un client Web et un serveur Web, nous allons avoir :
+- une **requête** HTTPS (couche application)
+- découpée en **segments** TCP et envoyée sur un port spécifique (couche transport)
+- envoyée dans des **paquets** IP vers une adresse IP spécifique (couche internet)
+- transmise dans des **trames** ethernet sur le réseau local (couche d'accès réseau)
+
+![Couches d'abstraction réseau](ositcpip.png)
 
 
+## Activité encryption et HTTPS 
 
-## Activité encryption et HTTPS (vote + discussion 5 minutes)
+> *Vote + discussion 5 minutes*
 
 Quand on utilise HTTPS, cela signifie qu'une partie des informations est encryptée / non lisible par quelqu'un qui intercepte le traffic réseau.
 
 Quand vous envoyez un paquet HTTP ou HTTPS, il y a:
 1. un corps de la requête
-2. les entétes http, avec le corps, cela constitue la requête HTTP
+2. les entêtes http, avec le corps, cela constitue la requête HTTP
 3. la requête est découpée en segment TCP pour que TCP puisse envoyer puis reconstituer la requête à destination, on ajoute donc des entêtes TCP
 4. chaque segment voyage sous la forme d'un paquet IP qui ajoute les entêtes comme l'adresse IP de la destination ou encore l'adresse de retour pour la réponse
 
