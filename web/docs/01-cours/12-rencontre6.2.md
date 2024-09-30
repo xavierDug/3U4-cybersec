@@ -2,7 +2,7 @@
 id: r12
 title: Rencontre 12 - Droits et privilèges
 sidebar_label: R12 - Droits et privilèges
-draft: true
+draft: false
 hide_table_of_contents: false
 toc_max_heading_level: 4
 ---
