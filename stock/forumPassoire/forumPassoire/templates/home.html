@@ -1,0 +1,17 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Mon super forum</h1>
+    <p>Bienvenue, </p>
+    <a href="/create_post">Nouveau message anonyme</a>
+    <h2>Messages</h2>
+
+        {% for post in posts %}
+            <p>{{ post }}</p>
+        {% endfor %}
+
+</body>
+</html>

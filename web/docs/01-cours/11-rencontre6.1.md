@@ -181,6 +181,10 @@ Si on regarde les publicités des VPN, on nous promet plein de trucs. On va essa
 
 - Des virus ou malware qui viennent d'où? une requête sur un navigateur? un courriel?
 
+### Te protège contre les sites malveillants
+
+- Plausible? comment ça marcherait?
+
 ### Est super encrypté, top secure
 
 - Qu'est-ce qui est encrypté?
