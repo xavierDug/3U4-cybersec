@@ -38,7 +38,6 @@ const sendRequests = async () => {
 // Example: Send 100 requests in parallel
 setInterval(sendRequests, 100);
 </script>
-</script>
 ```
 - X envoie son post
 - Tout le monde recharge la page du forum
