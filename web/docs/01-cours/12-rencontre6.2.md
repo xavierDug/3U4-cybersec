@@ -7,6 +7,37 @@ hide_table_of_contents: false
 toc_max_heading_level: 4
 ---
 
+# Retour sur la séance précédente
+
+Essaie avec tes souvenirs et tes notes de répondre aux questions suivantes:
+
+## Si un fournisseur de VPN te vend une connexion hyper rapide, qu'est-ce que ça signifie?
+```
+
+
+
+
+```
+
+## Si tu te connectes à un site en https, quels sont les éléments qui sont cryptés parmi l'adresse IP, le contenu de la page, l'URL, les cookies?
+```
+
+
+
+
+```
+
+## Qu'est-ce qu'un cookie "traqueur"? En quoi est-ce différent d'un cookie habituel? 
+```
+
+
+
+
+```
+
+
+# Droits et privilèges
+
 Dans un système d'information, les termes "droit" et "privilège" sont souvent utilisés de manière interchangeable, mais ils ont des nuances distinctes.
 
 Un **droit**, ou **permission**, est une autorisation accordée à un utilisateur ou à un groupe d'utilisateurs pour effectuer une action spécifique sur une ressource comme un fichier ou un répertoire. Par exemple, Bob aura un accès en lecture seule sur le fichier patate.docx, alors que Alice aura les accès suffisants pour écrire et modifier ce même fichier.

@@ -26,7 +26,7 @@ Dans ce cours, nous allons aborder la cybersécurité en 3 morceaux:
 | [R08 → Présentation orale du TP1](cours/r08)                | 100% remise du TP1              |
 | [R09 → Examen formatif #1](cours/r09)                       | --                              |
 | [R10 → **Examen #1**](cours/r10)                            | --                              |
-| [R11 → HTTPS et certificats](cours/r11)                     | -                             - |
+| [R11 → HTTPS, VPN et cookies](cours/r11)                     | -                             - |
 | [R12 → Droits et privilèges](cours/r12)                     | TP2 : Protéger les équipements  |
 | [R13 → Stratégies de sauvegarde](cours/r13)                 | 10%                             |
 | [R14 → Antivirus et pare-feu](cours/r14)                    | 30%                             |
