@@ -7,36 +7,22 @@ hide_table_of_contents: false
 toc_max_heading_level: 4
 ---
 
-# Retour sur la séance précédente
+## Retour sur la séance précédente
 
 Essaie avec tes souvenirs et tes notes de répondre aux questions suivantes:
 
-## Si un fournisseur de VPN te vend une connexion hyper rapide, qu'est-ce que ça signifie?
-```
+> **Question 1:** <br/>
+> Si un fournisseur de VPN te vend une connexion hyper rapide, qu'est-ce que ça signifie?
+>
+> **Question 2:** <br/>
+> Si tu te connectes à un site en https, quels sont les éléments qui sont cryptés parmi: l'adresse IP, le contenu de la page, l'URL, les cookies?
+>
+> **Question 3:** <br/>
+> Qu'est-ce qu'un cookie "traqueur"? En quoi est-ce différent d'un cookie habituel? 
 
 
 
-
-```
-
-## Si tu te connectes à un site en https, quels sont les éléments qui sont cryptés parmi l'adresse IP, le contenu de la page, l'URL, les cookies?
-```
-
-
-
-
-```
-
-## Qu'est-ce qu'un cookie "traqueur"? En quoi est-ce différent d'un cookie habituel? 
-```
-
-
-
-
-```
-
-
-# Droits et privilèges
+## Droits et privilèges
 
 Dans un système d'information, les termes "droit" et "privilège" sont souvent utilisés de manière interchangeable, mais ils ont des nuances distinctes.
 
@@ -47,7 +33,7 @@ Un **privilège** désigne une autorisation plus large, qui permet à un utilisa
 Les systèmes permettent l'attribution des permissions et des privilèges avec un niveau de détail plus ou moins grand. On appelle ce concept la **granularité**. Plus la granularité est fine, plus il est possible de spécifier précisément quelles actions un utilisateur peut effectuer sur quelles ressources. Par exemple, le système de fichiers sous Linux utilisent un système de permissions très simple, composé de trois niveaux (lecture, écriture, exécution) pour trois identités (propriétaire, groupe, tous les autres). Windows, quant à lui, offre un système de permissions beaucoup plus granulaire (et complexe) au moyen de liste de contrôle d'accès (ACL).
 
 
-## Principe du plus bas privilège
+### Principe du plus bas privilège
 
 Le principe du plus bas privilège (ou principe du moindre privilège) est un concept fondamental en cybersécurité et en gestion des systèmes d'information. Il consiste à limiter les permissions, droits ou privilèges d'un utilisateur ou d'un processus au strict nécessaire pour accomplir ses tâches. Autrement dit:
 
@@ -68,7 +54,7 @@ a eu accès aux comptes de campagne de notre parti et tout s'est retrouvé dans 
 En plus on a aucun moyen de prouver que c'est lui, vu que tout le monde a les droits!!!!
 
 
-### Approche pour limiter les droits
+#### Approche pour limiter les droits
 
 Verifiez que les personnes qui ne devraient pas avoir accès n'ont pas accès.
 
@@ -79,7 +65,7 @@ On va donc voir ça sous l'angle vulnérabilité / exploit / correctif:
   en s'assurant que l'exploit ne marche plus.
 
 
-## Travail pratique Linux
+### Travail pratique Linux
 
 Il y a dans le travail pratique Linux un problème qui est dû à des permissions trop larges.
 
@@ -204,20 +190,20 @@ Les opérateurs utilisés sont :
 - **`=`** : définir une permission exacte
 
 :::note Exemples
-**`chmod u+r ./fichier.txt`**
-> Ajoute (+) la permission de lecture (r) à l'utilisateur propriétaire (u)
+**`chmod u+r ./fichier.txt`**<br/>
+Ajoute (+) la permission de lecture (r) à l'utilisateur propriétaire (u)
 
-**`chmod g-w ./fichier.txt`**
-> Retire (-) la permission d'écriture (w) au groupe propriétaire (g)
+**`chmod g-w ./fichier.txt`**<br/>
+Retire (-) la permission d'écriture (w) au groupe propriétaire (g)
 
-**`chmod o=x ./fichier.txt`**
-> Définit (=) la permission d'exécution (x) aux autres utilisateurs (o)
+**`chmod o=x ./fichier.txt`**<br/>
+Définit (=) la permission d'exécution (x) aux autres utilisateurs (o)
 
-**`chmod a=rwx ./fichier.txt`**
-> Définit (=) tous les droits (rwx) à tout le monde (a)
+**`chmod a=rwx ./fichier.txt`**<br/>
+Définit (=) tous les droits (rwx) à tout le monde (a)
 
-**`chmod u=rw,og=r ./fichier.txt`**
-> Définit (=) des droits en lecture et écriture (rw) à l'utilisateur propriétaire (u) et des droits en lecture seule (r) au groupe et aux autres (og)
+**`chmod u=rw,og=r ./fichier.txt`**<br/>
+Définit (=) des droits en lecture et écriture (rw) à l'utilisateur propriétaire (u) et des droits en lecture seule (r) au groupe et aux autres (og)
 :::
 
 #### Notation numérique (octale)
