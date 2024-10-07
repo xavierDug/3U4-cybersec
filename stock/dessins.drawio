@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.93.1 Chrome/124.0.6367.243 Electron/30.4.0 Safari/537.36" version="24.7.16">
+<mxfile host="65bd71144e" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.93.1 Chrome/124.0.6367.243 Electron/30.4.0 Safari/537.36" version="24.7.16" pages="2">
     <diagram name="OSI et TCP/IP" id="RMZOoXyUO4KD-8H-2SCO">
-        <mxGraphModel dx="1070" dy="625" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="895" dy="578" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -108,6 +108,74 @@
                         <mxPoint x="130" y="210" as="sourcePoint"/>
                         <mxPoint x="180" y="160" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="ugpkkywqRxYgWcAYIBoA" name="Architecture 3-tiers">
+        <mxGraphModel dx="895" dy="578" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="140" width="660" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-1" value="Réseau interne" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#cce5ff;strokeColor=#36393d;container=1;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="360" y="160" width="330" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-2" value="Applications" style="rounded=1;whiteSpace=wrap;html=1;arcSize=11;verticalAlign=bottom;fillColor=#ffff88;strokeColor=#36393d;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="180" width="120" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-3" value="Bases de données" style="rounded=1;whiteSpace=wrap;html=1;arcSize=11;verticalAlign=bottom;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="180" width="120" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-17" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="D3Bis9wVVXSD3_ajO27a-5" target="D3Bis9wVVXSD3_ajO27a-7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-5" value="Bordure (DMZ)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=11;verticalAlign=bottom;fillColor=#ffcccc;strokeColor=#36393d;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="180" width="120" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-18" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="D3Bis9wVVXSD3_ajO27a-7" target="D3Bis9wVVXSD3_ajO27a-14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-7" value="Utilisateur&amp;nbsp;&lt;div&gt;externe&lt;/div&gt;" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.users.user;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="210" width="46" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-12" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.database_server;" vertex="1" parent="1">
+                    <mxGeometry x="588.5" y="207" width="43" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-13" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.application_server;" vertex="1" parent="1">
+                    <mxGeometry x="417" y="207" width="46" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-14" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.web_server;" vertex="1" parent="1">
+                    <mxGeometry x="226" y="206.5" width="48" height="57" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-15" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=default;" edge="1" parent="1" source="D3Bis9wVVXSD3_ajO27a-7" target="D3Bis9wVVXSD3_ajO27a-14">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="131.5" y="234.8" as="sourcePoint"/>
+                        <mxPoint x="195.5" y="234.50000000000006" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-19" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=default;" edge="1" parent="1" source="D3Bis9wVVXSD3_ajO27a-14" target="D3Bis9wVVXSD3_ajO27a-13">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="136" y="245" as="sourcePoint"/>
+                        <mxPoint x="236" y="245" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-20" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=default;" edge="1" parent="1" source="D3Bis9wVVXSD3_ajO27a-13" target="D3Bis9wVVXSD3_ajO27a-12">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="500" y="234.58" as="sourcePoint"/>
+                        <mxPoint x="643" y="234.58" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-8" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.firewall;fillColor=#DA4026;labelBackgroundColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="213.5" width="27" height="46.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-9" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.firewall;fillColor=#DA4026;labelBackgroundColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="210" width="30" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3Bis9wVVXSD3_ajO27a-10" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.firewall;fillColor=#DA4026;labelBackgroundColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="210" width="30" height="50" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
