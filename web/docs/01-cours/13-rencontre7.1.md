@@ -2,7 +2,7 @@
 id: r13
 title: Rencontre 13 - Stratégies de sauvegarde
 sidebar_label: R13 - Stratégies de sauvegarde
-draft: true
+draft: false
 hide_table_of_contents: false
 ---
 
