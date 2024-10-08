@@ -7,7 +7,7 @@ hide_table_of_contents: false
 ---
 
 Nous allons explorer l'application fournie pour le cours:
-- l'application se trouve dans 
+- l'application se trouve dans le repo du cours https://github.com/departement-info-cem/3U4-cybersec
 
 
 

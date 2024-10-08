@@ -76,6 +76,11 @@ const config = {
             sidebarId: "tp",
             label: "Travaux Pratiques",
           },
+          {
+            position: "right",
+            label: "Repo",
+            href: `https://github.com/departement-info-cem/${siteConfig.nomUrl}`,
+          }
         ],
       },
       footer: {
