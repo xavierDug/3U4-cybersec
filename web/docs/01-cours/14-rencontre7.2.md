@@ -95,6 +95,40 @@ Autant sous Linux que sous Windows, la commande `netstat -ano` permet d'obtenir 
 :::
 
 
+# Exercices
+
+## Demo de capture de ports avec WireShark
+
+Nous allons accéder le serveur http://perdus.com qui est plus simple parce qu'il fonctionne en HTTP simple
+1. ouvrir chrome et taper http://perdus.com mais sans appuyer sur enter
+2. ouvrir firefox et taper http://perdus.com mais sans appuyer sur enter
+3. ouvrir Wireshark et démarrer la capture sur l'interface ethernet
+4. vite aller taper enter dans chrome et firefox
+5. arrêter la capture Wireshark le bouton carré rouge
+6. on va regarder les différentes requêtes HTTP qui ont été faites et en particulier les ports source / destination
+
+## Exercice de fermeture de ports entrant
+
+Le prof va partir un script qui teste l'ouverture d'un port sur tous les postes du local.
+
+De ton côté, tu vas devoir fermer le port 445 (trafic entrant) qui correspond au protocole SMB (partage de fichiers Windows) sur ta machine.
+
+## Exercice de fermeture de ports sortant
+
+ATTENTION, tu ne pourras plus accéder à la plupart des sites pendant que la règles sera active
+
+Tu dois ajouter une règle dans ton pare-feu pour bloquer le port 443 (HTTPS) en sortie. 
+Tu devrais être capable de naviguer sur des sites en HTTP mais pas en HTTPS.
+
+## Exercice interdire le site info.cegepmontpetit.ca
+
+1. en utiliant nslookup trouve les adresses IP pour info.cegepmontpetit.ca
+2. ne garde que les adresses IPv4
+3. crée une règle dans ton pare-feu pour bloquer ces adresses IP en sortant sur le port 443, ça te prend une règle personnalisée
+
+
+## Exercice de fermeture de ports sortant
+
 #### Pare-feu local
 
 Il n'est parfois pas possible ou souhaitable de désactiver complètement le service, car ce service a une utilité. Par exemple, il arrive que les administrateurs de système aient besoin du service SSH pour administrer le serveur à distance. Ça ne veut pas dire qu'on doit exposer ce port à tout Internet. Il se peut aussi qu'on souhaite empêcher à un utilisateur non-administrateur d'ouvrir un port (ça ne prend normalement pas de droits d'administration, seulement la capacité à lancer un programme qui ouvre un port). On utilise alors un pare-feu.
