@@ -1,7 +1,7 @@
 ---
 id: r15
-title: Rencontre 15 - Services et accès distant
-sidebar_label: R15 - Services et accès distant
+title: Rencontre 15 - NAT et services d'accès à distance
+sidebar_label: R15 - NAT et accès distant
 draft: true
 hide_table_of_contents: false
 ---
@@ -100,5 +100,31 @@ Une fois que c'est fait, le scammer peut:
 
 Il n'est pas obligé d'obtenir des informations personnelles de la personne puisque l'application 
 installée peut collecter des données, réinitier des communications plus tard avec le serveur etc.
+
+
+
+
+
+----------
+
+
+
+
+### Les passerelles NAT
+
+Le NAT (Network Address Translation) est une technique utilisée dans les réseaux informatiques pour modifier les adresses IP dans les en-têtes des paquets IP en cours de transit à travers un routeur ou un pare-feu. On utilise souvent cette technique lorsqu'on a plus de machines dans notre réseau interne que d'adresse IP publiques à notre disposition.
+
+Par exemple, à la maison, votre fournisseur d'accès Internet vous donne une seule adresse IP publique, routable sur Internet. Toutefois, vous avez plus d'une machine à la maison (ordinateurs, cellulaires, tablettes, télés connectées, etc.)
+
+Comment est-ce possible?
+
+La passerelle NAT possède deux catégories d'interfaces réseau: une interface WAN (*wide area network*), du côté de votre fournisseur Internet, et une ou plusieurs interfaces LAN (*local area network*). La passerelle agit comme serveur DHCP du côté LAN pour assigner une adresse IP privée à tous les hôtes de votre réseau local (typiquement dans la plage 192.168.x.x ou 10.x.x.x). Dès que votre ordinateur tente d'envoyer un paquet IP vers Internet, le NAT intercepte ce paquet et modifie l'adresse IP de la source pour son adresse publique. Il envoie le paquet au serveur tout en gardant une copie de l'échange dans sa mémoire. Dès que la passerelle NAT reçoit la réponse du serveur, il regarde dans sa liste pour savoir quelle machine de son réseau interne a envoyé le paquet, puis modifie à nouveau l'entête du paquet et le renvoie au demandeur.
+
+Le fonctionnement du NAT est différent de celui d'un pare-feu car il ne fonctionne pas au moyen de règles de filtrage. Il procure quand même un bon niveau de protection contre les attaques provenant d'Internet en rendant invisible de l'extérieur toutes les machines du réseau local. Si un attaquant tente de se connecter à mon ordinateur se situant derrière un NAT, c'est le NAT qui recevra la requête, et comme cette communication n'a pas été initiée par ma machine, le NAT détruira tout simplement cette requête.
+
+![NAT](nat.png)
+
+
+
 
 

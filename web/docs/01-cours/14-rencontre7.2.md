@@ -1,27 +1,22 @@
 ---
 id: r14
-title: Rencontre 14 - Antivirus et pare-feu
-sidebar_label: R14 - Antivirus et pare-feu
+title: Rencontre 14 - Pare-feu et ports d'écoute
+sidebar_label: R14 - Pare-feu et ports d'écoute
 draft: true
 hide_table_of_contents: false
 ---
 
-Ce cours porte sur deux éléments indispensables de la sécurité des réseaux: le pare-feu et l'antivirus.
-
-
-## Les pare-feux (*firewall*)
-
 Vous avez sans doute entendu dire qu'un pare-feu sert à vous protéger des attaques provenant du réseau. Mais comment ça marche au juste?
 
 
-### Les ports d'écoute
+## Les ports d'écoute
 
 Tous les ordinateurs sur un réseau jouent à la fois le rôle de client et de serveur. Dans une dynamique client-serveur, le client est la machine qui utilise un service alors que le serveur est celle qui rend le service au client. Le client s'attend normalement à ce que le serveur doit disponible au moment où il souhaite passer sa requête, donc le serveur doit écouter en tout temps sur le réseau. 
 
 Le serveur doit donc être accessible sur le réseau. Les clients le contactent au moyen de son adresse IP. Le serveur ouvre un **port d'écoute** correspondant au protocole de communication utilisé par convention pour chaque service. Par exemple, un navigateur Web (appelé aussi un client Web) passe ses requêtes HTTPS sur le port 443 du serveur, et donc le serveur Web a ouvert son port 443 pour recevoir les requêtes des clients.
 
 
-#### Identifier les ports ouverts
+### Identifier les ports ouverts
 
 Normalement, un système d'exploitation ouvre un port d'écoute à la demande d'un programme (ou service) qui s'exécute en arrière-plan.
 
@@ -47,7 +42,7 @@ Connexions actives
 ```
 
 
-#### Quelques ports bien connus
+### Quelques ports bien connus
 
 Les ports TCP et UDP utilisés par les différents protocoles sont établis par convention dans les documents des normes d'Internet (les RFC). Voici certains ports bien connus pour des protocoles fréquemment utilisés:
 
@@ -74,19 +69,19 @@ Les ports TCP et UDP utilisés par les différents protocoles sont établis par 
 | PostgreSQL | 5432/tcp | (non spécifié par une RFC) |
 
 
-### Vulnérabilités
+## Vulnérabilités
 
 Un port ouvert n'est pas forcément un problème, bien au contraire: les ports d'écoute sont un élément essentiel au fonctionnement d'Internet. Tous les serveurs Web doivent obligatoirement écouter sur le port 443 et les serveurs SSH doivent obligatoirement écouter sur le port 22. Toutefois, plus les ports ouverts en écoute sont nombreux, plus le serveur répond à une multitude de protocoles et plus les chances que l'un de ces protocoles (ou du logiciels logiciel qui l'implément) soit vulnérable. 
 
 Par ailleurs, un port ouvert permet à une machine distante d'envoyer une requête au serveur, ce qui entraîne un traitement plus ou moins important, dépendant de la nature de la requête. Par exemple, une requête Web à un serveur déclenche une série d'actions sur le serveur: interprétation de la requête, validation de la session ou du cookie, formulation d'une requête à la base de données, interprétation du résultat, production dynamique de code HTML, renvoi de la réponse au client. Ce travail peut être exploité à des fins de déni de service distribué (DDoS), car ces attaques visent justement à surcharger les ressources computationnelles de l'ordinateur cible.
 
 
-### Correctifs
+## Correctifs
 
 Chaque port constitue un point d'entrée potentiel pour les attaques. On dit alors que la surface d'exposition est grande. Il est donc important de limiter les ports ouverts à seulement ce qui est nécessaire pour que le service fasse son travail (à l'instar du principe du plus bas privilège pour les permissions). Il y a plusieurs manières d'y parvenir.
 
 
-#### Fermer ou désactiver le service
+### Fermer ou désactiver le service
 
 On peut limiter la surface d'exposition en désactivant les services dont notre système n'a pas besoin. Par exemple, si notre machine sert strictement de serveur Web et rien d'autre, on devrait voir uniquement les ports TCP 443 (et peut-être aussi 80) en écoute. Si d'autres ports sont ouverts, il faut identifier le programme qui écoute sur le port et y mettre fin.
 
@@ -94,42 +89,7 @@ On peut limiter la surface d'exposition en désactivant les services dont notre 
 Autant sous Linux que sous Windows, la commande `netstat -ano` permet d'obtenir la liste des ports ouverts (en mode "LISTENING") ainsi que l'identifiant du processus en exécution (PID). Vous pouvez ensuite retrouver le programme responsable dans le gestionnaire de tâches de Windows ou encore la commande `ps -ef | grep <PID>` sous Linux. Vous pouvez ensuite tenter de découvrir comment ces services sont démarrés (par exemple, `/etc/init.d` sous Linux, `serviecs.msc` sous Windows...). 
 :::
 
-
-# Exercices
-
-## Demo de capture de ports avec WireShark
-
-Nous allons accéder le serveur http://perdus.com qui est plus simple parce qu'il fonctionne en HTTP simple
-1. ouvrir chrome et taper http://perdus.com mais sans appuyer sur enter
-2. ouvrir firefox et taper http://perdus.com mais sans appuyer sur enter
-3. ouvrir Wireshark et démarrer la capture sur l'interface ethernet
-4. vite aller taper enter dans chrome et firefox
-5. arrêter la capture Wireshark le bouton carré rouge
-6. on va regarder les différentes requêtes HTTP qui ont été faites et en particulier les ports source / destination
-
-## Exercice de fermeture de ports entrant
-
-Le prof va partir un script qui teste l'ouverture d'un port sur tous les postes du local.
-
-De ton côté, tu vas devoir fermer le port 445 (trafic entrant) qui correspond au protocole SMB (partage de fichiers Windows) sur ta machine.
-
-## Exercice de fermeture de ports sortant
-
-ATTENTION, tu ne pourras plus accéder à la plupart des sites pendant que la règles sera active
-
-Tu dois ajouter une règle dans ton pare-feu pour bloquer le port 443 (HTTPS) en sortie. 
-Tu devrais être capable de naviguer sur des sites en HTTP mais pas en HTTPS.
-
-## Exercice interdire le site info.cegepmontpetit.ca
-
-1. en utiliant nslookup trouve les adresses IP pour info.cegepmontpetit.ca
-2. ne garde que les adresses IPv4
-3. crée une règle dans ton pare-feu pour bloquer ces adresses IP en sortant sur le port 443, ça te prend une règle personnalisée
-
-
-## Exercice de fermeture de ports sortant
-
-#### Pare-feu local
+### Pare-feu local
 
 Il n'est parfois pas possible ou souhaitable de désactiver complètement le service, car ce service a une utilité. Par exemple, il arrive que les administrateurs de système aient besoin du service SSH pour administrer le serveur à distance. Ça ne veut pas dire qu'on doit exposer ce port à tout Internet. Il se peut aussi qu'on souhaite empêcher à un utilisateur non-administrateur d'ouvrir un port (ça ne prend normalement pas de droits d'administration, seulement la capacité à lancer un programme qui ouvre un port). On utilise alors un pare-feu.
 
@@ -138,7 +98,7 @@ Le pare-feu est un logiciel dont l'objectif est de contrôler les entrées et so
 Linux Ubuntu et Windows possèdent tous deux un pare-feu local prêt à l'emploi. Dans les deux cas, il faut disposer des privilèges d'administrations pour modifier sa configuration. Ce pare-feu opère sur la machine et n'a donc aucun effet sur les autres systèmes, mais permet de bloquer des ports en amont et en aval. Il peut aussi être configuré de sorte qu'un port ne puisse être ouvert que par un programme spécifique.
 
 
-#### Pare-feu d'infrastructure
+### Pare-feu d'infrastructure
 
 Le pare-feu d'infrastructure est un dispositif de sécurité déployé sur un réseau. Ce n'est pas un logiciel installé sur un serveur mais plutôt une machine à part entière en bordure de deux réseaux. Tout le trafic réseau passe par lui, qui se réserve le droit de laisser passer les paquets ou les détruire, un peu comme un poste de douane. Ainsi, même si on est administrateur de notre machine et qu'on laisse passer le trafic au moyen du pare-feu local, celui-ci pourrait ne pas pouvoir franchir le pare-feu d'infrastructure en bordure.
 
@@ -164,11 +124,11 @@ Est-ce qu'un pare-feu peut bloquer:
 :::
 
 
-### Configuration du pare-feu
+## Configuration du pare-feu
 
 La configuration du pare-feu se fait normalement au moyen de règles de filtrage de paquets. 
 
-#### Critères
+### Critères
 Les règles sont basées sur plusieurs critères, notamment:
 - L'adresse IP et le port de source
 - L'adresse IP et le port de destination
@@ -176,17 +136,17 @@ Les règles sont basées sur plusieurs critères, notamment:
 
 D'autres critères sont possiblement supportés par le pare-feu. Par exemple, le pare-feu de Windows permet d'ajouter un programme spécifique à une règle ainsi qu'un profil réseau (par exemple, un réseau privé vs. un réseau public). Aussi, certains pare-feux avancés peuvent inspecter le contenu des paquets pour détecter des menaces (pourvu que la communication ne soit pas chiffrée ou que le pare-feu puisse la déchiffrer).
 
-#### Types de règles
+### Types de règles
 Typiquement, on peut définir deux types de règles:
 - Les règles d'autorisation (allow) permettent le passage du trafic correspondant aux critères spécifiés
 - Les règles de blocage (deny) bloquent le trafic réseau correspondant aux critères spécifiés
 
-#### Direction
+### Direction
 Le pare-feu est en mesure de contrôler le trafic dans l'une ou l'autre des directions:
 - Les règles de trafic entrant contrôlent le trafic qui est initié par un client distant vers nous.
 - Les règles de trafic sortant contrôlent le trafic qui est initié par nous vers un serveur.
 
-#### Ordre des règles
+### Ordre des règles
 Dans certains pare-feux, l'ordre des règles est important. Les règles de filtrage sont généralement évaluées dans un ordre séquentiel. Le pare-feu examine chaque paquet et applique la première règle correspondante. Si aucune règle ne correspond, une action par défaut (généralement le blocage) est appliquée. Ce ne sont toutefois pas tous les pare-feux qui fonctionnent comme ça: celui de Windows, par exemple, ne tient pas compte de l'ordre des règles.
 
 :::caution Désactiver complètement le pare-feu?
@@ -194,41 +154,65 @@ Il peut être tentant de désactiver complètement le pare-feu pour "régler" un
 :::
 
 
-### Pare-feux locaux
+## Pare-feux locaux
 
-#### Pare-feu de Windows
+### Pare-feu de Windows
 
 Sous Windows, on peut gérer le pare-feu par le panneau de configuration "Pare-feu Windows Defender". Vous pouvez gérer les règles entrantes et sortantes en cliquant sur "paramètres avancés" ou en ouvrant la console `wf.msc`. Vous y trouverez un ensemble de règles que vous pouvez modifier. Sachez toutefois que dans un environnement d'entreprise (comme au CÉGEP Édouard-Montpetit), le pare-feu de Windows est généralement contrôlé centralement par les administrateurs du domaine.
 
 ![Pare-feu Windows Defender](windowsfirewall.png)
 
-#### Pare-feu de Linux (Ubuntu)
+### Pare-feu de Linux (Ubuntu)
 
 Voici un site qui explique le fonctionnement du pare-feu par défaut de Linux Ubuntu
 
 https://documentation.ubuntu.com/server/how-to/security/firewalls/
 
 
-### Les passerelles NAT
+## Démo: Capture de ports avec WireShark
 
-Le NAT (Network Address Translation) est une technique utilisée dans les réseaux informatiques pour modifier les adresses IP dans les en-têtes des paquets IP en cours de transit à travers un routeur ou un pare-feu. On utilise souvent cette technique lorsqu'on a plus de machines dans notre réseau interne que d'adresse IP publiques à notre disposition.
-
-Par exemple, à la maison, votre fournisseur d'accès Internet vous donne une seule adresse IP publique, routable sur Internet. Toutefois, vous avez plus d'une machine à la maison (ordinateurs, cellulaires, tablettes, télés connectées, etc.)
-
-Comment est-ce possible?
-
-La passerelle NAT possède deux catégories d'interfaces réseau: une interface WAN (*wide area network*), du côté de votre fournisseur Internet, et une ou plusieurs interfaces LAN (*local area network*). La passerelle agit comme serveur DHCP du côté LAN pour assigner une adresse IP privée à tous les hôtes de votre réseau local (typiquement dans la plage 192.168.x.x ou 10.x.x.x). Dès que votre ordinateur tente d'envoyer un paquet IP vers Internet, le NAT intercepte ce paquet et modifie l'adresse IP de la source pour son adresse publique. Il envoie le paquet au serveur tout en gardant une copie de l'échange dans sa mémoire. Dès que la passerelle NAT reçoit la réponse du serveur, il regarde dans sa liste pour savoir quelle machine de son réseau interne a envoyé le paquet, puis modifie à nouveau l'entête du paquet et le renvoie au demandeur.
-
-Le fonctionnement du NAT est différent de celui d'un pare-feu car il ne fonctionne pas au moyen de règles de filtrage. Il procure quand même un bon niveau de protection contre les attaques provenant d'Internet en rendant invisible de l'extérieur toutes les machines du réseau local. Si un attaquant tente de se connecter à mon ordinateur se situant derrière un NAT, c'est le NAT qui recevra la requête, et comme cette communication n'a pas été initiée par ma machine, le NAT détruira tout simplement cette requête.
-
-![NAT](nat.png)
+Nous allons accéder le serveur http://perdus.com qui est plus simple parce qu'il fonctionne en HTTP simple
+1. ouvrir chrome et taper http://perdus.com mais sans appuyer sur enter
+2. ouvrir firefox et taper http://perdus.com mais sans appuyer sur enter
+3. ouvrir Wireshark et démarrer la capture sur l'interface ethernet
+4. vite aller taper enter dans chrome et firefox
+5. arrêter la capture Wireshark le bouton carré rouge
+6. on va regarder les différentes requêtes HTTP qui ont été faites et en particulier les ports source / destination
 
 
+## Exercices
+
+### Exercice 1: Fermeture de ports entrant
+
+Le prof va partir un script qui teste l'ouverture d'un port sur tous les postes du local.
+
+De ton côté, tu vas devoir fermer le port 445 (trafic entrant). Ce port correspond au protocole SMB (partage de fichiers Windows) sur ta machine.
+
+Tu peux démarrer la console du pare-feu de Windows avec la commande `wf.msc` lancée à partir d'une invite de commande ou du menu Démarrer.
 
 
-## Les antivirus
+### Exercice 2: Fermeture de ports sortant
 
-(TODO)
+:::caution
+Tu ne pourras plus accéder à la plupart des sites pendant que la règles sera active, y compris OneDrive. Sauvegarde tes données avant de continuer.
+:::
+
+Tu dois ajouter une règle dans le pare-feu de Windows pour bloquer le port **443** (HTTPS) en sortie. 
+
+Tu devrais être capable de naviguer sur des sites en HTTP mais pas en HTTPS. Pour tester un site en HTTP, tu peux utiliser http://perdus.com/.
+
+
+### Exercice 3: Interdire l'accès à un site Web
+
+Dans cet exercice, on veut interdire l'accès à un site Web spécifique, sans bloquer l'ensemble d'Internet.
+
+1. En utiliant la commande `nslookup`, trouve les adresses IP pour l'hôte **info.cegepmontpetit.ca**.
+2. Ne garde que les adresses **IPv4**.
+3. Crée une règle dans ton pare-feu pour bloquer ces adresses IP en sortant sur le port **443**, ça te prend une règle **personnalisée**.
+
+Essaie de naviguer dans l'interface du pare-feu et de trouver comment créer la règle. L'interface est relativement intuitive, mais si tu bloques quelque part, tu peux demander l'aide de ton prof.
+
+
 
 
 
