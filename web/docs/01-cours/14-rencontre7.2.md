@@ -2,7 +2,7 @@
 id: r14
 title: Rencontre 14 - Pare-feu et ports d'écoute
 sidebar_label: R14 - Pare-feu et ports d'écoute
-draft: true
+draft: false
 hide_table_of_contents: false
 ---
 
