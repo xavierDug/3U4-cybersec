@@ -201,6 +201,8 @@ Tu dois ajouter une règle dans le pare-feu de Windows pour bloquer le port **44
 
 Tu devrais être capable de naviguer sur des sites en HTTP mais pas en HTTPS. Pour tester un site en HTTP, tu peux utiliser http://perdus.com/.
 
+Quand tu as fini, tu peux simplement désactiver la règle ou la supprimer pour restaurer la connectivité.
+
 
 ### Exercice 3: Interdire l'accès à un site Web
 
