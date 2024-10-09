@@ -5,9 +5,9 @@
 # Date:    2024-10-09
 
 param(
-    [int[]] $Ports = @(445),
-    [uint] $TimeoutDelay = 100,
-    [uint] $RefreshDelay = 15
+    [int32[]] $Ports = @(445),
+    [uint32] $TimeoutDelay = 100,
+    [uint32] $RefreshDelay = 15
 )
 
 if (-not (Get-Module -Name AdsiPS -ListAvailable)) {
@@ -43,7 +43,7 @@ while ($true) {
     Clear-Host
     $rapport | Sort-Object ComputerName | Format-Table
 
-    "Prochain rafraîchissement dans..." | Write-Host -ForegroundColor Yellow
+    "Prochain rafraichissement dans..." | Write-Host -ForegroundColor Yellow
     for ($i = $RefreshDelay; $i -gt 0; $i--) {
         "$i..." | Write-Host -NoNewline -ForegroundColor Yellow
         Start-Sleep -Seconds 1
