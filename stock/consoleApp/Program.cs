@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using Sharprompt;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
@@ -21,10 +22,8 @@ class Program
         {
             PremiersMinistres();
         }
-
         Console.WriteLine("Bienvenue dans l'application la plus sure du monde!");
         Console.WriteLine("Com'on, on hash les mots de passe et on encrypte les NAS");
-        Console.WriteLine();
         DataAccessObject.CreateTable();
         
         bool quit = false;
@@ -33,13 +32,13 @@ class Program
             quit = MainMenu();
         } while (!quit);
         
-        var name = Prompt.Input<string>("What's your name?");
-        var number = Prompt.Input<int>("Enter any number");
-        Console.WriteLine($"{name} {number}");
-        Console.WriteLine(DataSec.HashThePassword("Hello, World!"));
-        Console.WriteLine(DataSec.CreateSHA256("Hello, World!"));
-        string encrypted = DataSec.Encrypt("123456789");
-        Console.WriteLine(encrypted);
+        // var name = Prompt.Input<string>("What's your name?");
+        // var number = Prompt.Input<int>("Enter any number");
+        // Console.WriteLine($"{name} {number}");
+        // Console.WriteLine(DataSec.HashThePassword("Hello, World!"));
+        // Console.WriteLine(DataSec.CreateSHA256("Hello, World!"));
+        // string encrypted = DataSec.Encrypt("123456789");
+        // Console.WriteLine(encrypted);
     }
 
     public static bool MainMenu() {
@@ -50,6 +49,7 @@ class Program
                 //"Changer tes informations personnelles", 
                 "Entrer tes revenus pour cette année",
                 "Voir mon profil",
+                "Les premiers ministres",
                 "Lister utilisateurs",
                 "Effacer la console",
                 "Effacer la BD",
@@ -57,28 +57,43 @@ class Program
             });
         switch (choix)
         {
-            case "Quitter":
-                return true;
-            case "Effacer la console":
-                Console.Clear(); break;
-            case "Creer un compte":
-                CreerCompte(); break;
+            case "Quitter": return true;
+            case "Effacer la console": Console.Clear(); break;
+            case "Créer un compte": CreerCompte(); break;
+            case "Effacer la BD":
+                EffacerBD(); break;
+            case "Entrer tes revenus pour cette année": EntrerRevenu();
+                break;
+            case "Voir mon profil":
+                Console.WriteLine("Nom: " + utilisateurConnecte + 
+                                  " \nNAS encrypté : " + DataAccessObject.UtilisateurParSonNom(utilisateurConnecte).NAS+
+                                  " \nNAS décrypté : " + DataSec.Decrypt(DataAccessObject.UtilisateurParSonNom(utilisateurConnecte).NAS)+
+                                  " \nMot de passe hashé : " + DataAccessObject.UtilisateurParSonNom(utilisateurConnecte).MotDePasseHash);
+                break;
             case "(De)Connexion":
                 if (utilisateurConnecte == "")
                 { Connexion(); }
                 else { Deconnexion(); }
                 break;
-            case "Effacer la BD":
+            case "Les premiers ministres":
                 PremiersMinistres(); break;
             case "Lister utilisateurs":
                 List<MUtilisateur> liste = DataAccessObject.ReadData();
                 foreach (var item in liste)
-                {
-                    Console.WriteLine(item.Nom + " NAS: " + item.NAS + " MDP: " + item.MotDePasseHash);
-                }
+                { Console.WriteLine(item.Nom ); }
                 break;
         }
         return false;
+    }
+
+    private static void EntrerRevenu()
+    {
+        throw new NotImplementedException();
+    }
+
+    private static void EffacerBD()
+    {
+        DataAccessObject.EraseAll();
     }
 
     private static void PremiersMinistres()

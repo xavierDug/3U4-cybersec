@@ -99,5 +99,17 @@ namespace consoleApp
             sqlite_conn.Close();
             return compte;
         }
+
+        public static void EraseAll()
+        {
+            // delete all the users
+            sqlite_conn.Open();
+            SqliteCommand sqlite_cmd;
+            sqlite_cmd = sqlite_conn.CreateCommand();
+            sqlite_cmd.CommandText = "DELETE FROM MUtilisateur";
+            sqlite_cmd.ExecuteNonQuery();
+            sqlite_conn.Close();
+            
+        }
     }
 }
