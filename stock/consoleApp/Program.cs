@@ -45,8 +45,7 @@ class Program
             new[] { 
                 "Créer un compte",
                 "(De)Connexion",
-                //"Changer tes informations personnelles", 
-                "Entrer tes revenus pour cette année",
+                "Entrer tes revenus pour cette année", "Revenus par année",
                 "Voir mon profil",
                 "Les premiers ministres",
                 "Lister utilisateurs",
@@ -59,10 +58,9 @@ class Program
             case "Quitter": return true;
             case "Effacer la console": Console.Clear(); break;
             case "Créer un compte": CreerCompte(); break;
-            case "Effacer la BD":
-                EffacerBD(); break;
-            case "Entrer tes revenus pour cette année": EntrerRevenu();
-                break;
+            case "Effacer la BD": EffacerBD(); break;
+            case "Entrer tes revenus pour cette année": EntrerRevenu(); break;
+            case "Revenus par année": Revenus(); break;
             case "Voir mon profil":
                 Console.WriteLine("Nom: " + utilisateurConnecte + 
                                   " \nNAS encrypté : " + DataAccessObject.UtilisateurParSonNom(utilisateurConnecte).NAS+
@@ -74,8 +72,7 @@ class Program
                 { Connexion(); }
                 else { Deconnexion(); }
                 break;
-            case "Les premiers ministres":
-                PremiersMinistres(); break;
+            case "Les premiers ministres": PremiersMinistres(); break;
             case "Lister utilisateurs":
                 List<MUtilisateur> liste = DataAccessObject.ReadData();
                 foreach (var item in liste)
@@ -83,6 +80,29 @@ class Program
                 break;
         }
         return false;
+    }
+
+    private static void Revenus()
+    {
+        if (utilisateurConnecte == "")
+        {
+            Console.WriteLine("Tu n'es pas connecté, tu ne peux pas voir tes revenus");
+            return;
+        } 
+        Console.Clear();
+        List<MAnneeRevenu> liste = DataAccessObject.ReadYearlyIncome(utilisateurConnecte);
+        foreach (var item in liste)
+        {
+            Console.WriteLine("-------------- Année de déclaration "+item.Annee+" --------------");
+            Console.WriteLine( "Revenu déclaré  " + item.Revenu);
+            // show that first 20000 gave 0% tax, 
+            double taxFirst20000 = 0;
+            Console.WriteLine("0$ sur les premiers 20000$");
+            // show the total tax
+            double tax20to50 = Math.Min(item.Revenu - 20000, 30000);
+            Console.WriteLine("20% sur les 30000$ suivants: " + tax20to50 * 0.2 + " soit 20% de " + tax20to50);
+            double tax50to100 = Math.Min(item.Revenu - 50000, 50000);
+        }
     }
 
     private static void EntrerRevenu()
