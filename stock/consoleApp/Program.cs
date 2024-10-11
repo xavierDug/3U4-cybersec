@@ -18,14 +18,13 @@ class Program
    
     public static void Main(string[] args) {
         // chercher s'il y a des comptes et si non créer les premiers ministres
+        DataAccessObject.CreateTable();
         if (DataAccessObject.ReadData().Count == 0)
         {
             PremiersMinistres();
         }
         Console.WriteLine("Bienvenue dans l'application la plus sure du monde!");
         Console.WriteLine("Com'on, on hash les mots de passe et on encrypte les NAS");
-        DataAccessObject.CreateTable();
-        
         bool quit = false;
         do
         {
@@ -88,7 +87,18 @@ class Program
 
     private static void EntrerRevenu()
     {
-        throw new NotImplementedException();
+        if (utilisateurConnecte == "")
+        {
+            Console.Error.WriteLine("il faut être connecté pour entrer des revenus");
+            return;
+        }
+        int annee = Prompt.Input<int>("Merci d'entrer l'année de déclaration:");
+        Console.WriteLine($"Entrez le revenu pour l'année {annee}: ");
+        int revenu = Prompt.Input<int>($"Entrez le revenu pour l'année {annee}: ");
+
+        Console.WriteLine(annee + "  " + revenu);
+        // add in database
+        DataAccessObject.CreateYearlyIncome(utilisateurConnecte, annee, revenu);
     }
 
     private static void EffacerBD()

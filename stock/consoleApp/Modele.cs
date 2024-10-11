@@ -15,6 +15,12 @@ namespace consoleApp
         public string NAS              { get; set; }
     }
 
+    public class MAnneeRevenu
+    {
+        public string Nom              { get; set; }
+        public int Annee              { get; set; }
+        public int Revenu            { get; set; }
+    }
 
     public class MNouveauCompte
     {
@@ -53,23 +59,4 @@ namespace consoleApp
         [MinLength(4)]
         public string MotDePasse { get; set; }
     }
-    
-    public class DemandeAjoutAnneeRevenu
-    {
-        [Display(Name = "Votre année de déclaration de revenu?")]
-        [Required]
-        // add minimal length
-        [MinLength(4)]
-        //add minimal value of 1900 and max value of 2099
-        [Range(1900, 2099)]
-        public int Annee { get; set; }
-
-        [Display(Name = "Votre revenu en dollars arrondi?")]
-        [Required]
-        public int Revenu { get; set; }
-    }
-    
-
-
-
 }
