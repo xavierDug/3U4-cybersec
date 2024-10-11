@@ -78,7 +78,26 @@ namespace consoleApp
             return liste;
             //conn.Close();
         }
+        
+        public static MUtilisateur UtilisateurParSonNom(string nom)
+        {
+            sqlite_conn.Open();
+            SqliteDataReader sqlite_datareader;
+            SqliteCommand sqlite_cmd;
+            sqlite_cmd = sqlite_conn.CreateCommand();
+            sqlite_cmd.CommandText = "SELECT * FROM MUtilisateur WHERE nom = '"+ nom +"'";
 
-
+            sqlite_datareader = sqlite_cmd.ExecuteReader();
+            MUtilisateur compte = new MUtilisateur();
+            // get the user from the database
+            while (sqlite_datareader.Read())
+            {
+                compte.Nom = sqlite_datareader.GetString(0);
+                compte.MotDePasseHash = sqlite_datareader.GetString(1);
+                compte.NAS = sqlite_datareader.GetString(2);
+            }
+            sqlite_conn.Close();
+            return compte;
+        }
     }
 }

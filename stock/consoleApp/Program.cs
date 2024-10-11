@@ -13,9 +13,15 @@ namespace consoleApp;
 
 class Program
 {
-
+    private static string utilisateurConnecte = ""; 
    
     public static void Main(string[] args) {
+        // chercher s'il y a des comptes et si non créer les premiers ministres
+        if (DataAccessObject.ReadData().Count == 0)
+        {
+            PremiersMinistres();
+        }
+
         Console.WriteLine("Bienvenue dans l'application la plus sure du monde!");
         Console.WriteLine("Com'on, on hash les mots de passe et on encrypte les NAS");
         Console.WriteLine();
@@ -37,70 +43,80 @@ class Program
     }
 
     public static bool MainMenu() {
-        var choix = Prompt.Select("Quelle action veux-tu effectuer", 
+        var choix = Prompt.Select("Quelle action veux-tu effectuer ? " + utilisateurConnecte, 
             new[] { 
-                "Creer un compte", 
-                "Changer tes informations personnelles", 
-                "Entrer tes informations pour cette annee",
+                "Créer un compte",
+                "(De)Connexion",
+                //"Changer tes informations personnelles", 
+                "Entrer tes revenus pour cette année",
+                "Voir mon profil",
                 "Lister utilisateurs",
-                "TestBD",
+                "Effacer la console",
+                "Effacer la BD",
                 "Quitter"
             });
-        if (choix == "Quitter")
+        switch (choix)
         {
-            return true;
-        }
-        else if (choix == "Creer un compte")
-        {
-            CreerCompte();
-        }
-        else if (choix == "TestBD")
-        {
-            MNouveauCompte justin = new MNouveauCompte();
-            justin.MotDePasse = "Password1!";
-            justin.MotDePasseConfirmation = "Password1!";
-            justin.NAS = "111111111";
-            justin.Nom = "Justin Trudeau";
-            DataAccessObject.InsertNewUser(justin);
-
-            MNouveauCompte stephen = new MNouveauCompte();
-            stephen.MotDePasse = "stephen the best";
-            stephen.MotDePasseConfirmation = "stephen the best";
-            stephen.NAS = "123456123";
-            stephen.Nom = "Stephen Harper";
-            DataAccessObject.InsertNewUser(stephen);
-
-            MNouveauCompte paul = new MNouveauCompte();
-            paul.MotDePasse = "Password1!";
-            paul.MotDePasseConfirmation = "Password1!";
-            paul.NAS = "456456465";
-            paul.Nom = "Paul Martin";
-            DataAccessObject.InsertNewUser(paul);
-
-            MNouveauCompte jean = new MNouveauCompte();
-            jean.MotDePasse = "Shawinigan";
-            jean.MotDePasseConfirmation = "Shawinigan";
-            jean.NAS = "987987987";
-            jean.Nom = "Jean Chrétien";
-            DataAccessObject.InsertNewUser(jean);
-
-            MNouveauCompte kim = new MNouveauCompte();
-            kim.MotDePasse = "Who's the girl!";
-            kim.MotDePasseConfirmation = "Who's the girl!";
-            kim.NAS = "123123123";
-            kim.Nom = "Kim Campbell";
-            DataAccessObject.InsertNewUser(kim);
-
-        }
-        else if (choix == "Lister utilisateurs") {
-            List<MUtilisateur> liste = DataAccessObject.ReadData();
-            foreach (var item in liste)
-            {
-                Console.WriteLine(item.Nom+ " NAS: " + item.NAS + " MDP: " + item.MotDePasseHash);
-            }
+            case "Quitter":
+                return true;
+            case "Effacer la console":
+                Console.Clear(); break;
+            case "Creer un compte":
+                CreerCompte(); break;
+            case "(De)Connexion":
+                if (utilisateurConnecte == "")
+                { Connexion(); }
+                else { Deconnexion(); }
+                break;
+            case "Effacer la BD":
+                PremiersMinistres(); break;
+            case "Lister utilisateurs":
+                List<MUtilisateur> liste = DataAccessObject.ReadData();
+                foreach (var item in liste)
+                {
+                    Console.WriteLine(item.Nom + " NAS: " + item.NAS + " MDP: " + item.MotDePasseHash);
+                }
+                break;
         }
         return false;
+    }
 
+    private static void PremiersMinistres()
+    {
+        MNouveauCompte justin = new MNouveauCompte();
+        justin.MotDePasse = "Password1!";
+        justin.MotDePasseConfirmation = "Password1!";
+        justin.NAS = "111111111";
+        justin.Nom = "Justin Trudeau";
+        DataAccessObject.InsertNewUser(justin);
+
+        MNouveauCompte stephen = new MNouveauCompte();
+        stephen.MotDePasse = "stephen the best";
+        stephen.MotDePasseConfirmation = "stephen the best";
+        stephen.NAS = "123456123";
+        stephen.Nom = "Stephen Harper";
+        DataAccessObject.InsertNewUser(stephen);
+
+        MNouveauCompte paul = new MNouveauCompte();
+        paul.MotDePasse = "Password1!";
+        paul.MotDePasseConfirmation = "Password1!";
+        paul.NAS = "456456465";
+        paul.Nom = "Paul Martin";
+        DataAccessObject.InsertNewUser(paul);
+
+        MNouveauCompte jean = new MNouveauCompte();
+        jean.MotDePasse = "Shawinigan";
+        jean.MotDePasseConfirmation = "Shawinigan";
+        jean.NAS = "987987987";
+        jean.Nom = "Jean Chrétien";
+        DataAccessObject.InsertNewUser(jean);
+
+        MNouveauCompte kim = new MNouveauCompte();
+        kim.MotDePasse = "Who's the girl!";
+        kim.MotDePasseConfirmation = "Who's the girl!";
+        kim.NAS = "123123123";
+        kim.Nom = "Kim Campbell";
+        DataAccessObject.InsertNewUser(kim);
     }
 
     public static void CreerCompte()
@@ -109,5 +125,29 @@ class Program
         Console.WriteLine(result.NAS);
         DataAccessObject.InsertNewUser(result);
         DataAccessObject.ReadData();
+        utilisateurConnecte = result.Nom;
+    }
+    
+    public static void Connexion()
+    {
+        Console.WriteLine("Connexion");
+        DemandeConnexion demande = Prompt.Bind<DemandeConnexion>();
+        Console.WriteLine(demande.MotDePasse);
+        MUtilisateur utilisateur = DataAccessObject.UtilisateurParSonNom(demande.Nom);
+        if (utilisateur.MotDePasseHash == DataSec.HashThePassword(demande.MotDePasse))
+        {
+            Console.WriteLine("Connexion réussie, bienvenue " + demande.Nom);
+            utilisateurConnecte = demande.Nom;
+        }
+        else
+        {
+            Console.Error.WriteLine("Connexion échouée, le mot de passe est mauvais ");
+        }
+    }
+    
+    public static void Deconnexion()
+    {
+        Console.WriteLine("Deconnexion");
+        utilisateurConnecte = "";
     }
 }
