@@ -78,6 +78,11 @@ const config = {
           },
           {
             position: "right",
+            label: "Calendrier",
+            href: "https://www.cegepmontpetit.ca/cegep/calendrier-scolaire",
+          },
+          {
+            position: "right",
             label: "Repo",
             href: `https://github.com/departement-info-cem/${siteConfig.nomUrl}`,
           }
