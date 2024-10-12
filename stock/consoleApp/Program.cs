@@ -3,6 +3,9 @@ using Sharprompt;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
+// Phase 1 on distribue uniquement l'exécutable
+// Phase 2 on donne accès au code source pour fixer
+
 
 // mettre les mots de passe visible dans la console dans la version distribuée
 // ajouter un mode admin protégé par un mot de passe unique
@@ -16,12 +19,8 @@ class Program
     private static string utilisateurConnecte = ""; 
    
     public static void Main(string[] args) {
-        // chercher s'il y a des comptes et si non créer les premiers ministres
         DonneesAcces.CreateTable();
-        if (DonneesAcces.ReadData().Count == 0)
-        {
-            PremiersMinistres();
-        }
+        if (DonneesAcces.ReadData().Count == 0) { PremiersMinistres(); }
         Console.WriteLine("Bienvenue dans l'application la plus sure du monde!");
         Console.WriteLine("Com'on, on hash les mots de passe et on encrypte les NAS");
         bool quit = false;
@@ -29,14 +28,6 @@ class Program
         {
             quit = MainMenu();
         } while (!quit);
-        
-        // var name = Prompt.Input<string>("What's your name?");
-        // var number = Prompt.Input<int>("Enter any number");
-        // Console.WriteLine($"{name} {number}");
-        // Console.WriteLine(DataSec.HashThePassword("Hello, World!"));
-        // Console.WriteLine(DataSec.CreateSHA256("Hello, World!"));
-        // string encrypted = DataSec.Encrypt("123456789");
-        // Console.WriteLine(encrypted);
     }
 
     public static bool MainMenu() {
@@ -126,9 +117,7 @@ class Program
         int annee = Prompt.Input<int>("Merci d'entrer l'année de déclaration:");
         Console.WriteLine($"Entrez le revenu pour l'année {annee}: ");
         int revenu = Prompt.Input<int>($"Entrez le revenu pour l'année {annee}: ");
-
         Console.WriteLine(annee + "  " + revenu);
-        // add in database
         DonneesAcces.CreateYearlyIncome(utilisateurConnecte, annee, revenu);
     }
 
