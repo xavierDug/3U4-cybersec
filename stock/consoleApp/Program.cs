@@ -19,8 +19,8 @@ class Program
     private static string utilisateurConnecte = ""; 
    
     public static void Main(string[] args) {
-        DonneesAcces.CreateTable();
-        if (DonneesAcces.ReadData().Count == 0) { PremiersMinistres(); }
+        DonneesAcces.BDCreerTables();
+        if (DonneesAcces.BDLireUtilisateurs().Count == 0) { PremiersMinistres(); }
         Console.WriteLine("Bienvenue dans l'application la plus sure du monde!");
         Console.WriteLine("Com'on, on hash les mots de passe et on encrypte les NAS");
         bool quit = false;
@@ -48,9 +48,9 @@ class Program
             case "Revenus par année": Revenus(); break;
             case "Voir mon profil":
                 Console.WriteLine("Nom: " + utilisateurConnecte + 
-                                  " \nNAS encrypté : " + DonneesAcces.UtilisateurParSonNom(utilisateurConnecte).NAS+
-                                  " \nNAS décrypté : " + DonneesSecurite.Decrypt(DonneesAcces.UtilisateurParSonNom(utilisateurConnecte).NAS)+
-                                  " \nMot de passe hashé : " + DonneesAcces.UtilisateurParSonNom(utilisateurConnecte).MotDePasseHash);
+                                  " \nNAS encrypté : " + DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).NAS+
+                                  " \nNAS décrypté : " + DonneesSecurite.Decrypt(DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).NAS)+
+                                  " \nMot de passe hashé : " + DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).MotDePasseHash);
                 break;
             case "(De)Connexion":
                 if (utilisateurConnecte == "")
@@ -58,13 +58,17 @@ class Program
                 else { Deconnexion(); }
                 break;
             case "Les premiers ministres": PremiersMinistres(); break;
-            case "Lister utilisateurs":
-                List<DonneesUtilisateur> liste = DonneesAcces.ReadData();
-                foreach (var item in liste)
-                { Console.WriteLine(item.Nom ); }
-                break;
+            case "Lister utilisateurs": ListerUtilisateurs(); break;
         }
         return false;
+    }
+
+    private static void ListerUtilisateurs()
+    {
+        Console.Clear();
+        List<DonneesUtilisateur> liste = DonneesAcces.BDLireUtilisateurs();
+        foreach (var item in liste)
+        { Console.WriteLine(item.Nom ); }
     }
 
     // source https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html
@@ -76,7 +80,7 @@ class Program
             return;
         } 
         Console.Clear();
-        List<DonneesAnneeRevenu> liste = DonneesAcces.ReadYearlyIncome(utilisateurConnecte);
+        List<DonneesAnneeRevenu> liste = DonneesAcces.BDRevenusPour(utilisateurConnecte);
         foreach (var item in liste)
         {
             Console.WriteLine("-------------- Année de déclaration "+item.Annee+" --------------");
@@ -118,12 +122,12 @@ class Program
         Console.WriteLine($"Entrez le revenu pour l'année {annee}: ");
         int revenu = Prompt.Input<int>($"Entrez le revenu pour l'année {annee}: ");
         Console.WriteLine(annee + "  " + revenu);
-        DonneesAcces.CreateYearlyIncome(utilisateurConnecte, annee, revenu);
+        DonneesAcces.BDCreerRevenu(utilisateurConnecte, annee, revenu);
     }
 
     private static void EffacerBD()
     {
-        DonneesAcces.EraseAll();
+        DonneesAcces.BDEffacerTout();
         utilisateurConnecte = "";
     }
 
@@ -134,43 +138,43 @@ class Program
         justin.MotDePasseConfirmation = "Passw0rd1!";
         justin.NAS = "111111111";
         justin.Nom = "Justin Trudeau";
-        DonneesAcces.InsertNewUser(justin);
+        DonneesAcces.BDCreerUtilisateur(justin);
 
         Formulaires.FormulaireNouveauCompte stephen = new Formulaires.FormulaireNouveauCompte();
         stephen.MotDePasse = "stephen the best";
         stephen.MotDePasseConfirmation = "stephen the best";
         stephen.NAS = "123456123";
         stephen.Nom = "Stephen Harper";
-        DonneesAcces.InsertNewUser(stephen);
+        DonneesAcces.BDCreerUtilisateur(stephen);
 
         Formulaires.FormulaireNouveauCompte paul = new Formulaires.FormulaireNouveauCompte();
         paul.MotDePasse = "Ministre 1!";
         paul.MotDePasseConfirmation = "Ministre 1!";
         paul.NAS = "456456465";
         paul.Nom = "Paul Martin";
-        DonneesAcces.InsertNewUser(paul);
+        DonneesAcces.BDCreerUtilisateur(paul);
 
         Formulaires.FormulaireNouveauCompte jean = new Formulaires.FormulaireNouveauCompte();
         jean.MotDePasse = "shawinigan";
         jean.MotDePasseConfirmation = "shawinigan";
         jean.NAS = "987987987";
         jean.Nom = "Jean Chrétien";
-        DonneesAcces.InsertNewUser(jean);
+        DonneesAcces.BDCreerUtilisateur(jean);
 
         Formulaires.FormulaireNouveauCompte kim = new Formulaires.FormulaireNouveauCompte();
         kim.MotDePasse = "Who's the girl!";
         kim.MotDePasseConfirmation = "Who's the girl!";
         kim.NAS = "123123123";
         kim.Nom = "Kim Campbell";
-        DonneesAcces.InsertNewUser(kim);
+        DonneesAcces.BDCreerUtilisateur(kim);
     }
 
     public static void CreerCompte()
     {
         Formulaires.FormulaireNouveauCompte result = Prompt.Bind<Formulaires.FormulaireNouveauCompte>();
         Console.WriteLine(result.NAS);
-        DonneesAcces.InsertNewUser(result);
-        DonneesAcces.ReadData();
+        DonneesAcces.BDCreerUtilisateur(result);
+        DonneesAcces.BDLireUtilisateurs();
         utilisateurConnecte = result.Nom;
     }
     
@@ -179,7 +183,7 @@ class Program
         Console.WriteLine("Connexion");
         Formulaires.FormulaireConnexion formulaire = Prompt.Bind<Formulaires.FormulaireConnexion>();
         Console.WriteLine(formulaire.MotDePasse);
-        DonneesUtilisateur utilisateur = DonneesAcces.UtilisateurParSonNom(formulaire.Nom);
+        DonneesUtilisateur utilisateur = DonneesAcces.BDUtilisateurParSonNom(formulaire.Nom);
         if (utilisateur.MotDePasseHash == DonneesSecurite.HashThePassword(formulaire.MotDePasse))
         {
             Console.WriteLine("Connexion réussie, bienvenue " + formulaire.Nom);

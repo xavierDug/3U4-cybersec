@@ -10,7 +10,7 @@ namespace consoleApp
     {
         static SqliteConnection sqlite_conn = new SqliteConnection("Data Source=database.db;");
 
-        public static void CreateTable()
+        public static void BDCreerTables()
         {
             sqlite_conn.Open();
             SqliteCommand sqlite_cmd;
@@ -41,13 +41,9 @@ namespace consoleApp
             {
                 sqlite_conn.Close();
             }
-
-            //sqlite_conn.Close();
-            //sqlite_cmd.CommandText = Createsql1;
-            //sqlite_cmd.ExecuteNonQuery();
         }
 
-        public static void InsertNewUser(Formulaires.FormulaireNouveauCompte compte)
+        public static void BDCreerUtilisateur(Formulaires.FormulaireNouveauCompte compte)
         {
             sqlite_conn.Open();
             SqliteCommand sqlite_cmd;
@@ -59,9 +55,8 @@ namespace consoleApp
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
-
-
-        public static List<DonneesUtilisateur> ReadData()
+        
+        public static List<DonneesUtilisateur> BDLireUtilisateurs()
         {
             sqlite_conn.Open();
             SqliteDataReader sqlite_datareader;
@@ -91,7 +86,7 @@ namespace consoleApp
             //conn.Close();
         }
 
-        public static List<DonneesAnneeRevenu> ReadYearlyIncome(string utilisateurConnecte)
+        public static List<DonneesAnneeRevenu> BDRevenusPour(string utilisateurConnecte)
         {
             sqlite_conn.Open();
             SqliteDataReader sqlite_datareader;
@@ -112,7 +107,7 @@ namespace consoleApp
             return liste;
         }
 
-        public static DonneesUtilisateur UtilisateurParSonNom(string nom)
+        public static DonneesUtilisateur BDUtilisateurParSonNom(string nom)
         {
             sqlite_conn.Open();
             SqliteDataReader sqlite_datareader;
@@ -134,30 +129,46 @@ namespace consoleApp
             return compte;
         }
 
-            public static void EraseAll()
-            {
-                // delete all the users
-                sqlite_conn.Open();
-                SqliteCommand sqlite_cmd;
-                sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = "DELETE FROM MUtilisateur";
-                sqlite_cmd.ExecuteNonQuery();
-                // make a second command to erase the other table
-                sqlite_cmd.CommandText = "DELETE FROM MAnneeRevenu";
-                sqlite_cmd.ExecuteNonQuery();
-                sqlite_conn.Close();
+        public static void BDEffacerTout()
+        {
+            // delete all the users
+            sqlite_conn.Open();
+            SqliteCommand sqlite_cmd;
+            sqlite_cmd = sqlite_conn.CreateCommand();
+            sqlite_cmd.CommandText = "DELETE FROM MUtilisateur";
+            sqlite_cmd.ExecuteNonQuery();
+            // make a second command to erase the other table
+            sqlite_cmd.CommandText = "DELETE FROM MAnneeRevenu";
+            sqlite_cmd.ExecuteNonQuery();
+            sqlite_conn.Close();
 
-            }
-
-            public static void CreateYearlyIncome(string utilisateurConnecte, int annee, int revenu)
-            {
-                sqlite_conn.Open();
-                SqliteCommand sqlite_cmd;
-                sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = "INSERT INTO MAnneeRevenu (nom, annee, revenu) " +
-                                         "VALUES('" + utilisateurConnecte + "', " + annee + ", " + revenu + "); ";
-                sqlite_cmd.ExecuteNonQuery();
-                sqlite_conn.Close();
-            }
         }
-}  
+
+        public static void BDCreerRevenu(string utilisateurConnecte, int annee, int revenu)
+        {
+            sqlite_conn.Open();
+            SqliteCommand sqlite_cmd = sqlite_conn.CreateCommand();
+
+            // Check if the entry for the specified user and year already exists
+            sqlite_cmd.CommandText = "SELECT COUNT(*) FROM MAnneeRevenu WHERE nom = @nom AND annee = @annee";
+            sqlite_cmd.Parameters.AddWithValue("@nom", utilisateurConnecte);
+            sqlite_cmd.Parameters.AddWithValue("@annee", annee);
+            int count = Convert.ToInt32(sqlite_cmd.ExecuteScalar());
+
+            if (count > 0)
+            {
+                // Update the existing entry
+                sqlite_cmd.CommandText = "UPDATE MAnneeRevenu SET revenu = @revenu WHERE nom = @nom AND annee = @annee";
+            }
+            else
+            {
+                // Insert a new entry
+                sqlite_cmd.CommandText = "INSERT INTO MAnneeRevenu (nom, annee, revenu) VALUES(@nom, @annee, @revenu)";
+            }
+
+            sqlite_cmd.Parameters.AddWithValue("@revenu", revenu);
+            sqlite_cmd.ExecuteNonQuery();
+            sqlite_conn.Close();
+        }
+    }
+}
