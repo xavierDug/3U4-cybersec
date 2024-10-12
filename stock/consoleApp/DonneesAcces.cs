@@ -6,7 +6,7 @@
 // https://www.codeguru.com/dotnet/using-sqlite-in-a-c-application/
 namespace consoleApp
 {
-    class DataAccessObject
+    class DonneesAcces
     {
         static SqliteConnection sqlite_conn = new SqliteConnection("Data Source=database.db;");
 
@@ -47,34 +47,34 @@ namespace consoleApp
             //sqlite_cmd.ExecuteNonQuery();
         }
 
-        public static void InsertNewUser(MNouveauCompte compte)
+        public static void InsertNewUser(Formulaires.FormulaireNouveauCompte compte)
         {
             sqlite_conn.Open();
             SqliteCommand sqlite_cmd;
             sqlite_cmd = sqlite_conn.CreateCommand();
             sqlite_cmd.CommandText = "INSERT INTO MUtilisateur (nom, motDePasse, nas) " +
                                      "VALUES('" + compte.Nom + "', '" +
-                                     DataSec.HashThePassword(compte.MotDePasse) + "', '" +
-                                     DataSec.Encrypt(compte.NAS) + "'); ";
+                                     DonneesSecurite.HashThePassword(compte.MotDePasse) + "', '" +
+                                     DonneesSecurite.Encrypt(compte.NAS) + "'); ";
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
 
 
-        public static List<MUtilisateur> ReadData()
+        public static List<DonneesUtilisateur> ReadData()
         {
             sqlite_conn.Open();
             SqliteDataReader sqlite_datareader;
             SqliteCommand sqlite_cmd;
             sqlite_cmd = sqlite_conn.CreateCommand();
-            List<MUtilisateur> liste = new List<MUtilisateur>();
+            List<DonneesUtilisateur> liste = new List<DonneesUtilisateur>();
             sqlite_cmd.CommandText = "SELECT * FROM MUtilisateur";
 
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             while (sqlite_datareader.Read())
             {
                 //string myreader = sqlite_datareader.GetString(0);
-                MUtilisateur compte = new MUtilisateur();
+                DonneesUtilisateur compte = new DonneesUtilisateur();
                 compte.Nom = sqlite_datareader.GetString(0);
                 compte.MotDePasseHash = sqlite_datareader.GetString(1);
                 compte.NAS = sqlite_datareader.GetString(2);
@@ -91,19 +91,19 @@ namespace consoleApp
             //conn.Close();
         }
 
-        public static List<MAnneeRevenu> ReadYearlyIncome(string utilisateurConnecte)
+        public static List<DonneesAnneeRevenu> ReadYearlyIncome(string utilisateurConnecte)
         {
             sqlite_conn.Open();
             SqliteDataReader sqlite_datareader;
             SqliteCommand sqlite_cmd;
             sqlite_cmd = sqlite_conn.CreateCommand();
-            List<MAnneeRevenu> liste = new List<MAnneeRevenu>();
+            List<DonneesAnneeRevenu> liste = new List<DonneesAnneeRevenu>();
             // execute the request and extract the data
             sqlite_cmd.CommandText = "SELECT * FROM MAnneeRevenu WHERE nom = '" + utilisateurConnecte + "'";
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             while (sqlite_datareader.Read())
             {
-                MAnneeRevenu revenu = new MAnneeRevenu();
+                DonneesAnneeRevenu revenu = new DonneesAnneeRevenu();
                 revenu.Nom = sqlite_datareader.GetString(0);
                 revenu.Annee = sqlite_datareader.GetInt32(1);
                 revenu.Revenu = sqlite_datareader.GetInt32(2);
@@ -112,7 +112,7 @@ namespace consoleApp
             return liste;
         }
 
-        public static MUtilisateur UtilisateurParSonNom(string nom)
+        public static DonneesUtilisateur UtilisateurParSonNom(string nom)
         {
             sqlite_conn.Open();
             SqliteDataReader sqlite_datareader;
@@ -121,7 +121,7 @@ namespace consoleApp
             sqlite_cmd.CommandText = "SELECT * FROM MUtilisateur WHERE nom = '" + nom + "'";
 
             sqlite_datareader = sqlite_cmd.ExecuteReader();
-            MUtilisateur compte = new MUtilisateur();
+            DonneesUtilisateur compte = new DonneesUtilisateur();
             // get the user from the database
             while (sqlite_datareader.Read())
             {

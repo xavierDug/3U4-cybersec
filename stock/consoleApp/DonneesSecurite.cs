@@ -2,7 +2,7 @@
 // https://www.mscs.dal.ca/~selinger/md5collision/
 namespace consoleApp
 {
-    class DataSec
+    class DonneesSecurite
     {
         public static string Encrypt(string input)
         {
