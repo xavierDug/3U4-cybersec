@@ -102,6 +102,11 @@ class Program
             double tax20to50 = Math.Min(item.Revenu - 20000, 30000);
             Console.WriteLine("20% sur les 30000$ suivants: " + tax20to50 * 0.2 + " soit 20% de " + tax20to50);
             double tax50to100 = Math.Min(item.Revenu - 50000, 50000);
+            Console.WriteLine("30% sur les 50000$ suivants: " + tax50to100 * 0.3 + " soit 30% de " + tax50to100);
+            double tax100to = Math.Max(item.Revenu - 100000, 0);
+            Console.WriteLine("50% sur le reste: " + tax100to * 0.5 + " soit 50% de " + tax100to);
+            var impotTotal = tax20to50 * 0.2 + tax50to100 * 0.3 + tax100to * 0.5;
+            Console.WriteLine("Impôt total: " + impotTotal);
         }
     }
 
