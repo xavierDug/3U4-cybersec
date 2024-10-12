@@ -8,7 +8,28 @@ namespace consoleApp
 {
     class DonneesAcces
     {
-        static SqliteConnection sqlite_conn = new SqliteConnection("Data Source=database.db;");
+        static SqliteConnection sqlite_conn = InitialiserConnexion();
+
+        private static SqliteConnection InitialiserConnexion()
+        {
+            SqliteConnection sqlite_conn;
+            try
+            {
+                sqlite_conn = new SqliteConnection("Data Source=sqlite.cem.ca;Default Timeout=5;");
+                sqlite_conn.Open();
+                throw new Exception();
+            }
+            catch (Exception)
+            {
+                // create the folder ".\data\data\data"
+                var path = Path.Combine("..", "data", "data");
+                System.IO.Directory.CreateDirectory(path);
+                var databasePath = Path.Combine(path, "cyber.db");
+                sqlite_conn = new SqliteConnection("Data Source="+databasePath+";");
+                sqlite_conn.Open();
+            }
+            return sqlite_conn;
+        }
 
         public static void BDCreerTables()
         {

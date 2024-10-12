@@ -11,6 +11,9 @@ using System.Xml.Linq;
 // ajouter un mode admin protégé par un mot de passe unique
 // avec la liste utilisateurs
 
+// dotnet publish -c Release -r <runtime_identifier> --self-contained 
+// dotnet publish -c Release -r osx-arm64 --self-contained 
+
 // https://github.com/shibayan/Sharprompt for the win
 namespace consoleApp;
 
@@ -46,12 +49,7 @@ class Program
             case "Effacer la BD": EffacerBD(); break;
             case "Entrer tes revenus pour cette année": EntrerRevenu(); break;
             case "Revenus par année": Revenus(); break;
-            case "Voir mon profil":
-                Console.WriteLine("Nom: " + utilisateurConnecte + 
-                                  " \nNAS encrypté : " + DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).NAS+
-                                  " \nNAS décrypté : " + DonneesSecurite.Decrypt(DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).NAS)+
-                                  " \nMot de passe hashé : " + DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).MotDePasseHash);
-                break;
+            case "Voir mon profil": MonProfil(); break;
             case "(De)Connexion":
                 if (utilisateurConnecte == "")
                 { Connexion(); }
@@ -63,12 +61,38 @@ class Program
         return false;
     }
 
+    private static void MonProfil()
+    {
+        Console.Clear();
+        if (utilisateurConnecte == "")
+        {
+            Console.WriteLine("Tu n'es pas connecté, tu ne peux pas voir ton profil");
+            return;
+        }
+        Console.WriteLine("Nom: " + utilisateurConnecte + 
+                          " \n  NAS encrypté : " + DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).NAS+
+                          " \n  NAS décrypté : " + DonneesSecurite.Decrypt(DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).NAS)+
+                          " \n  Mot de passe hashé : " + DonneesAcces.BDUtilisateurParSonNom(utilisateurConnecte).MotDePasseHash);
+        // afficher toutes les années avec des revenus
+        List<DonneesAnneeRevenu> liste = DonneesAcces.BDRevenusPour(utilisateurConnecte);
+        if (liste.Count == 0)
+        {
+            Console.WriteLine("Tu n'as pas encore entré de revenus");
+            return;
+        }
+        foreach (var item in liste)
+        {
+            Console.Write(item.Annee + " = " + item.Revenu+"$");
+            Console.WriteLine();
+        }
+    }
+
     private static void ListerUtilisateurs()
     {
         Console.Clear();
-        List<DonneesUtilisateur> liste = DonneesAcces.BDLireUtilisateurs();
-        foreach (var item in liste)
-        { Console.WriteLine(item.Nom ); }
+        List<DonneesUtilisateur> utilisateurs = DonneesAcces.BDLireUtilisateurs();
+        foreach (var utilisateur in utilisateurs)
+        { Console.WriteLine(utilisateur.Nom ); }
     }
 
     // source https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html
@@ -85,7 +109,6 @@ class Program
         {
             Console.WriteLine("-------------- Année de déclaration "+item.Annee+" --------------");
             Console.WriteLine( "  Revenu déclaré  " + item.Revenu);
-            // show that first 20000 gave 0% tax, 
             int amountFirst55867 = Math.Max(0, Math.Min(item.Revenu, 55867));
             decimal taxFirst55867 = amountFirst55867 * 0.15m;
 
@@ -121,8 +144,8 @@ class Program
         int annee = Prompt.Input<int>("Merci d'entrer l'année de déclaration:");
         Console.WriteLine($"Entrez le revenu pour l'année {annee}: ");
         int revenu = Prompt.Input<int>($"Entrez le revenu pour l'année {annee}: ");
-        Console.WriteLine(annee + "  " + revenu);
         DonneesAcces.BDCreerRevenu(utilisateurConnecte, annee, revenu);
+        Console.WriteLine("Le revenu suivant   " + revenu + "  a été enregistré  ");
     }
 
     private static void EffacerBD()
