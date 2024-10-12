@@ -45,7 +45,12 @@ L'appli se trouve dans le dossier JeanLouisEtFils du repo.
 
 ### Utiliser la commande **strings** pour trouver une chaîne dans un exécutable
 
+La commande **strings** permet de trouver des chaînes de caractères 
+dans un exécutable sous Linux MacOS ou Unix.
 
+Tu peux soit:
+- chercher l'équivalent sur Windows TODO
+- partir la machine linux du TP2 pour y copier le fichier .exe et chercher les strings
 
 ### Utiliser dotPeek pour décompiler l'appli
 
