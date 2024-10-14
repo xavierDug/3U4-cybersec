@@ -14,6 +14,8 @@ Une injection SQL c'est quoi?
 - parce que le programmeur a pris ce que l'utilisateur lui a donné et l'a mélangé sans faire attention 
 avec son code.
 
+
+https://www.w3schools.com/sql/sql_injection.asp
 ## Pourquoi c'est rare mais très dangereux
 
 Beaucoup d'attaques sont possibles parce qu'il faut faire un effort pour se protéger.
