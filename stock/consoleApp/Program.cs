@@ -10,11 +10,8 @@ using Sharprompt;
 // ajouter un mode admin protégé par un mot de passe unique
 // avec la liste utilisateurs
 
+// Commande pout generer le .exe stantalone
 // dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
-// dotnet publish -c Release -r osx-arm64 --self-contained 
-// dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained true
-
-// dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishTrimmed=True -p:TrimMode=link
 
 // https://github.com/shibayan/Sharprompt for the win
 namespace consoleApp;
