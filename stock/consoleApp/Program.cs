@@ -1,7 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
 using Sharprompt;
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
 
 // Phase 1 on distribue uniquement l'exécutable
 // Phase 2 on donne accès au code source pour fixer
@@ -11,8 +10,11 @@ using System.Xml.Linq;
 // ajouter un mode admin protégé par un mot de passe unique
 // avec la liste utilisateurs
 
-// dotnet publish -c Release -r <runtime_identifier> --self-contained 
+// dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 // dotnet publish -c Release -r osx-arm64 --self-contained 
+// dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained true
+
+// dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishTrimmed=True -p:TrimMode=link
 
 // https://github.com/shibayan/Sharprompt for the win
 namespace consoleApp;

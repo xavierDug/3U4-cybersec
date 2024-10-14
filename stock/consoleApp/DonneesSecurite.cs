@@ -1,5 +1,8 @@
 ﻿// https://crackstation.net/
 // https://www.mscs.dal.ca/~selinger/md5collision/
+
+using System;
+
 namespace consoleApp
 {
     class DonneesSecurite
