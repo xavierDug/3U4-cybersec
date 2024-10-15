@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
-namespace consoleApp
+namespace consoleApp;
+
+public class Formulaires
 {
-    public class MUtilisateur
-    {
-        public string Nom              { get; set; }
-        public string MotDePasseHash   { get; set; }
-        public string NAS              { get; set; }
-    }
-
-
-    public class MNouveauCompte
+    
+    public class FormulaireNouveauCompte
     {
         [Display(Name = "Votre nom d'utilisateur?")]
         [Required]
@@ -41,7 +30,7 @@ namespace consoleApp
         public string NAS { get; set; }
     }
     
-    public class DemandeConnexion
+    public class FormulaireConnexion
     {
         [Display(Name = "Votre nom d'utilisateur?")]
         [Required]
@@ -53,23 +42,4 @@ namespace consoleApp
         [MinLength(4)]
         public string MotDePasse { get; set; }
     }
-    
-    public class DemandeAjoutAnneeRevenu
-    {
-        [Display(Name = "Votre année de déclaration de revenu?")]
-        [Required]
-        // add minimal length
-        [MinLength(4)]
-        //add minimal value of 1900 and max value of 2099
-        [Range(1900, 2099)]
-        public int Annee { get; set; }
-
-        [Display(Name = "Votre revenu en dollars arrondi?")]
-        [Required]
-        public int Revenu { get; set; }
-    }
-    
-
-
-
 }

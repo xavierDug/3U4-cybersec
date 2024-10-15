@@ -1,8 +1,11 @@
 ﻿// https://crackstation.net/
 // https://www.mscs.dal.ca/~selinger/md5collision/
+
+using System;
+
 namespace consoleApp
 {
-    class DataSec
+    class DonneesSecurite
     {
         public static string Encrypt(string input)
         {
