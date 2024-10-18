@@ -22,7 +22,7 @@ class Program
    
     public static void Main(string[] args) {
         DonneesAcces.BDCreerTables();
-        if (DonneesAcces.BDLireUtilisateurs().Count == 0) { PremiersMinistres(); }
+        //if (DonneesAcces.BDLireUtilisateurs().Count == 0) { PremiersMinistres(); }
         Console.WriteLine("Bienvenue dans l'application la plus sure du monde!");
         Console.WriteLine("Com'on, on hash les mots de passe et on encrypte les NAS");
         bool quit = false;
@@ -196,7 +196,6 @@ class Program
         Formulaires.FormulaireNouveauCompte result = Prompt.Bind<Formulaires.FormulaireNouveauCompte>();
         Console.WriteLine(result.NAS);
         DonneesAcces.BDCreerUtilisateur(result);
-        DonneesAcces.BDLireUtilisateurs();
         utilisateurConnecte = result.Nom;
     }
     
