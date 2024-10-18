@@ -1,0 +1,33 @@
+name: Exécutable dotnet appli
+
+on:
+  push:
+      branches:
+        - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mise en place de dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+          source-url: https://nuget.pkg.github.com/departement-info-cem/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Installer les dépendances
+        working-directory: ./stock/consoleApp
+        run: dotnet restore
+      - run: dotnet publish
+        working-directory: ./stock/consoleApp
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: stock/consoleApp/bin/Release/net8.0/publish/consoleApp.exe
+          tag_name: TaxesRevenus
+          body: Appli pour le cours de cybersec.
+          make_latest: true
