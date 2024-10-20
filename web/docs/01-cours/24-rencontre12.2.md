@@ -6,8 +6,6 @@ draft: true
 hide_table_of_contents: false
 ---
 
-
-
 # Rencontre 12.2 : Encryption symmétrique, on attaque
 
 ## Un algo d'encryption symmétrique
@@ -67,11 +65,18 @@ Le problème ici est que l'algo d'encryptage fonctionne lettre par lettre:
 - si on change un seul caractère dans le texte clair, il y a un seul caractère qui change dans le crypté
 - on dit que l'algorithme est local
 
+Cette technique pourra être utilisée pour tous les codes de transposition:
+- chaque lettre est transformée en une autre lettre
+- je peux donc voir comment chaque lettre est transformée
+- et construire la table de traduction
+
 ### Exemple brutal
 
 Pour tous les décalages possibles, on décode le message et on regarde si le message décodé a du sens.
 
 Si ton alphabet a 26 lettres, il y a 26 décalages possibles pas plus.
+
+Pour voir si les messages ont du sens tu peux demander à une IA par exemple.
 
 ### Exercices
 
