@@ -35,7 +35,7 @@ Quand on concatène **"SELECT * FROM table WHERE id = " + id + ";"**:
 
 Certainement. Règle pour votre future carrière:
 - traverser le code des applications sur lesquelles vous travaillerez pour chercher des concaténations de requêtes SQL
-- éduquer patiemment et gentiment des collègues qui le font.
+- éduquer patiemment et gentiment des collègues qui le font encore, éventuellement en faisant une démonstration d'injection catastrophique (DROP TABLE ...).
 
 ## TP / Correctif sur le code fourni
 

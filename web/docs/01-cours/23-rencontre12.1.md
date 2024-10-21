@@ -49,14 +49,14 @@ Pour rappel, saler un mot de passe c'est:
 
 ## bcrypt, le standard de l'industrie et pourquoi
 
-- bcrypt ajoute un hash tout seul sur BlowFish
+- bcrypt ajoute un salt tout seul sur BlowFish
 - bcrypt s'adapte aux resources de calcul qui augmente et peut devenir de plus en plu dur à calculer
 
 Wow wow, comment ça il ajoute automatiquement un hash?
 - en fait on tire au hasard un salt, on calcule un hash
 - on stocke en clair le salt dans le résultat avec le hash
 ```
-22 character salt and 31 character hash
+22 character salt (en clair) and 31 character hash
 ```
 - quand on veut comparer plus tard, on peut recalculer puisqu'on a le salt en clair
 

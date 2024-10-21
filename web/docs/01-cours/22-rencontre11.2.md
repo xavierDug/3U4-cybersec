@@ -36,7 +36,7 @@ Tu peux prendre en notes tes manipulations pour les inclure dans ton rapport du 
 
 ## Activité: sortir les hash
 
-Tu vas trouver dans le 
+Tu vas trouver dans le dossier stock du repo un fichier appelé **leaked.db**.
 
 En utilisant une appli pour ouvrir la BD, tu peux l'ouvrir et la parcourir.
 
