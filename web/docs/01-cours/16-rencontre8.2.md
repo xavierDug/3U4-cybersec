@@ -7,6 +7,63 @@ hide_table_of_contents: false
 toc_max_heading_level: 4
 ---
 
+# Retour sur NAT
+
+## Exercice 1
+
+Dans la situation suivante:
+- mon adresse IP privée est **192.168.0.111**
+- j'envoie une requête HTTPS au serveur cegepmontpetit.ca (adresse IP est **35.203.2.187**)
+- le port source a été fixé à **6054**
+- mon routeur à la maison applique un NAT dynamique son adresse IP publique est **77.88.99.11**
+- après le passage de la requête la table NAT contient une entrée
+  - IP **192.168.0.111**
+  - port source original **6054**
+  - port source traduit **6754**
+
+Remplissez les en-têtes IP et TCP demandées pour la requête reçue par le serveur
+
+| Nom de l'entête    | valeur ..............  |
+|---------------------|--------------------------------|
+| IP destination     |  |
+| IP source           |                                | 
+| TCP port destination |           |
+| TCP port source     |           |
+| HTTPS | Encrypté                       |
+
+## Exercice 2
+
+La requête locale
+
+| Nom de l'entête    | valeur .............. |
+|---------------------|-----------------------|
+| IP destination     | 66.147.239.61         |
+| IP source           | 192.168.1.45          | 
+| TCP port destination | 443                   |
+| TCP port source     | 9876                  |
+| HTTPS | Encrypté              |
+
+a été traduite par NAT dans la requête
+
+| Nom de l'entête    | valeur .............. |
+|---------------------|-----------------------|
+| IP destination     | 66.147.239.61         |
+| IP source           | 192.222.150.48        | 
+| TCP port destination | 443                   |
+| TCP port source     | 5675                  |
+| HTTPS | Encrypté              |
+
+Indiquez quelle entrée a été ajoutée dans la table NAT
+```markdown
+
+```
+
+Quelle est l'adresse IP publique du routeur NAT?
+```markdown
+
+```
+
+# Malware, virus et anti-virus
 
 Dans cette séance de cours, nous étudierons les différents types de logiciels malveillants ainsi que les manières de s'en protéger.
 
