@@ -18,50 +18,33 @@ Parfois appelés &laquo;&nbsp;virus&nbsp;&raquo; par abus de langage, les logici
 Voici les principaux types de *malware*:
 
 
-### Les virus
+**Les virus :**
+Un virus est un programme qui s'attache à un logiciel ou un fichier légitime et se propage lorsque ce logiciel est exécuté ou ce fichier est lu. Son mode de propagation passe par un fichier. De nos jours, les réels virus ne sont plus très répendus, mais le terme &laquo;&nbsp;virus&nbsp;&raquo; est utilisé pour désigner d'autres types de logiciels malveillants.
 
-Un virus est un programme qui **s'attache** à un logiciel ou un fichier légitime et **se propage** lorsque ce logiciel est exécuté ou ce fichier est lu. Son mode de propagation passe par un fichier. De nos jours, les réels virus ne sont plus très répendus, mais le terme &laquo;&nbsp;virus&nbsp;&raquo; est utilisé pour désigner d'autres types de logiciels malveillants.
-
-
-### Les vers (*worms*)
-
+**Les vers (*worms*) :**
 Un ver informatique est un logiciel malveillant, sous la forme d'un programme exécutable ou d'un script, qui se propage en se répliquant sur un réseau. Leur code comprend généralement deux parties distinctes:
-- La charge utile, ou *payload*. Cette partie détermine ce que fait le ver: endommager des fichiers, voler des données, envoyer un DDoS, etc.
-- Le mécanisme de réplication, qui scanne le réseau à la recherche d'autres hôtes vulnérables afin de se répliquer
+- La **charge utile**, ou *payload*. Cette partie détermine ce que fait le ver: endommager des fichiers, voler des données, envoyer un DDoS, etc.
+- Le mécanisme de **réplication**, qui scanne le réseau à la recherche d'autres hôtes vulnérables afin de se répliquer
 
-
-### Les chevaux de Troie (*trojan*)
-
+**Les chevaux de Troie (*trojan*) :**
 Un cheval de Troie est un type de *malware* qui se présente comme un logiciel légitime. Il tente d'être perçu par les utilisateurs comme attrayant, les incitant à l'exécuter. Une fois lancé, le programme déballe sa charge utile, qui généralement permet à l'attaquant d'accéder au système à distance.
 
-
-### Les logiciels espions (*spyware*)
-
+**Les logiciels espions (*spyware*) :**
 Un *spyware* collecte des informations sur l'utilisateur à son insu, comme les mots de passe, les informations de paiement ou l'activité en ligne. 
 
-
-### Les publiciels (*adware*)
-
+**Les publiciels (*adware*) :**
 Un *adware* sert à afficher des publicités indésirables à l'utilisateur. Il peut suivre les activités de navigation et même modifier le comportement des navigateurs. Le but premier de ce type de logiciel malveillant est de faire des revenus publicitaires.
 
-
-### Les rançongiciels (*ransomware*)
-
+**Les rançongiciels (*ransomware*) :**
 Un *ransomware* est un code exécutable qui, lorsqu'il est lancé, chiffre le maximum de données appartenant à la victime, les rendant inaccessibles. Il demande ensuite une rançon à la victime avec promesse de restituer ses données. Même après paiement de la rançon, il n'y a aucune garantie que les données seront récupérées.
 
-
-### Les *keyloggers*
-
+**Les *keyloggers* :**
 Un *keylogger* est un logiciel qui enregistre les frappes de touches clavier pour voler des informations sensibles comme des mots de passe et des NIP de carte bancaire.
 
-
-### Les *botnets* et les *zombies*
-
+**Les *botnets* et les *zombies* :**
 Le *botnet* est un réseau de machines infectées par un logiciel malveillant pouvant être contrôlées à distance par un attaquant. La machine infectée est parfois appelée un &laquo;&nbsp;*zombie*&nbsp;&raquo;. Le programme de botnet est souvent très petit et peu intrusif, se contentant de faire des requêtes de temps à autres sur un serveur contrôlé par l'attaquant; c'est par là que ce dernier peut passer des commandes. L'usage le plus fréquent d'un botnet est l'attaque par déni de service distribué (DDoS).
 
-
-### Les *rootkits*
-
+**Les *rootkits* :**
 Un *rootkit* est un logiciel installé à très bas niveau et est activé très tôt dans le processus de démarrage de l'ordinateur. Il permet d'influencer le chargement du système d'exploitation en vue de modifier son fonctionnement, de façon à obtenir des privilèges d'administration ou de masquer d'autres *malwares*.
 
 
