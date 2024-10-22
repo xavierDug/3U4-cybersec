@@ -207,7 +207,7 @@ Téléchargement: https://learn.microsoft.com/fr-ca/sysinternals/downloads/autor
 
 Vous aurez besoin d'une machine virtuelle pour faire cet exercice.
 
-- Téléchargez le fichier suivant `\\ed5depinfo\Logiciels\Cours\3U4\r16.7z`
+- Téléchargez le fichier suivant `\\ed5depinfo\Logiciels\_Cours\3U4\Win10_RickRollVM.7z`
 - Extrayez la VM sous `C:\VM\VMware`
 - Double-cliquez sur le fichier `.VMX`
 - Dans VMWare Workstation Pro, démarrez la machine virtuelle
