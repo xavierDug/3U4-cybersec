@@ -215,6 +215,6 @@ Vous aurez besoin d'une machine virtuelle pour faire cet exercice.
   - Nom d'utilisateur: `alice`
   - Mot de passe: `Passw0rd`
 
-Vous remarquerez sans doute que cette VM vous *rickroll* continuellement. Il semble que ce fichier a réussi à passer à travers l'antivirus.
+Vous remarquerez sans doute que cette VM vous *rickroll* continuellement. Il semble qu'un programme malveillant a réussi à passer sans être détecté par l'antivirus.
 
 Utilisez les outils présentés précédemment pour détecter et éliminer le logiciel malveillant. N'hésitez pas à demander l'aide du prof si vous êtes bloqué.
