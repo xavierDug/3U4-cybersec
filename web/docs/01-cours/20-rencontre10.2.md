@@ -6,12 +6,12 @@ draft: false
 hide_table_of_contents: false
 ---
 
-C'est le premier examen de la session. Il compte pour **15%** de la note finale au cours et pour **25%** du seuil des examens.
-
-L'examen est calibré pour être complété en **une heure**. Si vous avez droit à des accommodements en vertu du CSA, veuillez en faire part à votre professeur à au moins une semaine de préavis.
+C'est le deuxième examen de la session portant  principalement sur les notions du deuxième bloc. Il compte pour **15%** de la note finale au cours et pour **25%** du seuil des examens.
 
 
 ## Contexte de réalisation
+
+L'examen est calibré pour être complété en **une heure**. Si vous avez droit à des accommodements en vertu du CSA, veuillez en faire part à votre professeur à au moins une semaine de préavis.
 
 Cet examen se déroule en deux parties:
 

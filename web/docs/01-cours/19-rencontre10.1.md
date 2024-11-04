@@ -20,6 +20,8 @@ Puisqu'il s'agit d'un examen formatif, **le professeur pourra répondre à vos q
 
 ## Contexte de réalisation
 
+L'examen est calibré pour être complété en **une heure**. Si vous avez droit à des accommodements en vertu du CSA, veuillez en faire part à votre professeur à au moins une semaine de préavis.
+
 Cet examen se déroule en deux parties:
 
 
