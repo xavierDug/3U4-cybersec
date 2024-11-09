@@ -30,9 +30,16 @@ https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashal
 
 L'algorithme le plus classique pour nous SHA256
 
+## Activité MD5 vs SHA256
+
+- prends quelques mots de passe simples et produis les hashs avec MD5 et SHA256
+- prends quelques mots de passe plus complexes et produit les hashs avec MD5 et SHA256
+- essaie ensuite de voir quels hashs tu peux retrouver avec crackstation
+- vois-tu une différence selon l'algorithme de hash?
+
 ### la grosse question, contre quelles attaques nous protège le changement de md5 vers SHA256
 
-- crackstation : nope, ils ont aussi le reverse lookup pour tous les algos de hash classique, ça ne change rien
+- crackstation : nope, ils ont aussi les hashs pour tous les algos de hash classique, ça ne change rien
 - devine le mot de passe en connaissant des infos persos : non plus, le mot de passe reste le même, juste le hash qui change
 
 Alors donc:
