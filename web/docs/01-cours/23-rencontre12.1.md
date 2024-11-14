@@ -105,6 +105,16 @@ Dans ce cas, une attaque devient beaucoup plus compliquée:
   - fait le truc méchant voulu en étant du javascript valide
   - donne le même hash que le code d'origine
 
+**ici se trouve la grande fragilité de MD5**:
+- on n'a pas d'attaque de type préimage sur MD5, c'est à dire qu'on ne sait pas facilement trouver une string qui donne un hash donné
+- par contre, il y a des attaques qui permettent de padder un fichier pour qu'il donne le même hash donc:
+  - je peux modifier le fichier jquery.min.js pour faire un truc vraiment pas cool
+  - ajouter un début de commentaire puis créer une string dans le commentaire qui va faire que ça donnera le même hash
+  - le navigateur va télécharger le fichier, calculer le hash et voir que c'est bon
+  - et le pirate a réussi à injecter un fichier js malicieux sans être détecté
+
+MORALITÉ: **ne jamais utiliser MD5 pour des hash de sécurité, ce qui s'est traduit par ne jamais utiliser MD5**
+
 
 
 
