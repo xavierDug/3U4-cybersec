@@ -7,56 +7,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        var superdupersecret = "a3bd614b27864e3f854b971f9df1a802";
-
-        String encrypter(String source)
-        {
-            byte[] buf = System.Text.UTF8Encoding.UTF8.GetBytes(source); // data you want to encrypt
-            buf = buf.CopyAndPadIfNotAlreadyPadded();
-            var iv = RandomNumberGenerator.GetBytes(8);
-            var cbc = new BlowfishCtr(superdupersecret);
-            Console.WriteLine(BitConverter.ToString(buf));
-            var ok = cbc.CryptOrDecrypt(buf, iv);
-            Console.WriteLine(BitConverter.ToString(buf));
-            String encrypted = System.Text.UTF8Encoding.UTF8.GetString(buf);
-            Console.WriteLine(encrypted);
-
-            ok = cbc.CryptOrDecrypt(buf, iv);
-            Console.WriteLine(BitConverter.ToString(buf));
-            String decrypted = System.Text.UTF8Encoding.UTF8.GetString(buf);
-            Console.WriteLine(decrypted);
-
-            return encrypted;
-        }
-
         Console.WriteLine("Hello, World!");
-
-        var key = "a3bd614b27864e3f854b971f9df1a802"; // cipher key
-        var iv = RandomNumberGenerator.GetBytes(8); // IV
-        byte[] buf = System.Text.UTF8Encoding.UTF8.GetBytes("super duper password 1!"); // data you want to encrypt
-
-        var cbc = new BlowfishCtr(key);
-        Console.WriteLine(BitConverter.ToString(buf));
-        var ok = cbc.CryptOrDecrypt(buf, iv);
-        Console.WriteLine(BitConverter.ToString(buf));
-        ok = cbc.CryptOrDecrypt(buf, iv);
-        Console.WriteLine(BitConverter.ToString(buf));
-        encrypter("joris");
-        encrypter("Vincent Carrier est un prof qui sait comment manier les $$$$$$");
-            
+        BlowFishCrypto bfc = new BlowFishCrypto();
+        string source = "super duper password 1! le plus dur à deviner du monde 1@4$";
+        Console.WriteLine("Sym source   :" + source);
+        string encrypted = bfc.Encrypt(source);
+        Console.WriteLine("Sym encrypt  :" + encrypted);
+        string decrypted = bfc.Decrypt(encrypted);
+        Console.WriteLine("Sym decrypt  :" + decrypted);
         
-        Console.WriteLine("CLACLACLACLACLA");
+        
+        Console.WriteLine("------------------------------------------- Asym");
         var rsaCrypto = new RSACrypto();
-
-        string originalData = "This is a secret message";
-        Console.WriteLine("Original Data: " + originalData);
-
-        // Encrypt the data
+        string originalData = source;
+        Console.WriteLine("Asym Original Data: " + originalData);
         string encryptedData = rsaCrypto.Encrypt(originalData);
-        Console.WriteLine("Encrypted Data: " + encryptedData);
-
-        // Decrypt the data
+        Console.WriteLine("Asym Encrypted Data: " + encryptedData);
         string decryptedData = rsaCrypto.Decrypt(encryptedData);
-        Console.WriteLine("Decrypted Data: " + decryptedData);
+        Console.WriteLine("Asym Decrypted Data: " + decryptedData);
     }
 }

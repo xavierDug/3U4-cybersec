@@ -21,22 +21,20 @@ public class RSACrypto
         {
             _publicKey = rsa.ExportParameters(false);
             _privateKey = rsa.ExportParameters(true);
-
             string exportPublicKey = Convert.ToBase64String(rsa.ExportCspBlob(false));
             string exportPrivateKey = Convert.ToBase64String(rsa.ExportCspBlob(true));
-            Console.WriteLine("public key is  " + exportPublicKey);
-            Console.WriteLine("private/public key is  " + exportPrivateKey);
+            //Console.WriteLine("public key is  " + exportPublicKey);
+            //Console.WriteLine("private/public key is  " + exportPrivateKey);
             byte[] publicKeyBytes = Convert.FromBase64String(exportPublicKey);
             using (var rsa2 = new RSACryptoServiceProvider())
             {
                 rsa2.ImportCspBlob(publicKeyBytes);
                 _publicKey =  rsa2.ExportParameters(false);
             }
-            
         }
-        
     }
 
+    // cette fonction n'est pas appelée en général mais c'est celle qui a permis de générer les clés présentes dans le code
     public void generateKeys()
     {
         // creer un objet RSA
@@ -57,13 +55,11 @@ public class RSACrypto
     {
         byte[] dataToEncrypt = Encoding.UTF8.GetBytes(data);
         byte[] encryptedData;
-
         using (var rsa = new RSACryptoServiceProvider())
         {
             rsa.ImportParameters(_publicKey);
             encryptedData = rsa.Encrypt(dataToEncrypt, false);
         }
-
         return Convert.ToBase64String(encryptedData);
     }
 
@@ -71,13 +67,11 @@ public class RSACrypto
     {
         byte[] dataToDecrypt = Convert.FromBase64String(encryptedData);
         byte[] decryptedData;
-
         using (var rsa = new RSACryptoServiceProvider())
         {
             rsa.ImportParameters(_privateKey);
             decryptedData = rsa.Decrypt(dataToDecrypt, false);
         }
-
         return Encoding.UTF8.GetString(decryptedData);
     }
 }
