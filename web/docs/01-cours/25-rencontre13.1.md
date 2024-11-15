@@ -9,7 +9,7 @@ hide_table_of_contents: false
 
 ## Ne pas coder de la crypto soi-même
 
-Vous n'avez pas le temps ni le niveau pour coder correctement de la crypto symétrique.
+Vous n'avez sans doute pas le temps ni le niveau pour coder correctement de la crypto symétrique.
 
 Le problème peut être l'algo qui est parfois naïf. Ou alors la mise en oeuvre qui plante.
 
@@ -22,7 +22,7 @@ Implanter le code C# pour faire la crypto symétrique est assez simple, on peut:
 - demander à Github Copilot direct dans mon VisualStudio
 
 Il nous reste à choisir une clé d'encryption pour la plupart des algorithmes:
-- il faut que la clé soit difficile à deviner (un pirate pourrait essayer des clés comme il essaie des mot de passe)
+- il faut que la clé soit difficile à deviner (un pirate pourrait essayer des clés comme il essaie des mots de passe)
 - il faut s'assurer qu'on stocke la clé dans un endroit peu accessible
 
 ## Décompiler le .exe et trouver la clé
@@ -43,24 +43,9 @@ Nous avons acheté la super appli et nous avons encrypté une couple de mot de p
 
 L'appli se trouve dans le dossier JeanLouisEtFils du repo.
 
-### Utiliser la commande **strings** pour trouver une chaîne dans un exécutable
-
-La commande **strings** permet de trouver des chaînes de caractères 
-dans un exécutable sous Linux MacOS ou Unix.
-
-Tu peux soit:
-- chercher l'équivalent sur Windows TODO
-- partir la machine linux du TP2 pour y copier le fichier .exe et chercher les strings
-
-### Utiliser dotPeek pour décompiler l'appli
-
-1. installer dotPeek (soit avec JetBrains Toolbox ou direct ici https://www.jetbrains.com/decompiler/)
-2. décompiler le .exe
-3. se promener dans le code 
-
-### Trouver la clé dans le code
-
-La clé doit se trouver dans le code quelque part, explore l'application pour trouver où se trouve la clé
+- Essayer avec la commande **strings** pour trouver une chaîne dans un exécutable
+- Essayer dotPeek pour décompiler l'appli
+- La clé doit se trouver dans le code quelque part, explore l'application pour trouver où se trouve la clé
 d'encryption. La bonne nouvelle c'est que comme BlowFish est un algo symétrique, c'est aussi la clé
 de décryption
 

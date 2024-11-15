@@ -78,12 +78,6 @@ Si ton alphabet a 26 lettres, il y a 26 décalages possibles pas plus.
 
 Pour voir si les messages ont du sens tu peux demander à une IA par exemple.
 
-### Activité: demande à chatGPT de casser le code de César
-
-En utilisant notre [codeur](https://jorisdeguet.github.io/cesar.html) crée un message crypté avec une clé de ton choix.
-
-Demande ensuite à chatGPT de le décoder.
-
 ### Exercices
 
 Retranscris tes découvertes dans un fichier **cesar.md** dans ton dossier / repo d'exercices.
