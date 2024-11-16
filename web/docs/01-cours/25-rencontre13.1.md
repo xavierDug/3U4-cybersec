@@ -2,7 +2,7 @@
 id: r25
 title: Rencontre 25 - Chiffrement symétrique (implantation)
 sidebar_label: R25 - Chiffrement symétrique (implantation)
-draft: true
+draft: false
 hide_table_of_contents: false
 ---
 # Rencontre 13.1 Implanter crypto symétrique
@@ -36,12 +36,12 @@ vos mots de passe afin de les stocker de façon sécuritaire. Même si un pirate
 il ne pourra pas décoder les mots de passe stockés. Nous utilisons un algo à la pointe du progrès
 BlowFish par l'immense star de la crypto: Bruce Schneier
 2. notre application gardée dans un lieu hyper sécuritaire nous permet si vous oubliez un mot de 
-passe de le retrouver en nous contactant au 1 888 888 8888.
+passe de le retrouver en nous contactant par courriel.
 ```
 
 Nous avons acheté la super appli et nous avons encrypté une couple de mot de passe pour s'en souvenir.
 
-L'appli se trouve dans le dossier JeanLouisEtFils du repo.
+L'appli se trouve dans le dossier **sym** JeanLouisEtFils du repo.
 
 - Essayer avec la commande **strings** pour trouver une chaîne dans un exécutable
 - Essayer dotPeek pour décompiler l'appli
@@ -51,16 +51,27 @@ de décryption
 
 ### Programmer un décrypteur
 
-On peut alors essayer de décrypter les mots de passe avec la clé qu'on a trouvé. 
-https://sladex.org/blowfish.js/
+On peut alors essayer de décrypter les mots de passe avec la clé qu'on a trouvé:
+- programmer une application qui Decrypt avec BlowFish et la clé qu'on a trouvée
+- passer à travers le fichier ligne par ligne et décrypter les mots de passe
 
-La question du jour, si je connais la clé, je peux ensuite tout lire.
+C'est la même clé pour encrypter et décrypter.
 
-Si on a accès à l'exécutable, dans le code on peut trouver la clé
+Pour valider tu peux utiliser l'application corpoDecryptor dans le dossier **sym**.
 
-### pour le cas de Jean-Louis quelle solutions
+### Encryption asymétrique
 
-Utiliser une algo asymétrique avec une clé publique d'encryption et une privée pour la décryption.
+Utiliser une algo asymétrique avec une clé publique d'encryption et une privée pour la décryption:
+- l'application peut encrypter les mots de passe avec la clé publique >> voir JeanLouisEtFils dans le dossier **asym**
+- la décryption nécessite une clé privée >> voir corpoDecryptor dans le dossier **asym**
+- la clé privée est plus complexe et en général reliée par un problème de calcul très difficile 
+- on utilise ici l'algorithme RSA
+
+Exemple de lien entre clé privée et publique:
+- on tire 2 nombres premiers très grands x et y
+- la clé publique est **""+x*y**
+- la clé privée est **x +":"+y**
+- il est très difficile de trouver x et y à partir de x*y mais très facile de vérifer que x*y est bien égal à la clé publique
 
 ## Quelles solutions pour cacher la clé
 
