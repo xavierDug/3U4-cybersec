@@ -8,7 +8,7 @@ public class BlowFishCrypto
 {
     
     private static string key = "a3bd614b27864e3f854b971f9df1a802";
-    private static byte[] iv = RandomNumberGenerator.GetBytes(8);
+    private static byte[] iv = new byte[]{23, 56, 45, 67, 78, 89, 90, 12};
 
     public String Encrypt(String source)
     {
