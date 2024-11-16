@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Sharprompt;
-using JeanLouisEtFils;
+using JeanLouisEtFilsAsym;
 
 class Program
 {

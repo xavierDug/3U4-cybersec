@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Encryption.Blowfish;
 using System.Security.Cryptography;
-using JeanLouisEtFils;
+using corpoDecryptoAsym;
 
 class Program
 {

@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Encryption.Blowfish;
 
-namespace JeanLouisEtFils;
+namespace corpoDecryptor;
 
 public class BlowFishCrypto
 {
